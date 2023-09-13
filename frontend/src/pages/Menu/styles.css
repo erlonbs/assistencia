@@ -1,0 +1,29 @@
+.menuH1 {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 80px;
+  
+}
+
+.btnCliente {
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  margin-bottom: 10px;
+
+
+  justify-content: center;
+}
+
+.btnDispositivo {
+  justify-content: center;
+  display:grid;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.btnOrcamentos {
+  justify-content:center;
+  font-size: 30px;
+  display: grid;
+}

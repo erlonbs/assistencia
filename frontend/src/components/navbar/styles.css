@@ -1,0 +1,30 @@
+header{
+    height: 60px;
+    background-color:  var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+.assistencia-nav-content-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(21, 20, 95);
+}
+
+.assistencia-nav-content-title h1 {
+    margin: 0%;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.assistencia-contact-container-gitImg {
+    display: flex;
+    align-items: center;
+    
+}
+
+.assistencia-contatct-link-gitName {
+    margin: 0 0 0 10px;
+    font-size: 13px;
+}
