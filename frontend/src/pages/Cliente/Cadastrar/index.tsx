@@ -58,6 +58,7 @@ function Cadastrar() {
      
       <form className="btnVoltar">
         <a href="/Cliente/1">
+          
           <input type="button" value="Voltar " />
         </a>
       </form>
