@@ -55,7 +55,6 @@ function Cadastrar() {
 
         <button type="submit">Cadastrar</button>
       </form>
-
      
       <form className="btnVoltar">
         <a href="/Cliente/1">
@@ -65,4 +64,5 @@ function Cadastrar() {
     </body>
   )
 }
+
 export default Cadastrar
