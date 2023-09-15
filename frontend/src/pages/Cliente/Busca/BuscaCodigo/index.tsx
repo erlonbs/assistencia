@@ -24,9 +24,8 @@ let name ='';
 
   const handleSubmit = (event: { preventDefault: () => void }) =>{
     event.preventDefault();
-    alert(`código inserido do cliente: ${name}`)
-
     setClienteId(name)
+    
   }
 
   return (
@@ -42,11 +41,9 @@ let name ='';
           <input
             type="text"
             name="codigo"
-            value={clienteId}
-            
+            value={clienteId}            
           
-            onChange={e => (name= e.target.value)}
-            
+            onChange={e => (name= e.target.value)}            
                        
           ></input >
 
@@ -54,7 +51,7 @@ let name ='';
  
       
       </form>
-      <h2>O código do cliente é : {clienteId}</h2>
+  
       <div>
         <p className="dados">
           <h3>Dados do cliente:</h3>

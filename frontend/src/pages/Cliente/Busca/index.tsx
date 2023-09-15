@@ -1,11 +1,8 @@
 import { Clientes } from 'types/cliente'
 import { BASE_URL } from 'utils/requests'
-
 import './styles.css'
 
-
 import { Link } from 'react-router-dom'
-
 
 function Busca() {
  

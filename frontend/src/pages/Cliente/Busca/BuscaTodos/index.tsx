@@ -9,31 +9,28 @@ import { Link } from 'react-router-dom'
 function BuscaTodos() {
   const BASE = `${BASE_URL}`
 
-  
+
 
   const [cliente, setCliente] = useState<Clientes>()
 
   useEffect(() => {
     axios.get(`${BASE_URL}/clientes`).then(response => {
       setCliente(response.data)
-      
+
     })
   },)
 
   return (
-    
+
     <body>
       <form >
-     
+
         <h2>Lista de todos clientes:</h2>
 
-{JSON.stringify(cliente)} ; 
+        {JSON.stringify(cliente)} ;
 
-
-      
-        
       </form>
-      
+
       <Link className="voltar" to="/Cliente/Busca">
         <div>
           <button>voltar</button>
