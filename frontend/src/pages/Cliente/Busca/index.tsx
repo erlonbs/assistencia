@@ -1,5 +1,6 @@
 import { Clientes } from 'types/cliente'
 import { BASE_URL } from 'utils/requests'
+<<<<<<< HEAD
 
 import './styles.css'
 
@@ -7,6 +8,12 @@ import './styles.css'
 import { Link } from 'react-router-dom'
 
 
+=======
+import './styles.css'
+
+import { Link } from 'react-router-dom'
+
+>>>>>>> dd91e96603d911bd8c36063ce8dddc74f9c72656
 function Busca() {
  
 

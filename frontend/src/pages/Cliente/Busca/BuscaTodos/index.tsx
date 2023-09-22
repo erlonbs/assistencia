@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function BuscaTodos() {
+<<<<<<< HEAD
     
 
   const [clientes, setClientes] = useState<Clientes[]>([])
@@ -52,6 +53,32 @@ function BuscaTodos() {
         
       </form>
       
+=======
+  const BASE = `${BASE_URL}`
+
+
+
+  const [cliente, setCliente] = useState<Clientes>()
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/clientes`).then(response => {
+      setCliente(response.data)
+
+    })
+  },)
+
+  return (
+
+    <body>
+      <form >
+
+        <h2>Lista de todos clientes:</h2>
+
+        {JSON.stringify(cliente)} ;
+
+      </form>
+
+>>>>>>> dd91e96603d911bd8c36063ce8dddc74f9c72656
       <Link className="voltar" to="/Cliente/Busca">
         <div>
           <button>voltar</button>
