@@ -1,0 +1,30 @@
+.titulo {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+body h2 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 38px;
+}
+
+.cad {
+  text-justify: auto;
+  margin-bottom: 10px;
+}
+
+.cad {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btnAtualizar {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btnVoltar {
+  text-align: center;
+  margin-top: 40px;
+}
