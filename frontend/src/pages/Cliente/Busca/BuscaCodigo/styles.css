@@ -9,3 +9,14 @@
 .entrada {
   text-align: center;
 }
+
+.formulario{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botaoEnviar{
+  display: flex;
+  align-items: center;
+}

@@ -8,63 +8,83 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function BuscaCodigo() {
-  let name = ''
+  
 
   const [clienteId, setClienteId] = useState<string>()
 
   const [cliente, setCliente] = useState<Clientes>()
+
+  const[mensagem, setMensagem] = useState<string>();
+
 
   useEffect(() => {
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
       setCliente(response.data)
     })
   }, [clienteId])
-
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+ 
+  const handleSubmit = (event:  React.FormEvent) => {
     event.preventDefault()
-
-    alert(`código inserido do cliente: ${name}`)
-
-    setClienteId(name)
-  }
+   
+    if (cliente ){
+      setMensagem(`Verifique abaixo os dados de : ${cliente.name}`)
+    }
+    else {
+      setMensagem(' Cliente inexistente')
+    }     
+    
+  };
 
   return (
-    <body>
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form className='formulario' onSubmit={handleSubmit}>
         <h2>Entre com o código do cliente:</h2>
 
         <div className="entrada">
           <input
             type="text"
-            name="codigo"
+          name="codigo"
             value={clienteId}
-            onChange={e => (name = e.target.value)}
+            onChange={e => (setClienteId(e.target.value))}
+         
           ></input>
         </div>
+        <button className='botaoEnviar' type='submit'>Consultar</button>
       </form>
 
-      <h2>O código do cliente é : {clienteId}</h2>
-
-      <div>
-        <p className="dados">
-          <h3>Dados do cliente:</h3>
-          Código: {cliente?.id} <br />
-          Nome: {cliente?.name}
-          <br />
-          Endereço: {cliente?.address}
-          <br />
-          Cpf: {cliente?.cpf}
-          <br />
-          Telefone: {cliente?.telephone}
-        </p>
-      </div>
+      {mensagem && (
+        <div className="mensagem">{mensagem}</div>
+      )}
+             
+<table className='tabela'>
+        <thead >
+          <tr className='coluna' >
+            <th className='cabecalho'>Código</th>
+            <th className='cabecalho'>Nome</th>
+            <th className='cabecalho'>Endereço</th>
+            <th className='cabecalho'>Telefone</th>
+            <th className='cabecalho'>CPF</th>
+          </tr>
+        </thead>
+        <tbody className='conteudo'>
+          {
+            <tr className='coluna'  key={cliente?.id}>
+              <td className='celula'>{cliente?.id}</td>
+              <td className='celula'>{cliente?.name}</td>
+              <td className='celula'>{cliente?.address}</td>
+              <td className='celula'>{cliente?.telephone}</td>
+              <td className='celula'>{cliente?.cpf}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
 
       <Link className="voltar" to="/Cliente/Busca">
         <div>
           <button>voltar</button>
         </div>
       </Link>
-    </body>
+    </div>
   )
 }
 
