@@ -7,7 +7,7 @@ function Cliente() {
       <div className="buttons">
         <form>
           <a href="/Cliente/Busca">
-            <input type="button" value="Buscar" />
+            <input type="button" value="Consultar" />
           </a>
         </form>
 

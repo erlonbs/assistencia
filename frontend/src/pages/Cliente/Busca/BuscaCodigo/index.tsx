@@ -6,6 +6,8 @@ import { BASE_URL } from 'utils/requests'
 
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Atualizar from 'pages/Cliente/Atualizar'
+import { link } from 'fs'
 
 function BuscaCodigo() {
   
@@ -64,6 +66,8 @@ function BuscaCodigo() {
             <th className='cabecalho'>Endereço</th>
             <th className='cabecalho'>Telefone</th>
             <th className='cabecalho'>CPF</th>
+            <th className='cabecalho'>Editar</th>
+            <th className='cabecalho'>Excluir</th>
           </tr>
         </thead>
         <tbody className='conteudo'>
@@ -74,6 +78,8 @@ function BuscaCodigo() {
               <td className='celula'>{cliente?.address}</td>
               <td className='celula'>{cliente?.telephone}</td>
               <td className='celula'>{cliente?.cpf}</td>
+              <td className='celula'><a href="/Cliente/Atualizar"><img className='editar' src="frontend/assets/icon/editar.png" alt="icone editar" /></a></td>
+              <td className='celula'><a href="/Cliente/Excluir"><img className='editar' src="frontend/assets/icon/excluir.png" alt="icone excluir" /></a></td>
             </tr>
           }
         </tbody>

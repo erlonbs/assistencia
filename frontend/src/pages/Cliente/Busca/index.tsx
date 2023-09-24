@@ -5,20 +5,20 @@ function Busca() {
   return (
     <body>
       <div className="busca">
-        <label htmlFor="bt">"buscar todos"</label>
+        <label htmlFor="bt">Listar todos</label>
         <br />
         <br />
 
         <form>
           <a href="/Cliente/Busca/BuscaTodos">
-            <input type="button" value="Buscar" />
+            <input type="button" value="Consultar" />
           </a>
         </form>
 
-        <label htmlFor="bc">"Buscar por código"</label>
+        <label htmlFor="bc">Consultar por código</label>
         <form>
           <a href="/Cliente/Busca/BuscaCodigo">
-            <input type="button" value="Buscar" />
+            <input type="button" value="Consultar" />
           </a>
         </form>
 
