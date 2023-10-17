@@ -1,18 +1,21 @@
 .todo {
   text-align: center;
-  }
+  background-image: url('/src/assets/img/fundo3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
 
-  .todo h1{
-    margin-bottom: 100px;
-  }
+.todo h1 {
+  margin-bottom: 100px;
+}
 
 form {
-  align-items:center;
+  align-items: center;
   font-size: 30px;
 }
 
 .buttons form {
-
   font-size: 30px;
   margin: 10px;
 }
