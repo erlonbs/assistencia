@@ -1,0 +1,7 @@
+.containerOrcamento {
+  text-align: center;
+  background-image: url('/src/assets/img/orcamentoFundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}

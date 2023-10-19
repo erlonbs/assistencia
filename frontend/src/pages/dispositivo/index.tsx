@@ -1,7 +1,9 @@
+import './dispositivoStyles.css'
+
 function Dispositivo() {
   return (
-    <body>
-      <h1>Página de Dispositivo</h1>
+    <body className='containerDispositivo'>
+      <h1>Dispositivos</h1>
 
       <form>
         <a href="/">

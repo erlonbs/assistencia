@@ -25,10 +25,10 @@ function Cadastrar() {
   }
 
   return (
-    <body className="inicio">
+    <div className="containerCliente">
       <h1 className="titulo">Cadastro de Clientes</h1>
 
-      <form className='container' onSubmit={handleSubmit}>
+      <form className='containerForm' onSubmit={handleSubmit}>
         <label htmlFor="nome">Nome:</label>
         <input
           type="text"
@@ -62,7 +62,7 @@ function Cadastrar() {
           <input type="button" value="Voltar " />
         </a>
       </form>
-    </body>
+    </div>
   )
 }
 

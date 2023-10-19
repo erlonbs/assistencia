@@ -19,7 +19,7 @@ function BuscaTodos() {
 
   return (
     
-    <body>
+    <div className='containerCliente'>
       <form >
      
         <h2>Lista de todos clientes:</h2>
@@ -55,7 +55,7 @@ function BuscaTodos() {
         </div>
       </Link>
 
-    </body>
+    </div>
   )
 }
 export default BuscaTodos

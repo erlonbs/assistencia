@@ -38,7 +38,7 @@ function Atualizar() {
   }
 
   return (
-    <div className="inicio">
+    <div className="containerCliente">
       <h1 className="titulo">Atualizar Clientes</h1>
 
       <form className="container" onSubmit={handleSubmit}>

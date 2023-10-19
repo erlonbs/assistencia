@@ -11,8 +11,6 @@ import editarImagem from 'assets/icon/editar.png'
 
 import excluirImagem from 'assets/icon/excluir.png'
 
-import Excluir from 'pages/Cliente/Excluir'
-
 function BuscaCodigo() {
   const [clienteId, setClienteId] = useState<string>()
 
@@ -24,7 +22,7 @@ function BuscaCodigo() {
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
       setCliente(response.data)
     })
- }, [clienteId])
+  }, [clienteId])
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
@@ -37,7 +35,7 @@ function BuscaCodigo() {
   }
 
   return (
-    <div>
+    <div className='containerCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
         <h2>Entre com o código do cliente:</h2>
 
@@ -49,7 +47,6 @@ function BuscaCodigo() {
             onChange={e => setClienteId(e.target.value)}
           ></input>
         </div>
-        
       </form>
 
       {mensagem && <div className="mensagem">{mensagem}</div>}

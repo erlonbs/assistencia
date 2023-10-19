@@ -18,7 +18,7 @@ function Menu() {
       </form>
       <form className='btnOrcamentos'>
         <a href="/orcamento/1">
-          <input type="button" value="Orcamentos" />
+          <input type="button" value="Orçamentos" />
         </a>
       </form>
     </body>

@@ -1,8 +1,9 @@
-import './styles.css'
+import './clienteStyles.css'
 function Cliente() {
   return (
-    <body className="todo">
-      <h1>Página de Clientes</h1>
+    
+    <div className="containerCliente">
+      <h1>Clientes</h1>
 
       <div className="buttons">
         <form>
@@ -37,7 +38,7 @@ function Cliente() {
           <input type="button" value="Voltar " />
         </a>
       </form>
-    </body>
+    </div>
   )
 }
 export default Cliente

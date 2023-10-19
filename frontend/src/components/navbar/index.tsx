@@ -5,12 +5,12 @@ function Navbar() {
   return (
     <header>
       <nav className ="container">
-        <div className="assistencia-nav-content-title">
+        <div className="container-title">
           <h1>Assistência Técnica Sara's</h1>
           <a href="https://github.com/erlonbs">
-            <div className="assistencia-contact-container-gitImg">
+            <div className="container-gitImg">
               <GithubIcon />
-              <p className="assistencia-contatct-link-gitName">/Erlonbs</p>
+              <p className="container-link-gitName">/Erlonbs</p>
             </div>
           </a>
         </div>

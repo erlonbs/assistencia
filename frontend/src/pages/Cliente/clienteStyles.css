@@ -1,12 +1,13 @@
-.todo {
+.containerCliente {
   text-align: center;
-  background-image: url('/src/assets/img/fundo3.jpg');
+  background-image: url('/src/assets/img/clienteFundo.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100vw;
 }
 
-.todo h1 {
+.containerCliente h1 {
   margin-bottom: 100px;
 }
 

@@ -1,7 +1,9 @@
+import "./orcamentoStyles.css";
+
 function Orcamento() {
   return (
-    <body>
-      <h1>Página de Orçamento</h1>
+    <body className="containerOrcamento">
+      <h1>Orçamentos</h1>
       <form>
         <a href="/">
           <input type="button" value="Voltar ao Início" />

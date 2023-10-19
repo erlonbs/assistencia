@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Busca() {
   return (
-    <body>
+    <div className='containerCliente'>
       <div className="busca">
         <label htmlFor="bt">Listar todos</label>
         <br />
@@ -28,7 +28,7 @@ function Busca() {
           </div>
         </Link>
       </div>
-    </body>
+    </div>
   )
 }
 export default Busca

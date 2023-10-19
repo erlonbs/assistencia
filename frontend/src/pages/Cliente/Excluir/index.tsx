@@ -29,7 +29,7 @@ const[cliente, setCliente] = useState('')
   }
 
   return (
-    <body className="titulo">
+    <div className="containerCliente">
       <h1>Excluir Clientes</h1>
 
       <div className="busca">
@@ -59,7 +59,7 @@ const[cliente, setCliente] = useState('')
           </a>
         </form>
       </div>
-    </body>
+    </div>
   )
 }
 export default Excluir
