@@ -1,0 +1,26 @@
+.containerCliente {
+  text-align: center;
+  background-image: url('/src/assets/img/clienteFundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.containerCliente h1 {
+  margin-bottom: 100px;
+}
+
+form {
+  align-items: center;
+  font-size: 30px;
+}
+
+.buttons form {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.voltar {
+  margin-bottom: 10px;
+}
