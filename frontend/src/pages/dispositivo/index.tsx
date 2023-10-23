@@ -1,9 +1,11 @@
 import './dispositivoStyles.css'
+
 //import { Dispositivos } from 'types/dispositivo'
 
 function Dispositivo() {
   return (
     <body className="containerDispositivo">
+
       <h1>Dispositivos</h1>
 
       <form>

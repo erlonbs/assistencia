@@ -11,7 +11,10 @@ import Excluir from 'pages/Cliente/Excluir'
 import BuscaCodigo from 'pages/Cliente/Busca/BuscaCodigo'
 
 import BuscaTodos from 'pages/Cliente/Busca/BuscaTodos'
+
 import Servico from 'pages/servico'
+
+
 
 function App() {
   return (
@@ -25,9 +28,12 @@ function App() {
         <Route path="/orcamento">
           <Route path=":orcamentoId" element={<Orcamento />} />
         </Route>
+
         <Route path="/servico">
           <Route path=":servicoId" element={<Servico />} />
         </Route>
+
+
         <Route path="/cliente">
           <Route path=":clienteId" element={<Cliente />} />
           <Route path="/cliente/busca" element={<Busca />} />

@@ -5,4 +5,5 @@ export type Clientes = {
 	 telephone: string;
    cpf: string;
   
+
 }
