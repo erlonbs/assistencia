@@ -1,0 +1,39 @@
+.coluna{
+background-color: rgb(182, 200, 222);
+}
+
+
+
+.dados {
+  text-align: center;
+}
+
+.voltar {
+ text-align: center;
+}
+
+.entrada {
+  text-align: center;
+}
+
+.formulario{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botaoEnviar{
+  display: flex;
+  align-items: center;
+}
+
+.editar {
+  width: 20px;
+  height:20px;
+}
+
+
+.excluir {
+  width: 20px;
+  height: 20px;
+}

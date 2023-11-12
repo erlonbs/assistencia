@@ -1,0 +1,39 @@
+.containerCliente{
+  margin: 0;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 0;
+}
+
+.containerForm{
+  align-items: flex-start;
+}
+
+
+.entradaDados{
+  height: 30px;
+}
+
+.tituloEntrada{
+  font-size: 20px;
+}
+
+
+
+.btnCadastrar {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.btnVoltar {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+#mensagem{
+  font-size: large;
+}

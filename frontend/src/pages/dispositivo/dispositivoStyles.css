@@ -1,0 +1,19 @@
+.containerDispositivo {
+  text-align: center;
+  background-image: url('/src/assets/img/dispositivoFundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.containerTitulo {
+  margin-bottom: 3rem;
+}
+
+.btnDispositivo {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15%;
+  width: 110px;
+  margin: 0.4rem;
+}
