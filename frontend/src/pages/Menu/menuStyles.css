@@ -1,0 +1,77 @@
+.menu{
+  display: flex;
+  background-image: url('/src/assets/img/menuFundo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.menuH1 {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 30px;
+  padding: 3rem;
+  
+}
+
+.containerMenu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btnMenu{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 30px;
+}
+
+
+.btnInput{
+  border-radius: 15%;
+  margin: 8px;
+}
+
+.btnClienteImagem{
+  background-image: url('/src/assets/img/cliente1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:  150px;
+  width: 150px;
+
+}
+
+
+.btnDispositivoImagem{
+  background-image: url('/src/assets/img/figuras/dispositivos3.jpg');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:  150px;
+  width: 150px;
+}
+
+
+.btnOrcamentosImagem{
+  background-image: url('/src/assets/img/figuras/orcamento2.png');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:  150px;
+  width: 130px;
+}
+
+
+.btnServicosImagem{
+  background-image: url('/src/assets/img/figuras/serviço1.png');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:  150px;
+  width: 130px;
+}

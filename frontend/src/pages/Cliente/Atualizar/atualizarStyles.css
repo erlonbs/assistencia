@@ -1,0 +1,41 @@
+.containerCliente{
+  margin: 0;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 0;
+}
+
+.containerForm{
+  align-items: flex-start;
+}
+
+
+.entradaDados{
+  height: 30px;
+  font-size: 18px;
+  padding: 0.5rem ;
+  
+}
+
+
+.tituloEntrada{
+  font-size: 20px;
+}
+
+
+
+.btnAtualizar{
+  text-align: center;
+
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.btnVoltar {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+
+}
