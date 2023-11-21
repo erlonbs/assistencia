@@ -30,7 +30,7 @@ public class Orcamento implements Serializable{
 	@JoinColumn(name = "dispositivo_id")
     private Dispositivo dispositivoId;
 	
-	@JoinColumn(name="dispositivo_name")
+	
     private String dispositivoName;	
 	
 	public Orcamento() {
@@ -38,12 +38,11 @@ public class Orcamento implements Serializable{
 	}
 	
 
-	public Orcamento(Long id,  Dispositivo dispositivoId,  String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
+	public Orcamento(Long id,  Dispositivo dispositivoId,  String defeito, String descricao, BigDecimal valor, Boolean autorizado
 			) {
 	
 	    this.id=id;
-	    this.dispositivoId=dispositivoId;
-		this.dispositivoName=dispositivoName;
+	    this.dispositivoId=dispositivoId;		
 		this.defeito = defeito;
 		this.descricao = descricao;
 		this.valor = valor;

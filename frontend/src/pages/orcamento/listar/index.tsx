@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import Dispositivo from 'pages/dispositivo'
-import Orcamento from '..'
+
 
 function ListarOrcamento() {    
 
@@ -48,7 +48,7 @@ function ListarOrcamento() {
             <tr className='coluna'  key={orcamento.id}>
               <td className='celula'>{orcamento.id}</td>
               <td className='celula'>{orcamento.dispositivoId.id}</td>
-              <td className='celula'>{orcamento?.dispositivoName}</td>
+              <td className='celula'>{orcamento.dispositivoId.name}</td>
               <td className='celula'>{orcamento.defeito}</td>
               <td className='celula'>{orcamento.descricao}</td>
               <td className='celula'>{orcamento.valor}</td>

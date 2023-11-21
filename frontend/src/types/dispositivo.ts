@@ -1,6 +1,6 @@
 export type Dispositivos = {
   id: number;
-  dispositivoName: String;
+  name: String;
   marca: string;
   modelo: string;
   cor: string;

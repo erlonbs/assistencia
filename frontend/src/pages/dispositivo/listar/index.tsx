@@ -40,7 +40,7 @@ function Listar() {
           {dispositivos.map((dispositivo) => (
             <tr className='coluna'  key={dispositivo.id}>
               <td className='celula'>{dispositivo.id}</td>
-              <td className='celula'>{dispositivo.dispositivoName}</td>
+              <td className='celula'>{dispositivo.name}</td>
               <td className='celula'>{dispositivo.marca}</td>
               <td className='celula'>{dispositivo.modelo}</td>
               <td className='celula'>{dispositivo.cor}</td>
