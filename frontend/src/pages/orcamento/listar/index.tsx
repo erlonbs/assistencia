@@ -1,11 +1,14 @@
 import { Orcamentos } from 'types/orcamento'
+
 import { BASE_URL } from 'utils/requests'
 import axios from 'axios'
 import './listarOrcamento.css'
 import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
-import Dispositivo from 'pages/dispositivo'
+
+
+
 
 
 function ListarOrcamento() {    
@@ -14,8 +17,10 @@ function ListarOrcamento() {
 
   useEffect(() => {
     axios.get<Orcamentos[]>(`${BASE_URL}/orcamentos`).then(response => {
-      console.log(response.data);
+     
       setOrcamentos(response.data)
+
+      console.log(response.data)
       
     })
   },[])
@@ -37,8 +42,7 @@ function ListarOrcamento() {
             <th className='cabecalho'>Descrição</th>
             <th className='cabecalho'>Valor</th>
             <th className='cabecalho'>Autorizado</th>
-           
-          
+                    
           
           
           </tr>
@@ -47,8 +51,8 @@ function ListarOrcamento() {
           {orcamentos.map((orcamento) => (
             <tr className='coluna'  key={orcamento.id}>
               <td className='celula'>{orcamento.id}</td>
-              <td className='celula'>{orcamento.dispositivoId.id}</td>
-              <td className='celula'>{orcamento.dispositivoId.name}</td>
+              <td className='celula'>{orcamento.dispositivoId }</td>
+              <td className='celula'>{orcamento.dispositivoName}</td>
               <td className='celula'>{orcamento.defeito}</td>
               <td className='celula'>{orcamento.descricao}</td>
               <td className='celula'>{orcamento.valor}</td>

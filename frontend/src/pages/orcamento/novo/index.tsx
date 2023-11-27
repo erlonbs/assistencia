@@ -2,48 +2,44 @@ import { BASE_URL } from 'utils/requests';
 import './novoOrcamento.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { error } from 'console';
 
 
 
+function NovoOrcamento() {
 
- function NovoOrcamento() {
+  const [dispositivoId, setDispositivoId] = useState('');
+  const [dispositivoName, setDispositivoName] = useState('');
   const [defeito, setDefeito] = useState('')
   const [valor, setValor] = useState('')
-  const [autorizado, setAutorizado] = useState('')
-  const [descricao, setDescricao] = useState('')
-  const [dispositivo, setDispositivo] = useState('')
-  const [codigoDispositivo, setCodigoDispositivo]= useState('');
-  const [nomeDispositivo, setNomeDispositivo]= useState('');
- 
+  const [descricao, setDescricao] = useState('')  
+  const [autorizado, setAutorizado] = useState(Boolean)
+
+
   useEffect(() => {
-    if(codigoDispositivo){
+    if (dispositivoId) {
 
-      axios.get(`${BASE_URL}/dispositivos/${codigoDispositivo}`).then(response => {
-        setNomeDispositivo(response.data.nome);
+      axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
+        setDispositivoName(response.data.name);
+      })
+        .catch(error => {
+          console.error('erro ao obter dados do dispositivo', error);
         })
-        .catch(error =>{
-          console.error('erro ao obter dados do dispositivo',error);
-        })
-  }else {setNomeDispositivo('');
-}
+    } else {
+      setDispositivoName('');
+    }
 
- },[codigoDispositivo]);
+  }, [dispositivoId]);
 
 
-  const BASE = `${BASE_URL}/orcamentos`
+  const BASE = `${BASE_URL}/orcamentos/`
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-   
-
-    const dadosNovo = {codigoDispositivo,nomeDispositivo, defeito, valor, autorizado, descricao, dispositivo }
-
-    
+    const dadosNovo = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado }
 
 
-    
+
     try {
       const response = await axios.post(BASE, dadosNovo)
       console.log('Novo orcamento inserido!', response.data)
@@ -58,57 +54,55 @@ import { error } from 'console';
 
       <form className='containerForm' onSubmit={handleSubmit}>
 
-      <label htmlFor="codigoDispositivo">Código do dispositivo:</label>
-        <input
+        <label htmlFor="codigoDispositivo">Código do dispositivo:</label>
+        <input className='inputForm'
           type="text"
-          value={codigoDispositivo}
-          placeholder={codigoDispositivo}
-          onChange={e => setCodigoDispositivo(e.target.value)}
+          value={dispositivoId}
+         
+          onChange={e => setDispositivoId(e.target.value)}
         />
-        
+
         <label htmlFor="nomeDispositivo">Nome do dispositivo:</label>
-        <input
+        <input className='inputForm'
           type="text"
-          value={nomeDispositivo}
+          value={dispositivoName}
           readOnly
         />
 
         <label htmlFor="defeito">Defeito:</label>
-        <input
+        <input className='inputForm'
           type="text"
           value={defeito}
           onChange={e => setDefeito(e.target.value)}
         />
 
+        <label htmlFor="descricao">Descrição:</label>
+        <input className='inputForm'
+         type="text" 
+         value={descricao}
+          onChange={e => setDescricao(e.target.value)} />
+
         <label htmlFor="valor">Valor:</label>
-        <input
+        <input className='inputForm'
           type="text"
           value={valor}
           onChange={e => setValor(e.target.value)}
         />
 
         <label htmlFor="autorizado">Autorizado:</label>
-        <input
+        <input className='inputForm'
           type="text"
-          value={autorizado}
-          onChange={e => setAutorizado(e.target.value)}
+          value={autorizado ? 'Sim' : 'Não'}
+        
+         onChange={e => setAutorizado(e.target.value.toLowerCase() === 'Sim' ? true : e.target.value.toLowerCase() === 'Não' ? false : autorizado)}
         />
-
-        <label htmlFor="descricao">Descrição:</label>
-        <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
-
-        <label htmlFor="dispositivo">Dispositivo:</label>
-        <input type="text" value={dispositivo} onChange={e => setDispositivo(e.target.value)} />
-        
-
-        
 
         <button type="submit">Inserir</button>
       </form>
-     
+
       <form className="btnVoltar">
         <a href="/Orcamento/1">
-          
+
           <input type="button" value="Voltar " />
         </a>
       </form>

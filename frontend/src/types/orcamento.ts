@@ -1,9 +1,13 @@
-import { Dispositivos } from "./dispositivo";
+
 
 export type Orcamentos = {
     id: number;
-    dispositivoId: Dispositivos;  
-    Name: string;
+    dispositivoId: number;  
+    dispositivoName: string;
+    //dispositivo: {
+      //dispositivoid:number;
+      //dispositivoName: string;
+    //}
     defeito: string;
     descricao: string;
     valor: number;

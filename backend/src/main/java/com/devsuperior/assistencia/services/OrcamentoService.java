@@ -64,11 +64,14 @@ public class OrcamentoService {
 	public OrcamentoDTO insert( OrcamentoDTO dto) {
 		
 		Orcamento entity = new Orcamento();
-			
-		entity.setAutorizado(dto.isAutorizado());
-		entity.setDefeito(dto.getDefeito());
+		
+		entity.setDispositivoId(dto.getDispositivoId());
+		entity.setDispositivoName(dto.getDispositivoName());
+		entity.setDefeito(dto.getDefeito());	
 		entity.setDescricao(dto.getDescricao());
 		entity.setValor(dto.getValor());
+		entity.setAutorizado(dto.isAutorizado());
+				
 		entity = repository.save(entity);
 		return new OrcamentoDTO(entity);
 	}

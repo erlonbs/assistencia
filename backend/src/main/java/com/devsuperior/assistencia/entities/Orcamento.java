@@ -3,13 +3,11 @@ package com.devsuperior.assistencia.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Entity(name="tb_orcamento")
 public class Orcamento implements Serializable{
@@ -26,11 +24,11 @@ public class Orcamento implements Serializable{
 	private String descricao;	
 	
 
-	@OneToOne(cascade={CascadeType.DETACH})
-	@JoinColumn(name = "dispositivo_id")
-    private Dispositivo dispositivoId;
 	
+	@Column(name = "dispositivo_id")
+    private Long dispositivoId;
 	
+	@Column(name = "dispositivo_name")
     private String dispositivoName;	
 	
 	public Orcamento() {
@@ -38,11 +36,12 @@ public class Orcamento implements Serializable{
 	}
 	
 
-	public Orcamento(Long id,  Dispositivo dispositivoId,  String defeito, String descricao, BigDecimal valor, Boolean autorizado
+	public Orcamento(Long id,  Long dispositivoId, String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
 			) {
 	
 	    this.id=id;
-	    this.dispositivoId=dispositivoId;		
+	    this.dispositivoId=dispositivoId;	
+	    this.dispositivoName=dispositivoName;
 		this.defeito = defeito;
 		this.descricao = descricao;
 		this.valor = valor;
@@ -104,24 +103,27 @@ public class Orcamento implements Serializable{
 		this.descricao = descricao;
 	}
 	
-	public Dispositivo getDispositivoId() {
+	public Long getDispositivoId() {
 		return dispositivoId;
 	}
 
 
-	public void setDispositivoId(Dispositivo dispositivo) {
+	public void setDispositivoId(Long dispositivo) {
 		this.dispositivoId = dispositivo;
 	}
 
 
-	public String getNomeDispositivo() {
+	public String getDispositivoName() {
 		return dispositivoName;
 	}
 
 
-	public void setNomeDispositivo(String  dispositivoName) {
+	public void setDispositivoName(String  dispositivoName) {
 		this.dispositivoName = dispositivoName;
 	}
+
+
+	
 
 	
 	

@@ -2,14 +2,13 @@ package com.devsuperior.assistencia.dto;
 
 import java.math.BigDecimal;
 
-import com.devsuperior.assistencia.entities.Dispositivo;
 import com.devsuperior.assistencia.entities.Orcamento;
 
 public class OrcamentoDTO {
 
 	private Long id;
 	
-	private Dispositivo dispositivoId;
+	private Long dispositivoId;
 	private String dispositivoName;
 
 	private String defeito;
@@ -23,7 +22,7 @@ public class OrcamentoDTO {
 		
 	}
 	
-	public OrcamentoDTO(Long id , Dispositivo dispositivoId , String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
+	public OrcamentoDTO(Long id , Long dispositivoId , String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
 			) {
 		
 		this.id = id;
@@ -44,7 +43,7 @@ public class OrcamentoDTO {
 		
 		id=entity.getId();
 		dispositivoId=entity.getDispositivoId();
-		dispositivoName=entity.getNomeDispositivo();
+		dispositivoName=entity.getDispositivoName();
 		defeito=entity.getDefeito();
 		descricao=entity.getDescricao();
 		valor=entity.getValor();
@@ -97,21 +96,22 @@ public class OrcamentoDTO {
 		this.descricao = descricao;
 	}
 
-	public Dispositivo getDispositivoId() {
+	public Long getDispositivoId() {
 		return dispositivoId;
 	}
 
-	public void setDispositivoId(Dispositivo dispositivoId) {
+	public void setDispositivoId(Long dispositivoId) {
 		this.dispositivoId = dispositivoId;
 	}
 
-	public String getNomeDispositivo() {
+	public String getDispositivoName() {
 		return dispositivoName;
 	}
 
-	public void setNomeDispositivo(String nomeDispositivo) {
+	public void setDispositivoName(String nomeDispositivo) {
 		this.dispositivoName = nomeDispositivo;
 	}
+
 	
 	
 	
