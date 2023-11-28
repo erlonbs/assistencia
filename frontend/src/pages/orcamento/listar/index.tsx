@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom'
 
 
 
-
-
 function ListarOrcamento() {    
 
   const [orcamentos, setOrcamentos] = useState<Orcamentos[]>([])
@@ -41,8 +39,7 @@ function ListarOrcamento() {
             <th className='cabecalho'>Defeito</th>
             <th className='cabecalho'>Descrição</th>
             <th className='cabecalho'>Valor</th>
-            <th className='cabecalho'>Autorizado</th>
-                    
+            <th className='cabecalho'>Autorizado</th>                    
           
           
           </tr>
@@ -56,9 +53,10 @@ function ListarOrcamento() {
               <td className='celula'>{orcamento.defeito}</td>
               <td className='celula'>{orcamento.descricao}</td>
               <td className='celula'>{orcamento.valor}</td>
-              <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>         
+              <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>      
+
              
-        
+                     
               
             </tr>
           ))}

@@ -33,11 +33,12 @@ function NovoOrcamento() {
 
   const BASE = `${BASE_URL}/orcamentos/`
 
+  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const dadosNovo = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado }
-
 
 
     try {
@@ -47,6 +48,10 @@ function NovoOrcamento() {
       console.error('Não foi possível inserir o orçamento:', error)
     }
   }
+
+  const handleCheckboxChange = () => {
+    setAutorizado(!autorizado)
+  };
 
   return (
     <div className="containerOrcamento">
@@ -91,10 +96,10 @@ function NovoOrcamento() {
 
         <label htmlFor="autorizado">Autorizado:</label>
         <input className='inputForm'
-          type="text"
-          value={autorizado ? 'Sim' : 'Não'}
+          type="checkbox"
+          checked={autorizado}
         
-         onChange={e => setAutorizado(e.target.value.toLowerCase() === 'Sim' ? true : e.target.value.toLowerCase() === 'Não' ? false : autorizado)}
+         onChange={handleCheckboxChange}
         />
 
         <button type="submit">Inserir</button>
