@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import './menuStyles.css';
 function Menu() {
   return (
@@ -10,31 +11,31 @@ function Menu() {
 
         <div className="btnMenu">
           <div className='btnClienteImagem'></div>          
-          <a href="/cliente/1">
-            <input className='btnInput' type="button" value="Clientes" />
-          </a>
+          <Link to={"/cliente/1"} >
+            <button className='btnInput' type="button" value="Clientes">Clientes</button>  
+          </Link>
         </div>
 
         <div className="btnMenu">
           <div className='btnDispositivoImagem'></div>
-          <a href="/dispositivo/1">
-            <input className='btnInput' type="button" value="Dispositivos" />
-          </a>
+          <Link to={"/dispositivo/1"} >
+            <button className='btnInput' type="button" value="Dispositivos">Dispositivos</button>  
+          </Link>
         </div>
 
         <div className="btnMenu">
           <div className='btnOrcamentosImagem'></div>
-          <a href="/orcamento/1">
-            <input className='btnInput' type="button" value="Orçamentos" />
-          </a>
+          <Link to={"/orcamento/1"} >
+            <button className='btnInput' type="button" value="Orcamentos">Orçamentos</button>  
+          </Link>
         </div>
 
 
         <div className="btnMenu">
           <div className='btnServicosImagem'></div>
-          <a href="/servico/1">
-            <input className='btnInput' type="button" value="Serviços" />
-          </a>
+          <Link to={"/servico/1"} >
+            <button className='btnInput' type="button" value="Servicos">Serviços</button>  
+          </Link>
         </div>
 
 

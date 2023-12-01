@@ -35,6 +35,10 @@
 .btnInput{
   border-radius: 15%;
   margin: 8px;
+  width: 180px;
+  height: 43.5px;
+  font-size: 25px;
+ 
 }
 
 .btnClienteImagem{

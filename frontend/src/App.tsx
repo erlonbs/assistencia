@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Menu from 'pages/Menu'
-import Orcamento from 'pages/orcamento'
+
 import Dispositivo from 'pages/dispositivo'
 import NovoDispositivo from 'pages/dispositivo/novo'
 import Editar from 'pages/dispositivo/editar'
@@ -10,15 +10,18 @@ import Navbar from 'components/navbar'
 import Cliente from 'pages/Cliente/'
 import Busca from 'pages/Cliente/Busca'
 import Cadastrar from 'pages/Cliente/Cadastrar'
-import Atualizar from 'pages/Cliente/Atualizar'
-import Excluir from 'pages/Cliente/Excluir'
-import BuscaCodigo from 'pages/Cliente/Busca/BuscaCodigo'
+import Atualizar from 'pages/Cliente/Atualizar';
+import Excluir from 'pages/Cliente/Excluir';
+import BuscaCodigo from 'pages/Cliente/Busca/BuscaCodigo';
 
-import BuscaTodos from 'pages/Cliente/Busca/BuscaTodos'
+import BuscaTodos from 'pages/Cliente/Busca/BuscaTodos';
 
-import Servico from 'pages/servico'
-import NovoOrcamento from 'pages/orcamento/novo'
+import Servico from 'pages/servico';
+import Orcamento from 'pages/orcamento';
+import NovoOrcamento from 'pages/orcamento/novo';
 import ListarOrcamento from 'pages/orcamento/listar';
+import EditarOrcamento from 'pages/orcamento/editar';
+import ExcluirOrcamento from 'pages/orcamento/excluir';
 
 
 
@@ -39,6 +42,8 @@ function App() {
           <Route path=":orcamentoId" element={<Orcamento />} />
           <Route path="/orcamento/novo" element={<NovoOrcamento/>}/>
           <Route path="/orcamento/listar" element={<ListarOrcamento/>}/>
+          <Route path="/orcamento/editar" element={<EditarOrcamento/>}/>
+          <Route path='/orcamento/excluir' element={<ExcluirOrcamento/>}/>
         </Route>
 
         <Route path="/servico">

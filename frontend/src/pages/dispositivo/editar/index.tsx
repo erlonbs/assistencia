@@ -58,7 +58,6 @@ function Editar() {
           type="text"
           id="nome"
           value={dispositivoName}
-        
           onChange={e => setDispositivoName(e.target.value)}
         />
 
@@ -83,23 +82,24 @@ function Editar() {
           onChange={e => setDispositivoCor(e.target.value)}
         />
 
-<label htmlFor="">Serial:</label>
+        <label htmlFor="">Serial:</label>
         <input
           type="text"
           placeholder={dispositivo?.serial}
           onChange={e => setDispositivoSerial(e.target.value)}
         />
 
-<label htmlFor="">Descrição:</label>
+        <label htmlFor="">Descrição:</label>
         <input
           type="text"
           placeholder={dispositivo?.descricao}
           onChange={e => setDispositivoDescricao(e.target.value)}
         />
 
-
+        
+        <Link to="/dispositivo/1">Voltar
         <button type="submit">Editar</button>
-        <Link to="/dispositivo/1">Voltar</Link>
+        </Link>
       </form>
     </div>
   )

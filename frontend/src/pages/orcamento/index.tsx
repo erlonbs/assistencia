@@ -1,30 +1,36 @@
 import "./orcamentoStyles.css";
+import { Link } from 'react-router-dom';
 
 function Orcamento() {
   return (
     <div className="containerOrcamento">
     <h1 className='containerTitulo'>Orcamentos</h1>
 
-    <form className='btnOrcamento'>
-     
-      <a href="/orcamento/novo">
-        <input className='btnOrcamento' type="button" value="Novo" />
-      </a>
-      <a href="/orcamento/listar">
-        <input className='btnOrcamento' type="button" value="Listar" />
-      </a>
-      <a href="/orcamento/editar">
-        <input className='btnDispositivo' type="button" value="Editar" />         
-      </a>
+   
+    <Link to ={`/orcamento/novo`} >
+        
+        <button className="btnOrcamento" type="button" >Novo</button>" 
+    </Link>
 
-      <a href="/orcamento/excluir">
-        <input className='btnOrcamento' type="button" value="Excluir" />
-      </a>
+    <Link to ={`/orcamento/listar`} >
+        
+        <button className="btnOrcamento" type="button" >Listar</button>" 
+    </Link>
 
-      <a href="/">
-        <input className='btnOrcamento' type="button" value="Voltar" />
-      </a>
-    </form>
+    <Link to ={`/orcamento/editar`} >
+        
+        <button className="btnOrcamento" type="button" >Editar</button>" 
+    </Link>
+
+    <Link to ={`/orcamento/excluir`} >
+        
+        <button className="btnOrcamento" type="button" >Excluir</button>" 
+    </Link>
+
+    <Link to ={`/`} >
+        
+        <button className="btnOrcamento" type="button" >Voltar</button>" 
+    </Link>
     </div>
 )
   

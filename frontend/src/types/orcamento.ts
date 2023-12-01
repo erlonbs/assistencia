@@ -1,13 +1,10 @@
 
 
 export type Orcamentos = {
-    id: number;
+    id: string;
     dispositivoId: number;  
     dispositivoName: string;
-    //dispositivo: {
-      //dispositivoid:number;
-      //dispositivoName: string;
-    //}
+   
     defeito: string;
     descricao: string;
     valor: number;
