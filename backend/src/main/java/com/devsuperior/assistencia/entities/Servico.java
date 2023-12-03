@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_servico_realizado")
-public class ServicoRealizado implements Serializable {
+@Table(name="tb_servico")
+public class Servico implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -19,14 +19,18 @@ public class ServicoRealizado implements Serializable {
 	private String descricao;
 	private Long valor;
 	private String pagamento;
+	private Long codigoOrcamento;
+	private String nomeCliente;
 	
-	public ServicoRealizado() {
+	public Servico() {
 		
 	}
 
-	public ServicoRealizado(Long id, String descricao, Long valor, String pagamento) {
+	public Servico(Long id, Long codigoOrcamento, String nomeCliente, String descricao, Long valor, String pagamento) {
 	
 		this.id = id;
+		this.setCodigoOrcamento(codigoOrcamento);
+		this.setNomeCliente(nomeCliente);
 		this.descricao = descricao;
 		this.valor = valor;
 		this.pagamento = pagamento;
@@ -67,7 +71,23 @@ public class ServicoRealizado implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	public Long getCodigoOrcamento() {
+		return codigoOrcamento;
+	}
+
+	public void setCodigoOrcamento(Long codigoOrcamento) {
+		this.codigoOrcamento = codigoOrcamento;
+	}
+
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+
 	
 	
 	
