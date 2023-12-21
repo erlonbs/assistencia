@@ -32,7 +32,7 @@ function Atualizar() {
     event.preventDefault()
     axios
       .put(`${BASE_URL}/clientes/${clienteId}`, {
-        name: clienteName,
+        clienteName: clienteName,
         address: clienteEndereco,
         telephone: clienteTelefone,
         cpf: clienteCpf
@@ -80,7 +80,7 @@ function Atualizar() {
           size={35}
           id="nome"
           value={clienteName}
-          placeholder={cliente?.name}
+          placeholder={cliente?.clienteName}
           onChange={e => setClienteName(e.target.value)}
         />
 

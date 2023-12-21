@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity(name="tb_orcamento")
 public class Orcamento implements Serializable{
@@ -31,12 +32,19 @@ public class Orcamento implements Serializable{
 	@Column(name = "dispositivo_name")
     private String dispositivoName;	
 	
+	
+	private String clienteName;
+	
+	@JoinColumn(name= "cliente_id")
+	private Long clienteId;
+
+
 	public Orcamento() {
 		
 	}
 	
 
-	public Orcamento(Long id,  Long dispositivoId, String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
+	public Orcamento(Long id,  Long dispositivoId, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
 			) {
 	
 	    this.id=id;
@@ -46,6 +54,7 @@ public class Orcamento implements Serializable{
 		this.descricao = descricao;
 		this.valor = valor;
 		this.autorizado = autorizado;
+		this.clienteId=clienteId;
 		
 		
 	}
@@ -124,7 +133,24 @@ public class Orcamento implements Serializable{
 
 
 	
+	public String getClienteName() {
+		return clienteName;
+	}
 
+
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
+	}
+
+
+	public Long getClienteId() {
+		return clienteId;
+	}
+
+
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
+	}
 	
 	
 	

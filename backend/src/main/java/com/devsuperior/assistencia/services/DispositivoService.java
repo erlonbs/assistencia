@@ -23,15 +23,15 @@ public class DispositivoService {
 
 	@Autowired
 	private DispositivoRepository repository;
-		
+	
+	
 	@Transactional
 	public DispositivoDTO findById(Long id) {
-		
+
 		Optional<Dispositivo> Dispositivo = repository.findById(id);
 		Dispositivo entity = Dispositivo.orElseThrow(() -> new ResourceNotFoundException("Id not found"));
 		return new DispositivoDTO(entity);
-	}		
-	
+	}
 
 	public List<DispositivoDTO> findAll() {
 
@@ -43,18 +43,23 @@ public class DispositivoService {
 
 	@Transactional
 	public DispositivoDTO insert(DispositivoDTO dto) {
-
-		Dispositivo entity = new Dispositivo();
-		entity.setName(dto.getName());
-		entity.setMarca(dto.getMarca());
-		entity.setModelo(dto.getModelo());
-		entity.setCor(dto.getCor());
-		entity.setSerial(dto.getSerial());
-		entity.setDescricao(dto.getDescricao());			
-		entity = repository.save(entity);
-		return new DispositivoDTO(entity);
+	   
+	        // instanticando dispositivo 
+	        Dispositivo entity = new Dispositivo();
+	        entity.setDispositivoName(dto.getDispositivoName());
+	        entity.setMarca(dto.getMarca());
+	        entity.setModelo(dto.getModelo());
+	        entity.setCor(dto.getCor());
+	        entity.setSerial(dto.getSerial());
+	        entity.setDescricao(dto.getDescricao());
+	        entity.setClienteId(dto.getClienteId());
+	        	  
+	        entity = repository.save(entity);
+	
+			return new DispositivoDTO(entity);
 
 	}
+	   
 
 	public void delete(Long id) {
 		try {
@@ -75,12 +80,13 @@ public class DispositivoService {
 		try {
 
 			Dispositivo entity = repository.getReferenceById(id);
-			entity.setName(dto.getName());
+			entity.setDispositivoName(dto.getDispositivoName());
 			entity.setMarca(dto.getMarca());
 			entity.setModelo(dto.getModelo());
 			entity.setCor(dto.getCor());
 			entity.setSerial(dto.getSerial());
-			entity.setDescricao(dto.getDescricao());						
+			entity.setDescricao(dto.getDescricao());
+			entity.setClienteId(dto.getClienteId());
 			entity = repository.save(entity);
 			return new DispositivoDTO(entity);
 

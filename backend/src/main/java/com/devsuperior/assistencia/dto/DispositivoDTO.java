@@ -11,16 +11,15 @@ public class DispositivoDTO {
 	private String cor;
 	private String serial;
 	private String descricao;
-	
-	
-	
+	private Long clienteId;
+
 	public DispositivoDTO() {
-		
+
 	}
 
-	public DispositivoDTO(Long dispositivoId, String dispositivoName, String marca, String modelo, String cor, String serial,
-			String descricao) {
-		
+	public DispositivoDTO(Long dispositivoId, String dispositivoName, String marca, String modelo, String cor,
+			String serial, String descricao) {
+
 		this.dispositivoId = dispositivoId;
 		this.dispositivoName = dispositivoName;
 		this.marca = marca;
@@ -28,34 +27,35 @@ public class DispositivoDTO {
 		this.cor = cor;
 		this.serial = serial;
 		this.descricao = descricao;
-	
-	}
-	
-	public DispositivoDTO(Dispositivo entity) {
-		
-		dispositivoId=entity.getId();
-		dispositivoName=entity.getName();
-		marca=entity.getMarca();
-		modelo=entity.getModelo();
-		cor=entity.getCor();
-		serial=entity.getSerial();
-		descricao=entity.getDescricao();
-		
+
 	}
 
-	public Long getId() {
+	public DispositivoDTO(Dispositivo entity) {
+
+		this.dispositivoId = entity.getDispositivoId();
+		this.dispositivoName = entity.getDispositivoName();
+		this.marca = entity.getMarca();
+		this.modelo = entity.getModelo();
+		this.cor = entity.getCor();
+		this.serial = entity.getSerial();
+		this.descricao = entity.getDescricao();
+		this.clienteId = entity.getCliente().getClienteId();
+
+	}
+
+	public Long getDispositivoId() {
 		return dispositivoId;
 	}
 
-	public void setId(Long id) {
+	public void setDispositivoId(Long id) {
 		this.dispositivoId = id;
 	}
 
-	public String getName() {
+	public String getDispositivoName() {
 		return dispositivoName;
 	}
 
-	public void setName(String name) {
+	public void setDispositivoName(String name) {
 		this.dispositivoName = name;
 	}
 
@@ -98,6 +98,16 @@ public class DispositivoDTO {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
+
+	public Long getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Long clienteId) {
+		if (clienteId != null) {
+			this.clienteId = clienteId;
+		}
+
+	}
+
 }

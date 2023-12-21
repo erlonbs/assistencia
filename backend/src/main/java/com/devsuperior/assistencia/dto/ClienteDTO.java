@@ -1,52 +1,62 @@
 package com.devsuperior.assistencia.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import com.devsuperior.assistencia.entities.Cliente;
 
 public class ClienteDTO {
 
-	private Long id;
-	private String name;
+	private Long clienteId;
+	private String clienteName;
 	private String address;
 	private String telephone;
 	private String cpf;
-	
-	public ClienteDTO () {
+
+
+	private Set<DispositivoDTO> dispositivos = new HashSet<>();;
+
+	public ClienteDTO() {
 		
 	}
 
-	public ClienteDTO(Long id, String name, String address, String telephone, String cpf) {
-	
-		this.id = id;
-		this.name = name;
+	public ClienteDTO(Long clienteId, String clienteName, String address, String telephone, String cpf) {
+
+		this.clienteId = clienteId;
+		this.clienteName = clienteName;
 		this.address = address;
 		this.telephone = telephone;
 		this.cpf = cpf;
+
 	}
-	
+
 	public ClienteDTO(Cliente entity) {
+
+		clienteId = entity.getClienteId();
+		clienteName = entity.getClienteName();
+		address = entity.getAddress();
+		telephone = entity.getTelephone();
+		cpf = entity.getCpf();
+		dispositivos = entity.getDispositivos().stream().map(Dispositivo -> new DispositivoDTO(Dispositivo)).collect(Collectors.toSet());
 		
-		id=entity.getId();
-		name=entity.getName();
-		address=entity.getAddress();
-		telephone=entity.getTelephone();
-		cpf=entity.getCpf();
-			
+
 	}
 
-	public Long getId() {
-		return id;
+	public Long getClienteId() {
+		return clienteId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setClienteId(Long id) {
+		this.clienteId = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getClienteName() {
+		return clienteName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
 	}
 
 	public String getAddress() {
@@ -72,7 +82,13 @@ public class ClienteDTO {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
-	
-	
+
+	public Set<DispositivoDTO> getDispositivos() {
+		return dispositivos;
+	}
+
+	public void setDispositivos(Set<DispositivoDTO> dispositivos) {
+		this.dispositivos = dispositivos;
+	}
+
 }

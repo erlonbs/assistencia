@@ -1,0 +1,14 @@
+
+
+.containerForm{
+    background-color: rgba(27, 37, 48, 0.5);
+    width: 500px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    color: rgb(151, 151, 116);
+}
+
+.inputForm{
+    border-radius: 8px;
+}

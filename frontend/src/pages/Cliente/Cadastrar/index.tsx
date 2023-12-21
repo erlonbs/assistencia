@@ -4,10 +4,11 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 function Cadastrar() {
-  const [name, setName] = useState('')
+  const [clienteName, setClienteName] = useState('')
   const [address, setAddress] = useState('')
   const [telephone, setTelephone] = useState('')
   const [cpf, setCpf] = useState('')
+
 
   const BASE = `${BASE_URL}/clientes`
 
@@ -24,7 +25,7 @@ function Cadastrar() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosCadastro = { name, address, telephone, cpf }
+    const dadosCadastro = { clienteName, address, telephone, cpf }
 
     try {
       const response = await axios.post(BASE, dadosCadastro)
@@ -37,7 +38,7 @@ function Cadastrar() {
   }
 
   const limpaCampos = () => {
-    setName('')
+    setClienteName('')
     setAddress('')
     setTelephone('')
     setCpf('')
@@ -55,9 +56,9 @@ function Cadastrar() {
           className="entradaDados"
           type="text"
           size={35}
-          value={name}
+          value={clienteName}
           
-          onChange={e => setName(e.target.value)}
+          onChange={e => setClienteName(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="endereco">
@@ -92,6 +93,7 @@ function Cadastrar() {
           value={cpf}
           onChange={e => setCpf(e.target.value)}
         />
+
 
         <button className="btnCadastrar" type="submit" >
           Cadastrar

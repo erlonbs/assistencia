@@ -9,17 +9,27 @@ function NovoOrcamento() {
 
   const [dispositivoId, setDispositivoId] = useState('');
   const [dispositivoName, setDispositivoName] = useState('');
+  const [clienteName, setClienteName] = useState('');
   const [defeito, setDefeito] = useState('')
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')  
   const [autorizado, setAutorizado] = useState(Boolean)
+  const [clienteId, setClienteId] = useState('');
 
 
   useEffect(() => {
     if (dispositivoId) {
 
       axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
-        setDispositivoName(response.data.name);
+        console.log(response.data)
+        if(response.data){
+          setDispositivoName(response.data.name);
+          setClienteName(response.data.clienteName);
+          setClienteName(response.data.clienteId);
+        }
+        else {
+          console.error("a resposta não contem o dado")
+        }
       })
         .catch(error => {
           console.error('erro ao obter dados do dispositivo', error);
@@ -38,7 +48,7 @@ function NovoOrcamento() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado }
+    const dadosNovo = { dispositivoId, dispositivoName, clienteId, clienteName, defeito, descricao, valor, autorizado }
 
 
     try {
@@ -74,6 +84,13 @@ function NovoOrcamento() {
           readOnly
         />
 
+<label htmlFor="nomeCliente">Nome do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={clienteName}
+          onChange={e => setClienteName(e.target.value)}
+        />
+
         <label htmlFor="defeito">Defeito:</label>
         <input className='inputForm'
           type="text"
@@ -101,6 +118,15 @@ function NovoOrcamento() {
         
          onChange={handleCheckboxChange}
         />
+
+<label htmlFor="defeito">Código do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={clienteId}
+          onChange={e => setClienteId(e.target.value)}
+        />
+
+        
 
         <button type="submit">Inserir</button>
       </form>

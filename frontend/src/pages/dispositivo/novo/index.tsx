@@ -5,19 +5,20 @@ import React, { useState } from 'react';
 
 
  function NovoDispositivo() {
-  const [name, setName] = useState('')
+  const [dispositivoName, setDispositivoName] = useState('')
   const [marca, setMarca] = useState('')
   const [modelo, setModelo] = useState('')
   const [cor, setCor] = useState('')
   const [serial, setSerial] = useState('')
   const [descricao, setDescricao] = useState('')
+  const [clienteId, setClienteId] = useState('');
 
   const BASE = `${BASE_URL}/dispositivos`
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { name, marca, modelo, cor, serial, descricao }
+    const dadosNovo = { dispositivoName, marca, modelo, cor, serial, descricao, clienteId}
 
     try {
       const response = await axios.post(BASE, dadosNovo)
@@ -35,8 +36,8 @@ import React, { useState } from 'react';
         <label htmlFor="nome">Nome:</label>
         <input
           type="text"
-          value={name}
-          onChange={e => setName(e.target.value)}
+          value={dispositivoName}
+          onChange={e => setDispositivoName(e.target.value)}
         />
 
         <label htmlFor="">Marca:</label>
@@ -62,6 +63,9 @@ import React, { useState } from 'react';
 
         <label htmlFor="">Descricao:</label>
         <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
+
+        <label htmlFor="">Cliente Id</label>
+        <input type="text" value={clienteId} onChange={e => setClienteId(e.target.value)} />
 
         <button type="submit">Inserir</button>
       </form>

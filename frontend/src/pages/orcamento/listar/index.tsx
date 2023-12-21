@@ -36,10 +36,12 @@ function ListarOrcamento() {
             <th className='cabecalho'>Código</th>
             <th className='cabecalho'>Dispositivo</th>
             <th className='cabecalho'>Nome do Dispositivo</th>
+            <th className='cabecalho'>Nome do Cliente</th>
             <th className='cabecalho'>Defeito</th>
             <th className='cabecalho'>Descrição</th>
             <th className='cabecalho'>Valor</th>
-            <th className='cabecalho'>Autorizado</th>                    
+            <th className='cabecalho'>Autorizado</th> 
+            <th className='cabecalho'>Código do cliente</th>                   
           
           
           </tr>
@@ -49,11 +51,13 @@ function ListarOrcamento() {
             <tr className='coluna'  key={orcamento.id}>
               <td className='celula'>{orcamento.id}</td>
               <td className='celula'>{orcamento.dispositivoId }</td>
-              <td className='celula'>{orcamento.dispositivoName}</td>
+             <td className='celula'>{orcamento.dispositivoName}</td>
+              <td className='celula'>{orcamento.clienteName}</td>
               <td className='celula'>{orcamento.defeito}</td>
               <td className='celula'>{orcamento.descricao}</td>
               <td className='celula'>{orcamento.valor}</td>
-              <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>      
+              <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>   
+              <td className='celula'>{orcamento.clienteId}</td>
 
              
                      

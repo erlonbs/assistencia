@@ -44,16 +44,23 @@ public class ClienteService {
 
 	@Transactional
 	public ClienteDTO insert(ClienteDTO dto) {
-
+		
 	    Cliente entity = new Cliente();
-		entity.setName(dto.getName());
+	    if(dto !=null) {
+		entity.setClienteName(dto.getClienteName());
 		entity.setAddress(dto.getAddress());
 		entity.setCpf(dto.getCpf());
-		entity.setTelephone(dto.getTelephone());
+		entity.setTelephone(dto.getTelephone());		
 		entity = repository.save(entity);
-		return new ClienteDTO(entity);
-
-	}
+	    }
+	    if (entity !=null) {
+	    	return new ClienteDTO(entity);
+	    	
+	    } else 
+	    	return null;
+	    }
+	
+	
 
 	public void delete(Long id) {
 		try {
@@ -74,7 +81,8 @@ public class ClienteService {
 		try {
 
 			Cliente entity = repository.getReferenceById(id);
-			entity.setName(dto.getName());
+			
+			entity.setClienteName(dto.getClienteName());
 			entity.setAddress(dto.getAddress());
 			entity.setCpf(dto.getCpf());
 			entity.setTelephone(dto.getTelephone());
@@ -85,4 +93,7 @@ public class ClienteService {
 			throw new ResourceNotFoundException("Id not found " + id);
 		}
 	}
+
+
+
 }

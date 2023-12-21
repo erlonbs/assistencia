@@ -1,9 +1,14 @@
+
+import  { Dispositivos } from "./dispositivo";
+
+
 export type Clientes = {
-   id: string;
-	 name: string;
+   clienteId: string;
+	 clienteName: string;
 	 address: string;
 	 telephone: string;
-   cpf: string;
+     cpf: string;
+	 dispositivos: Dispositivos [] ;
   
 
 }

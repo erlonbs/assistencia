@@ -67,10 +67,13 @@ public class OrcamentoService {
 		
 		entity.setDispositivoId(dto.getDispositivoId());
 		entity.setDispositivoName(dto.getDispositivoName());
+		entity.setClienteName(dto.getClienteName());
 		entity.setDefeito(dto.getDefeito());	
 		entity.setDescricao(dto.getDescricao());
 		entity.setValor(dto.getValor());
 		entity.setAutorizado(dto.isAutorizado());
+		entity.setClienteId(dto.getClienteId());
+		
 				
 		entity = repository.save(entity);
 		return new OrcamentoDTO(entity);

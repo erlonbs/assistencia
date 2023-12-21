@@ -38,11 +38,11 @@ public class DispositivoResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<DispositivoDTO> insert(@RequestBody DispositivoDTO dto) {
+	public ResponseEntity<DispositivoDTO> insert(@RequestBody DispositivoDTO dto, Long clienteId) {
 
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
-				.buildAndExpand(dto.getId()).toUri();
+				.buildAndExpand(dto.getDispositivoId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 
 }

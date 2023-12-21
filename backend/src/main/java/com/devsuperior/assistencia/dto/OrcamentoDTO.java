@@ -16,22 +16,26 @@ public class OrcamentoDTO {
 	private Boolean autorizado;
 	private String descricao;
 	
+	private String clienteName;
+	private Long clienteId;
 
 
 	public OrcamentoDTO() {
 		
 	}
 	
-	public OrcamentoDTO(Long id , Long dispositivoId , String dispositivoName, String defeito, String descricao, BigDecimal valor, Boolean autorizado
+	public OrcamentoDTO(Long id , Long dispositivoId , String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
 			) {
 		
 		this.id = id;
 		this.dispositivoId=dispositivoId;
 		this.dispositivoName=dispositivoName;
+		this.clienteName=clienteName;
 		this.defeito = defeito;
 		this.descricao = descricao;
 		this.valor = valor;
 		this.autorizado = autorizado;
+		this.clienteId=clienteId;
 	
 		
 		
@@ -44,10 +48,12 @@ public class OrcamentoDTO {
 		id=entity.getId();
 		dispositivoId=entity.getDispositivoId();
 		dispositivoName=entity.getDispositivoName();
+		clienteName=entity.getClienteName();
 		defeito=entity.getDefeito();
 		descricao=entity.getDescricao();
 		valor=entity.getValor();
 		autorizado=entity.getAutorizado();
+		clienteId= entity.getClienteId();
 	
 		
 		
@@ -110,6 +116,22 @@ public class OrcamentoDTO {
 
 	public void setDispositivoName(String nomeDispositivo) {
 		this.dispositivoName = nomeDispositivo;
+	}
+
+	public String getClienteName() {
+		return clienteName;
+	}
+
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
+	}
+
+	public Long getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
 	}
 
 	

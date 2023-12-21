@@ -34,18 +34,20 @@ function Listar() {
             <th className='cabecalho'>Cor</th>
             <th className='cabecalho'>Serial</th>
             <th className='cabecalho'>Descrição</th>
+            <th className='cabecalho'>Cliente</th>
           </tr>
         </thead>
         <tbody className='conteudo'>
           {dispositivos.map((dispositivo) => (
-            <tr className='coluna'  key={dispositivo.id}>
-              <td className='celula'>{dispositivo.id}</td>
+            <tr className='coluna'  key={dispositivo.dispositivoId}>
+              <td className='celula'>{dispositivo.dispositivoId}</td>
               <td className='celula'>{dispositivo.dispositivoName}</td>
               <td className='celula'>{dispositivo.marca}</td>
               <td className='celula'>{dispositivo.modelo}</td>
               <td className='celula'>{dispositivo.cor}</td>
               <td className='celula'>{dispositivo.serial}</td>
               <td className='celula'>{dispositivo.descricao}</td>
+              <td className='celula'>{dispositivo.clienteId}</td>
             </tr>
           ))}
         </tbody>
