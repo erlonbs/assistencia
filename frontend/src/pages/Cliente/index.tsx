@@ -1,45 +1,49 @@
+import { Link } from 'react-router-dom'
 import './clienteStyles.css'
 function Cliente() {
   return (
-    
+
     <div className="containerCliente">
       <h1>Clientes</h1>
 
       <div className="buttons">
-        <form>
-          <a href="/Cliente/Busca">
-            <input className='btnClientes' type="button" value="Consultar" />
-          </a>
-        </form>
+        
+        <div>
 
-  
+          <Link to={"/Cliente/Busca"} >
+            <button className='btnClientes' type="button" value="Consultar">Consultar</button>
+          </Link>
+        </div>
 
-        <form>
-          <a href="/Cliente/Cadastrar">
-            <input className='btnClientes' type="button" value="Cadastrar" />
-          </a>
-        </form>
+        <div>
 
-        <form>
-          <a href="/Cliente/Atualizar">
-            <input className='btnClientes' type="button" value="Atualizar" />
-          </a>
-        </form>
+          <Link to={"/Cliente/Cadastrar"} >
+            <button className='btnClientes' type="button" value="Cadastrar">Cadastrar</button>
+          </Link>
+        </div>
 
-        <form>
-          <a href="/Cliente/Excluir">
-            <input className='btnClientes' type="button" value="Excluir" />
-          </a>
-        </form>
-        <form className="voltar">
-        <a href="/">
-          <input className='btnClientes' type="button" value="Voltar " />
-        </a>
-      </form>
+        <div>
+          <Link to={"/Cliente/Atualizar"} >
+            <button className='btnClientes' type="button" value="Atualizar">Atualizar</button>
+          </Link>
+        </div>
+
+        <div>
+          <Link to={"/Cliente/Excluir"} >
+            <button className='btnClientes' type="button" value="Excluir">Excluir</button>
+          </Link>
+        </div>
+
+        <div className="voltar">
+
+          <Link to={"/"} >
+            <button className='btnClientes' type="button" value="Voltar">Voltar</button>
+          </Link>
+        </div>
 
       </div>
 
-      
+
     </div>
   )
 }

@@ -3,8 +3,8 @@ import './styles.css';
 
 function Navbar() {
   return (
-    <header>
-      <nav className ="container">
+    <header className="container-header">
+      <nav className ="nav-container">
         <div className="container-title">
           <h1>Assistência Técnica Sara's</h1>
           <a href="https://github.com/erlonbs">

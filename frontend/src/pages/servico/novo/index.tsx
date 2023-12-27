@@ -2,51 +2,51 @@ import { BASE_URL } from 'utils/requests';
 import './novoServico.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Orcamentos } from 'types/orcamento';
-
 
 
 function NovaOrdemServico() {
 
   const [codigoOrcamento, setCodigoOrcamento] = useState('');
-  const [nomeCliente, setNomeCliente] = useState('');
-
-  const [valor, setValor] = useState(0)
-  const [descricaoServico, setDescricaoServico] = useState('')  
+  const [clienteName, setClienteName] = useState('');
+  const [valor, setValor] = useState('')
+  const [descricao, setDescricao] = useState('')
+  const [servicoRealizado, setServicoRealizado] = useState('');
   const [pagamento, setPagamento] = useState(Boolean)
-
+  const [clienteId, setClienteId] = useState('');
 
   useEffect(() => {
     if (codigoOrcamento) {
 
       axios.get(`${BASE_URL}/orcamentos/${codigoOrcamento}`).then(response => {
-        setNomeCliente(response.data.name);
+        setClienteName(response.data.clienteName);
+        console.log(response.data);
+        setValor(response.data.valor);
+        setDescricao(response.data.descricao);
+        setClienteId(response.data.clienteId);
       })
         .catch(error => {
           console.error('erro ao obter dados do orcamento', error);
         })
     } else {
-      setNomeCliente('');
+      setClienteName('');
     }
 
   }, [codigoOrcamento]);
 
 
-  const BASE = `${BASE_URL}/orcamentos/`
+  const BASE = `${BASE_URL}/servicos`
 
-  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { codigoOrcamento, nomeCliente, descricaoServico, valor, pagamento }
-
+    const dadosNovo = { codigoOrcamento, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId }
 
     try {
       const response = await axios.post(BASE, dadosNovo)
-      console.log('Novo orcamento inserido!', response.data)
+      console.log('Nova ordem inserida!', response.data)
     } catch (error) {
-      console.error('Não foi possível inserir o orçamento:', error)
+      console.error('Não foi possível inserir a ordem de serviço:', error)
     }
   }
 
@@ -64,37 +64,49 @@ function NovaOrdemServico() {
         <input className='inputForm'
           type="text"
           value={codigoOrcamento}
-         
+
           onChange={e => setCodigoOrcamento(e.target.value)}
         />
 
         <label htmlFor="nomeDispositivo">Nome do Cliente:</label>
         <input className='inputForm'
           type="text"
-          value={nomeCliente}
+          value={clienteName}
           readOnly
         />
 
-      
-        <label htmlFor="descricao">Serviço realizado:</label>
+        <label htmlFor="descricao">Descrição do orçamento:</label>
         <input className='inputForm'
-         type="text" 
-         value={descricaoServico}
-          onChange={e => setDescricaoServico(e.target.value)} />
+          type="text"
+          value={descricao}
+          onChange={e => setDescricao(e.target.value)} />
+
+        <label htmlFor='servicoRealizado'>Serviço realizado:</label>
+        <input className='inputForm'
+          type="text"
+          value={servicoRealizado}
+          onChange={e => setServicoRealizado(e.target.value)} />
 
         <label htmlFor="valor">Valor do Serviço:</label>
         <input className='inputForm'
           type="text"
           value={valor}
-       //   onChange={e => setValor(e.target.value)}
+          onChange={e => setValor(e.target.value)}
         />
 
         <label htmlFor="autorizado">Pagamento:</label>
         <input className='inputForm'
           type="checkbox"
           checked={pagamento}
-        
-         onChange={handleCheckboxChange}
+
+          onChange={handleCheckboxChange}
+        />
+
+        <label htmlFor="valor">Código do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={clienteId}
+          onChange={e => setClienteId(e.target.value)}
         />
 
         <button type="submit">Inserir</button>

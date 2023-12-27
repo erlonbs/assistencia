@@ -22,8 +22,9 @@ import NovoOrcamento from 'pages/orcamento/novo';
 import ListarOrcamento from 'pages/orcamento/listar';
 import EditarOrcamento from 'pages/orcamento/editar';
 import ExcluirOrcamento from 'pages/orcamento/excluir';
-import NovaOrdemServico from 'pages/servico/novo'
-import ListarOrdemServico from 'pages/servico/listar'
+import NovaOrdemServico from 'pages/servico/novo';
+import ListarOrdemServico from 'pages/servico/listar';
+import Footer from 'components/footer';
 
 
 
@@ -65,7 +66,9 @@ function App() {
           <Route path="/cliente/excluir" element={<Excluir/>} />
         </Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
+   
   )
 }
 

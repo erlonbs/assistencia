@@ -17,21 +17,23 @@ public class Servico implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String descricao;
-	private Long valor;
+	private double valor;
 	private String pagamento;
 	private Long codigoOrcamento;
-	private String nomeCliente;
+	private String clienteName;
+	private String servicoRealizado;
 	
 	public Servico() {
 		
 	}
 
-	public Servico(Long id, Long codigoOrcamento, String nomeCliente, String descricao, Long valor, String pagamento) {
+	public Servico(Long id, Long codigoOrcamento, String clienteName, String descricao,String servicoRealizado, double valor, String pagamento) {
 	
 		this.id = id;
-		this.setCodigoOrcamento(codigoOrcamento);
-		this.setNomeCliente(nomeCliente);
+		this.codigoOrcamento=codigoOrcamento;
+		this.clienteName=clienteName;
 		this.descricao = descricao;
+		this.servicoRealizado=servicoRealizado;
 		this.valor = valor;
 		this.pagamento = pagamento;
 	}
@@ -52,11 +54,11 @@ public class Servico implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Long getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(Long valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
@@ -80,12 +82,20 @@ public class Servico implements Serializable {
 		this.codigoOrcamento = codigoOrcamento;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public String getClienteName() {
+		return clienteName;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
+	}
+
+	public String getServicoRealizado() {
+		return servicoRealizado;
+	}
+
+	public void setServicoRealizado(String servicoRealizado) {
+		this.servicoRealizado = servicoRealizado;
 	}
 
 	

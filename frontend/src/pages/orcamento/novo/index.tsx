@@ -2,6 +2,7 @@ import { BASE_URL } from 'utils/requests';
 import './novoOrcamento.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Clientes}  from 'types/cliente';
 
 
 
@@ -9,7 +10,7 @@ function NovoOrcamento() {
 
   const [dispositivoId, setDispositivoId] = useState('');
   const [dispositivoName, setDispositivoName] = useState('');
-  const [clienteName, setClienteName] = useState('');
+ 
   const [defeito, setDefeito] = useState('')
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')  
@@ -23,9 +24,9 @@ function NovoOrcamento() {
       axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
         console.log(response.data)
         if(response.data){
-          setDispositivoName(response.data.name);
-          setClienteName(response.data.clienteName);
-          setClienteName(response.data.clienteId);
+          setDispositivoName(response.data.dispositivoName);
+         
+         setClienteId(response.data.clienteId);
         }
         else {
           console.error("a resposta não contem o dado")
@@ -48,7 +49,7 @@ function NovoOrcamento() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoId, dispositivoName, clienteId, clienteName, defeito, descricao, valor, autorizado }
+    const dadosNovo = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado ,clienteId }
 
 
     try {
@@ -84,12 +85,7 @@ function NovoOrcamento() {
           readOnly
         />
 
-<label htmlFor="nomeCliente">Nome do cliente:</label>
-        <input className='inputForm'
-          type="text"
-          value={clienteName}
-          onChange={e => setClienteName(e.target.value)}
-        />
+
 
         <label htmlFor="defeito">Defeito:</label>
         <input className='inputForm'

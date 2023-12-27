@@ -1,4 +1,14 @@
 # Projeto Assistência Técnica
 
-O projeto ainda em desenvolvimento. Tecnologias usadas:
-Backend com Java Springboot, Postgres, e Frontend com React.
+O projeto ainda em desenvolvimento.
+
+# Tecnologias usadas:
+Backend:
+  Java, Springboot, Postgres.
+
+  Frontend:  
+   Typescript, ReactJS, CSS.
+
+   #![Alt text](image.png)
+
+

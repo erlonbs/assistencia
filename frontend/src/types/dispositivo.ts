@@ -1,3 +1,5 @@
+import { Clientes } from "./cliente";
+
 export type Dispositivos = {
   dispositivoId: number;
   dispositivoName: String;
@@ -7,5 +9,6 @@ export type Dispositivos = {
   serial: string;
   descricao: string;
   clienteId: number;
+  clienteName:string;
  
 }

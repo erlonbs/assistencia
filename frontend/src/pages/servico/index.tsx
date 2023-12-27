@@ -7,22 +7,25 @@ function Servico() {
     <body className="containerServico">
       <h1>Serviços</h1>
 
-      <Link to ={`/servico/novo`} >
-        
-        <button className="btnOrcamento" type="button" >Novo</button>" 
-    </Link>
+      <Link to={`/servico/novo`} >
 
-    <Link to ={`/servico/listar`} >
-        
-        <button className="btnOrcamento" type="button" >Listar</button>" 
-    </Link>
+        <button className="btnServico" type="button" >Novo</button>"
+      </Link>
 
-      <form>
-        
-        <a href="/">
-          <input type="button" value="Voltar ao Início" />
-        </a>
-      </form>
+      <Link to={`/servico/listar`} >
+
+        <button className="btnServico" type="button" >Listar</button>"
+      </Link>
+
+      <div>
+        <Link to={`/`} >
+
+          <button className="btnServico" type="button" >Voltar</button>"
+        </Link>
+
+      </div>
+
+
     </body>
   )
 }

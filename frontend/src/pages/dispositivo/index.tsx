@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import './dispositivoStyles.css'
 
-//import { Dispositivos } from 'types/dispositivo'
 
 function Dispositivo() {
   return (
@@ -8,26 +8,41 @@ function Dispositivo() {
 
       <h1 className='containerTitulo'>Dispositivos</h1>
 
-      <form className='btnDispositivo'>
+      <div className='btnDispositivo'>
+
+
+        <div>
+          <Link to={"/Dispositivo/Novo"} >
+            <button className='btnDispositivo' type="button" value="Novo">Novo</button>
+          </Link>
+        </div>
+
+        <div>
+          <Link to={"/dispositivo/listar"} >
+            <button className='btnDispositivo' type="button" value="Listar">Listar</button>
+          </Link>
+        </div>
+        <div>
+          <Link to={"/dispositivo/editar"} >
+            <button className='btnDispositivo' type="button" value="Editar">Editar</button>
+          </Link>
+        </div>
        
-        <a href="/dispositivo/novo">
-          <input className='btnDispositivo' type="button" value="Novo" />
-        </a>
-        <a href="/dispositivo/listar">
-          <input className='btnDispositivo' type="button" value="Listar" />
-        </a>
-        <a href="/dispositivo/editar">
-          <input className='btnDispositivo' type="button" value="Editar" />         
-        </a>
+        <div>
+          <Link to={"/dispositivo/Excluir"} >
+            <button className='btnDispositivo' type="button" value="Excluir">Excluir</button>
+          </Link>
+        </div>
 
-        <a href="/dispositivo/excluir">
-          <input className='btnDispositivo' type="button" value="Excluir" />
-        </a>
+        <div className="voltar">
 
-        <a href="/">
-          <input className='btnDispositivo' type="button" value="Voltar" />
-        </a>
-      </form>
+          <Link to={"/"} >
+            <button className='btnDispositivo' type="button" value="Voltar">Voltar</button>
+          </Link>
+        </div>
+
+
+      </div>
     </body>
   )
 }

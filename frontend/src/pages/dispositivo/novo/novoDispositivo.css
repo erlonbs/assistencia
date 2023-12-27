@@ -1,3 +1,7 @@
+.containerDispositivo{
+  
+}
+
 .titulo {
     text-align: center;
   }
@@ -11,4 +15,6 @@
   .containerForm{
     display: flex;
     flex-direction: column;
+    
   }
+

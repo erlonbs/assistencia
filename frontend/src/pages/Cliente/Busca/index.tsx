@@ -5,28 +5,31 @@ function Busca() {
   return (
     <div className='containerCliente'>
       <div className="busca">
-        <label htmlFor="bt">Listar todos</label>
-        <br />
-        <br />
+        <label htmlFor="bt">Consultar todos</label>
+       
 
-        <form>
-          <a href="/Cliente/Busca/BuscaTodos">
-            <input type="button" value="Consultar" />
-          </a>
-        </form>
+        <div>
+
+          <Link to={"/Cliente/Busca/BuscaTodos"} >
+            <button className='btnInput' type="button" value="Consutar">Consultar</button>
+          </Link>
+
+        </div>
 
         <label htmlFor="bc">Consultar por código</label>
-        <form>
-          <a href="/Cliente/Busca/BuscaCodigo">
-            <input type="button" value="Consultar" />
-          </a>
-        </form>
 
-        <Link className="voltar" to="/Cliente/1">
-          <div>
-            <button>voltar</button>
-          </div>
-        </Link>
+        <div>
+          <Link to={"/Cliente/Busca/BuscaCodigo"} >
+            <button className='btnInput' type="button" value="Consultar">Consultar</button>
+          </Link>
+        </div>
+
+        <div>
+
+          <Link className="voltar" to="/Cliente/1">
+            <button className='btnInput'>Voltar</button>
+          </Link>
+        </div>
       </div>
     </div>
   )

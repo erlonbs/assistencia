@@ -1,7 +1,7 @@
 import { Clientes } from 'types/cliente'
 import { BASE_URL } from 'utils/requests'
 import axios from 'axios'
-import './buscaStyles.css'
+import './buscaTodos.css'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 

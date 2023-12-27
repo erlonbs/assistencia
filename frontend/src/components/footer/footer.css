@@ -1,0 +1,34 @@
+.footer-container {
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    flex-direction: column;
+    padding: 0.3rem;
+}
+
+
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copyright-itens {
+    margin: 0%;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+}

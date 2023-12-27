@@ -7,5 +7,6 @@ export type Servicos = {
     pagamento: boolean;
     valor: number;
     descricao: string;
-    clienteId: number;
+    servicoRealizado: string;
+    clienteId: string;
 }

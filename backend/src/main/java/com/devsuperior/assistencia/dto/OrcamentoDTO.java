@@ -13,7 +13,7 @@ public class OrcamentoDTO {
 
 	private String defeito;
 	private BigDecimal valor;
-	private Boolean autorizado;
+	private Boolean autorizado=false;
 	private String descricao;
 	
 	private String clienteName;
@@ -52,7 +52,7 @@ public class OrcamentoDTO {
 		defeito=entity.getDefeito();
 		descricao=entity.getDescricao();
 		valor=entity.getValor();
-		autorizado=entity.getAutorizado();
+		autorizado=entity.isAutorizado();
 		clienteId= entity.getClienteId();
 	
 		

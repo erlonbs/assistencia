@@ -32,4 +32,20 @@ public class ServicoService {
 		List<Servico> lista = repository.findAll();
 		return lista.stream().map(x -> new ServicoDTO(x)).collect(Collectors.toList());
 	}
+	
+	@Transactional 	
+	public ServicoDTO insert(ServicoDTO dto) {
+		
+		Servico entity = new Servico();
+		
+		entity.setCodigoOrcamento(dto.getCodigoOrcamento());
+		entity.setClienteName(dto.getClienteName());
+		entity.setDescricao(dto.getDescricao());
+		entity.setServicoRealizado(dto.getServicoRealizado());
+		entity.setValor(dto.getValor());
+		entity.setPagamento(dto.getPagamento());
+	
+		entity=repository.save(entity);
+		return new ServicoDTO(entity);
+	}
 }

@@ -8,32 +8,35 @@ public class ServicoDTO {
 	private String descricao;
 	private double valor;
 	private String pagamento;
+	private String servicoRealizado;
 	
 	private Long codigoOrcamento;
-	private String nomeCliente;
+	private String clienteName;
 	
 	public ServicoDTO() {
 		
 	}
 
-	public ServicoDTO(Long id, Long codigoOrcamento, String nomeCliente, String descricao, double valor, String pagamento) {
+	public ServicoDTO(Long id, Long codigoOrcamento, String clienteName, String descricao, String servicoRealizado, double valor, String pagamento) {
 
 		this.id = id;
 		this.descricao = descricao;
+		this.servicoRealizado=servicoRealizado;
 		this.valor = valor;
 		this.pagamento = pagamento;
 		this.codigoOrcamento=codigoOrcamento;
-		this.nomeCliente=nomeCliente;
+		this.clienteName=clienteName;
 	}
 	
 	public ServicoDTO(Servico entity) {
 		
 		id=entity.getId();
 		descricao=entity.getDescricao();
+		servicoRealizado=entity.getServicoRealizado();
 		valor=entity.getValor();
 		pagamento=entity.getPagamento();
 		codigoOrcamento=entity.getCodigoOrcamento();
-		nomeCliente=entity.getNomeCliente();
+		clienteName=entity.getClienteName();
 		
 	}
 
@@ -57,7 +60,7 @@ public class ServicoDTO {
 		return valor;
 	}
 
-	public void setValor(Long valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
@@ -77,12 +80,20 @@ public class ServicoDTO {
 		this.codigoOrcamento = codigoOrcamento;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public String getClienteName() {
+		return clienteName;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
+	}
+
+	public String getServicoRealizado() {
+		return servicoRealizado;
+	}
+
+	public void setServicoRealizado(String servicoRealizado) {
+		this.servicoRealizado = servicoRealizado;
 	}
 	
 	

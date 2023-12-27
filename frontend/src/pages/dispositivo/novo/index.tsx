@@ -1,7 +1,8 @@
 import { BASE_URL } from 'utils/requests';
-import './novoDispositivo.css'
+import './novoDispositivo.css';
 import axios from 'axios';
 import React, { useState } from 'react';
+
 
 
  function NovoDispositivo() {
@@ -64,7 +65,7 @@ import React, { useState } from 'react';
         <label htmlFor="">Descricao:</label>
         <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
 
-        <label htmlFor="">Cliente Id</label>
+        <label htmlFor="">Código do Cliente</label>
         <input type="text" value={clienteId} onChange={e => setClienteId(e.target.value)} />
 
         <button type="submit">Inserir</button>

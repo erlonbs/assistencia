@@ -1,5 +1,5 @@
 import axios from 'axios'
-import './styles.css'
+import './buscaCodigo.css'
 import { Clientes } from 'types/cliente'
 
 import { BASE_URL } from 'utils/requests'
@@ -109,7 +109,7 @@ function BuscaCodigo() {
         </div>
       </Link>
 
-      <h1>Disposisvos do cliente:</h1>
+      <h1>Dispositivos do cliente:</h1>
       <table className="tabela">
         <thead>
           <tr className="coluna">

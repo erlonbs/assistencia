@@ -1,19 +1,21 @@
-header {
-  height: 60px;
+.container-header {
+  height: 80px;
   width: 100vw;
   background-color: var(--color-primary);
-  display: flex;
+  display: flex; 
+justify-content: center;
+  flex-direction: column;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .container-title {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: space-around;
+
+ 
+
 
   color: rgb(21, 20, 95);
 }
