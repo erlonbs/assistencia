@@ -1,7 +1,7 @@
 export type Servicos = {
 
     id: number;
-    clienteName: String;
+    clienteName: string;
     marca: string;
     codigoOrcamento: number;
     pagamento: boolean;

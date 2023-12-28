@@ -25,6 +25,7 @@ import ExcluirOrcamento from 'pages/orcamento/excluir';
 import NovaOrdemServico from 'pages/servico/novo';
 import ListarOrdemServico from 'pages/servico/listar';
 import Footer from 'components/footer';
+import EditarOrdemServico from 'pages/servico/editar'
 
 
 
@@ -53,6 +54,7 @@ function App() {
           <Route path=":servicoId" element={<Servico />} />
           <Route path='/servico/novo' element={<NovaOrdemServico/>}/>
           <Route path='/servico/listar' element={<ListarOrdemServico/>}/>
+          <Route path='/servico/editar' element={<EditarOrdemServico/>}/>
         </Route>
 
 

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,5 +49,27 @@ public class ServicoService {
 	
 		entity=repository.save(entity);
 		return new ServicoDTO(entity);
+	}
+	
+	@Transactional
+	public ServicoDTO update(ServicoDTO dto, Long id) {
+		
+		try {
+		Servico entity = repository.getReferenceById(id);
+		
+		entity.setCodigoOrcamento(dto.getCodigoOrcamento());
+		entity.setClienteName(dto.getClienteName());
+		entity.setDescricao(dto.getDescricao());
+		entity.setServicoRealizado(dto.getServicoRealizado());
+		entity.setValor(dto.getValor());
+		entity.setPagamento(dto.getPagamento());
+		
+		entity = repository.save(entity);
+		return new ServicoDTO(entity);
+		
+	}
+		catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id not found " + id);
+		}
 	}
 }

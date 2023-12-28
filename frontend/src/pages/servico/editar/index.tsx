@@ -1,109 +1,112 @@
 import { BASE_URL } from 'utils/requests';
-import './editarOrcamento.css'
+import './editarServico.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
-import { Orcamentos } from 'types/orcamento'
 import { Link } from 'react-router-dom';
 
 
 
-function EditarOrcamento() {
-  const [orcamento, setOrcamento] = useState<Orcamentos>()
-  const [orcamentoId, setOrcamentoId] = useState('');
-  const [dispositivoId, setDispositivoId] = useState('');
-  const [dispositivoName, setDispositivoName] = useState('');
-  const [defeito, setDefeito] = useState('')
+function EditarOrdemServico() {
+
+  const [servicoId, setServicoId] = useState('')
+  const [codigoOrcamento, setCodigoOrcamento] = useState('');
+  const [clienteName, setClienteName] = useState('');
+
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')
-  const [autorizado, setAutorizado] = useState(Boolean)
+  const [servicoRealizado, setServicoRealizado] = useState('')
+  const [pagamento, setPagamento] = useState(Boolean)
+  const [clienteId, setClienteId] = useState('')
 
 
   useEffect(() => {
 
-    axios.get(`${BASE_URL}/orcamentos/${orcamentoId}`).then(response => {
-      setOrcamento(response.data);
+    axios.get(`${BASE_URL}/servicos/${servicoId}`).then(response => {
+      setCodigoOrcamento(response.data.codigoOrcamento);
+      setClienteName(response.data.clienteName);
+      setValor(response.data.valor);
+      setDescricao(response.data.descricao);
+      setServicoRealizado(response.data.servicoRealizado);
+      setPagamento(response.data.pagamento);
+      setClienteId(response.data.clienteId);
+
     })
 
-  }, [orcamentoId]);
+  }, [servicoId]);
 
-  const BASE = `${BASE_URL}/orcamentos/${orcamentoId}`
+  const BASE = `${BASE_URL}/servicos/${servicoId}`
 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosEditar = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado }
+    const dadosEditar = { codigoOrcamento, clienteName, descricao, valor, servicoRealizado, pagamento, clienteId }
 
 
     try {
       const response = await axios.put(BASE, dadosEditar)
-      console.log('Editado orcamento!', response.data)
+      console.log('Editado serviço!', response.data)
     } catch (error) {
       console.error('Não foi possível editar:', error)
     }
   }
 
   const handleCheckboxChange = () => {
-    setAutorizado(!autorizado)
+    setPagamento(!pagamento)
   };
 
   return (
-    <div className="containerOrcamento">
-      <h1 className="titulo">Editar orçamento</h1>
+    <div className="containerServico">
+      <h1 className="titulo">Editar Ordem de Serviço</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
 
-        <label htmlFor="nome">Codigo Orçamento:</label>
+        <label htmlFor="nome">Codigo do serviço:</label>
         <input
           type="text"
-          value={orcamentoId}
-          onChange={e => setOrcamentoId(e.target.value)}
+          value={servicoId}
+          onChange={e => setServicoId(e.target.value)}
         />
 
-        <label htmlFor="codigoDispositivo">Código do dispositivo:</label>
+        <label htmlFor="codigoDispositivo">Código do Orcamento:</label>
         <input className='inputForm'
           type="text"
-          value={orcamento?.dispositivoId}
-
-          onChange={e => setDispositivoId(e.target.value)}
+          value={codigoOrcamento}
+          onChange={e => setCodigoOrcamento(e.target.value)}
         />
 
-        <label htmlFor="nomeDispositivo">Nome do dispositivo:</label>
+        <label htmlFor="clienteName">Nome do cliente:</label>
         <input className='inputForm'
           type="text"
-          value={orcamento?.dispositivoName}
-       
-        onChange={e => setDispositivoName(e.target.value)}
+          value={clienteName}
+          onChange={e => setClienteName(e.target.value)}
         />
 
-        <label htmlFor="defeito">Defeito:</label>
-        <input className='inputForm'
-          type="text"
-          placeholder={orcamento?.defeito}
-          value={defeito}
-          onChange={e => setDefeito(e.target.value)}
-        />
 
         <label htmlFor="descricao">Descrição:</label>
         <input className='inputForm'
           type="text"
-          placeholder={orcamento?.descricao}
           value={descricao}
-          onChange={e => setDescricao(e.target.value)} />
+          onChange={e => setDescricao(e.currentTarget.value)} />
 
         <label htmlFor="valor">Valor:</label>
         <input className='inputForm'
           type="text"
-          placeholder={`${orcamento?.valor}`}
           value={valor}
-          onChange={e => setValor(e.target.value)}
+          onChange={e => setValor(e.currentTarget.value)}
         />
 
-        <label htmlFor="autorizado">Autorizado:</label>
+        <label htmlFor="servicoRealizado">Serviço realizado:</label>
         <input className='inputForm'
-          type="checkbox"         
-          checked={autorizado}
+          type="text"
+          value={servicoRealizado}
+          onChange={e => setServicoRealizado(e.target.value)}
+        />
+
+        <label htmlFor="pagamento">Pagamento:</label>
+        <input className='inputForm'
+          type="checkbox"
+          checked={pagamento}
 
           onChange={handleCheckboxChange}
         />
@@ -111,12 +114,12 @@ function EditarOrcamento() {
         <button type="submit">Editar</button>
       </form>
 
-      <Link to ={`/orcamento/1`} className="btnVoltar">
-        
-          <button type="button" >Voltar</button>" 
+      <Link to={`/servico/1`} className="btnVoltar">
+
+        <button type="button" >Voltar</button>"
       </Link>
     </div>
   )
 }
 
-export default EditarOrcamento
+export default EditarOrdemServico

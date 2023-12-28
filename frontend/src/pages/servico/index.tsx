@@ -17,6 +17,12 @@ function Servico() {
         <button className="btnServico" type="button" >Listar</button>"
       </Link>
 
+      <Link to={`/servico/editar`} >
+
+<button className="btnServico" type="button" >Editar</button>"
+</Link>
+
+
       <div>
         <Link to={`/`} >
 
