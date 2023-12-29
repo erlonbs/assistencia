@@ -1,41 +1,41 @@
 import { useState } from 'react';
 import { BASE_URL } from 'utils/requests';
-import './excluirOrcamento.css';
+import './excluirServico.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
 
-function ExcluirOrcamento() {
+function ExcluirServico() {
   const [id, setId] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [orcamento, setOrcamento] = useState('')
+  const [servico, setServico] = useState('')
 
 
-  const BASE = `${BASE_URL}/orcamentos`
+  const BASE = `${BASE_URL}/servicos`
 
   const handleDelete = async () => {
 
     try {
       const response = await axios.delete(`${BASE}/${id}`);
-      console.log('Orçamento excluído com sucesso!', orcamento)
-      setOrcamento(response.data.name)
-      setMensagem(`Orçamento com Id '  ${id} ${response.data}'  excluído com sucesso!`)
+      console.log('Orçamento excluído com sucesso!', servico)
+      setServico(response.data.name)
+      setMensagem(`Servico com Id '  ${id} ${response.data}'  excluído com sucesso!`)
       setId('')
     } catch (error) {
       console.error('Não foi possível excluir:', error)
-      setMensagem(`Erro ao excluir o orçamento ${id} "" + verifique e tente novamente!`)
+      setMensagem(`Erro ao excluir o serviço ${id} "" + verifique e tente novamente!`)
       setId('')
     }
   }
 
   return (
-    <div className="containerOrcamento">
-      <h1>Excluir Orçamentos</h1>
+    <div className="containerServico">
+      <h1>Excluir Serviços</h1>
 
     
 
-      <h6>insira o Orçamento a ser excluido:</h6>
+      <h6>insira a Ordem de Serviço a ser excluida:</h6>
 
       <input type="text" value={id} onChange={e => setId(e.target.value)} />
       <button onClick={handleDelete}>Excluir id</button>
@@ -43,7 +43,7 @@ function ExcluirOrcamento() {
       {mensagem && <div className="mensagem" >{mensagem}</div>}
 
       <div>
-        <Link to={"/Orcamento/1"} className="voltar">
+        <Link to={"/Servico/1"} className="voltar">
          
             <input type="button" value="Voltar" />
           
@@ -52,4 +52,4 @@ function ExcluirOrcamento() {
     </div>
   )
 }
-export default ExcluirOrcamento
+export default ExcluirServico

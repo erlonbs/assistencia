@@ -19,8 +19,13 @@ function Servico() {
 
       <Link to={`/servico/editar`} >
 
-<button className="btnServico" type="button" >Editar</button>"
-</Link>
+        <button className="btnServico" type="button" >Editar</button>"
+      </Link>
+
+      <Link to={`/servico/excluir`} >
+
+        <button className="btnServico" type="button" >Excluir</button>"
+      </Link>
 
 
       <div>

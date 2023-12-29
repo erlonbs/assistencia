@@ -36,7 +36,7 @@ function ListarOrdemServico() {
               <th className='cabecalho'>Código do orçamento</th>
               <th className='cabecalho'>Nome do Cliente</th>
 
-              <th className='cabecalho'>Descrição do Serviço</th>
+              <th className='cabecalho'>Defeito</th>
               <th className='cabecalho'>Serviço realizado</th>
 
               <th className='cabecalho'>Valor</th>
