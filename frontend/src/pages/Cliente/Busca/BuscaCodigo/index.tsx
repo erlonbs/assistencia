@@ -31,13 +31,14 @@ function BuscaCodigo() {
 
     if (cliente) {
       setMensagem(`Verifique abaixo os dados de : ${cliente.clienteName}`)
+      
     } else {
       setMensagem(' Cliente inexistente')
     }
   }
 
   return (
-    <div className='containerCliente'>
+    <section className='containerCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
         <h2>Entre com o código do cliente:</h2>
 
@@ -144,7 +145,7 @@ function BuscaCodigo() {
 
 
       </table >
-    </div >
+    </section >
 
   )
 

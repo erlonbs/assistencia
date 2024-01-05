@@ -21,13 +21,15 @@ public class Servico implements Serializable {
 	private String pagamento;
 	private Long codigoOrcamento;
 	private String clienteName;
+	private Long clienteId;
 	private String servicoRealizado;
+	private Long dispositivoId;
 	
 	public Servico() {
 		
 	}
 
-	public Servico(Long id, Long codigoOrcamento, String clienteName, String descricao,String servicoRealizado, double valor, String pagamento) {
+	public Servico(Long id, Long codigoOrcamento, String clienteName,Long clienteId, String descricao,String servicoRealizado, double valor, String pagamento) {
 	
 		this.id = id;
 		this.codigoOrcamento=codigoOrcamento;
@@ -36,6 +38,7 @@ public class Servico implements Serializable {
 		this.servicoRealizado=servicoRealizado;
 		this.valor = valor;
 		this.pagamento = pagamento;
+		this.clienteId=clienteId;
 	}
 
 	public Long getId() {
@@ -89,6 +92,14 @@ public class Servico implements Serializable {
 	public void setClienteName(String clienteName) {
 		this.clienteName = clienteName;
 	}
+	
+	public Long getClienteId() {
+		return clienteId;
+	}
+	
+	public void setClienteId(Long clienteId) {
+		this.clienteId=clienteId;
+	}
 
 	public String getServicoRealizado() {
 		return servicoRealizado;
@@ -96,6 +107,15 @@ public class Servico implements Serializable {
 
 	public void setServicoRealizado(String servicoRealizado) {
 		this.servicoRealizado = servicoRealizado;
+	}
+
+	
+	public Long getDispositivoId() {
+		return dispositivoId;
+	}
+
+	public void setDispositivoId(Long dispositivoId) {
+		this.dispositivoId = dispositivoId;
 	}
 
 	

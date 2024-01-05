@@ -13,6 +13,7 @@ function NovaOrdemServico() {
   const [servicoRealizado, setServicoRealizado] = useState('');
   const [pagamento, setPagamento] = useState(Boolean)
   const [clienteId, setClienteId] = useState('');
+  const [dispositivoId, setDispositivoId] = useState('');
 
   useEffect(() => {
     if (codigoOrcamento) {
@@ -23,6 +24,7 @@ function NovaOrdemServico() {
         setValor(response.data.valor);
         setDescricao(response.data.descricao);
         setClienteId(response.data.clienteId);
+        setDispositivoId(response.data.dispositivoId);
       })
         .catch(error => {
           console.error('erro ao obter dados do orcamento', error);
@@ -40,7 +42,7 @@ function NovaOrdemServico() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { codigoOrcamento, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId }
+    const dadosNovo = { codigoOrcamento, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId, dispositivoId }
 
     try {
       const response = await axios.post(BASE, dadosNovo)
@@ -108,6 +110,14 @@ function NovaOrdemServico() {
           value={clienteId}
           onChange={e => setClienteId(e.target.value)}
         />
+
+<label htmlFor="valor">Código do dispositivo:</label>
+        <input className='inputForm'
+          type="text"
+          value={dispositivoId}
+          onChange={e => setDispositivoId(e.target.value)}
+        />
+
 
         <button type="submit">Inserir</button>
       </form>

@@ -10,7 +10,7 @@ function NovoOrcamento() {
 
   const [dispositivoId, setDispositivoId] = useState('');
   const [dispositivoName, setDispositivoName] = useState('');
- 
+  const [clienteName, setClienteName] = useState('');
   const [defeito, setDefeito] = useState('')
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')  
@@ -27,6 +27,8 @@ function NovoOrcamento() {
           setDispositivoName(response.data.dispositivoName);
          
          setClienteId(response.data.clienteId);
+
+         setClienteName(response.data.clienteName);
         }
         else {
           console.error("a resposta não contem o dado")
@@ -49,7 +51,7 @@ function NovoOrcamento() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoId, dispositivoName, defeito, descricao, valor, autorizado ,clienteId }
+    const dadosNovo = { dispositivoId, dispositivoName, clienteName, defeito, descricao, valor, autorizado ,clienteId }
 
 
     try {
@@ -85,7 +87,12 @@ function NovoOrcamento() {
           readOnly
         />
 
-
+<label htmlFor="clienteName">Nome do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={clienteName}
+          readOnly
+        />
 
         <label htmlFor="defeito">Defeito:</label>
         <input className='inputForm'

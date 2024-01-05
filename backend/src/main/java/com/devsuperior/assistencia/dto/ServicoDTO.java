@@ -8,10 +8,11 @@ public class ServicoDTO {
 	private String descricao;
 	private double valor;
 	private String pagamento;
-	private String servicoRealizado;
-	
+	private String servicoRealizado;	
 	private Long codigoOrcamento;
 	private String clienteName;
+	private Long clienteId;
+	private Long dispositivoId;
 	
 	public ServicoDTO() {
 		
@@ -37,6 +38,10 @@ public class ServicoDTO {
 		pagamento=entity.getPagamento();
 		codigoOrcamento=entity.getCodigoOrcamento();
 		clienteName=entity.getClienteName();
+		clienteId=entity.getClienteId();
+		dispositivoId=entity.getDispositivoId();
+		
+		
 		
 	}
 
@@ -94,6 +99,22 @@ public class ServicoDTO {
 
 	public void setServicoRealizado(String servicoRealizado) {
 		this.servicoRealizado = servicoRealizado;
+	}
+
+	public Long getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Long clienteId) {
+		this.clienteId = clienteId;
+	}
+
+	public Long getDispositivoId() {
+		return dispositivoId;
+	}
+
+	public void setDispositivoId(Long dispositivoId) {
+		this.dispositivoId = dispositivoId;
 	}
 	
 	

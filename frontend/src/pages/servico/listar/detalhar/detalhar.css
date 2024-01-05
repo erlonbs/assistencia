@@ -1,0 +1,44 @@
+.containerServico{
+    width: 100%;
+}
+
+
+.servicoDetalhar{
+  
+   background-color: blue;
+   
+}
+
+
+.tabelaDetalhar {
+    display: flex;
+    flex-direction: column;  
+    
+    width: 100%;
+
+}
+
+.linhaDetalhar {
+    display: flex;
+    background-color: rgb(182, 200, 222);
+
+justify-content: space-between;
+
+}
+
+.cabecalhoDetalhar{
+        background-color: rgb(66, 66, 199);
+      
+
+    }
+
+
+    .celulaCabecalho, .celulaConteudo {
+        padding: 10px;
+        text-align: left;
+      }
+
+
+table, td, th{
+    padding: 5px 2px;
+}

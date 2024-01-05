@@ -3,7 +3,7 @@ import './clienteStyles.css'
 function Cliente() {
   return (
 
-    <div className="containerCliente">
+    <section className="containerCliente">
       <h1>Clientes</h1>
 
       <div className="buttons">
@@ -44,7 +44,7 @@ function Cliente() {
       </div>
 
 
-    </div>
+    </section>
   )
 }
 export default Cliente

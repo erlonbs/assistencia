@@ -11,13 +11,14 @@ public class DispositivoDTO {
 	private String cor;
 	private String serial;
 	private String descricao;
+	private String clienteName;
 	private Long clienteId;
 
 	public DispositivoDTO() {
 
 	}
 
-	public DispositivoDTO(Long dispositivoId, String dispositivoName, String marca, String modelo, String cor,
+	public DispositivoDTO(Long dispositivoId, String dispositivoName, String clienteName, String marca, String modelo, String cor,
 			String serial, String descricao) {
 
 		this.dispositivoId = dispositivoId;
@@ -27,6 +28,7 @@ public class DispositivoDTO {
 		this.cor = cor;
 		this.serial = serial;
 		this.descricao = descricao;
+		this.clienteName=clienteName;
 
 	}
 
@@ -39,7 +41,9 @@ public class DispositivoDTO {
 		this.cor = entity.getCor();
 		this.serial = entity.getSerial();
 		this.descricao = entity.getDescricao();
+		this.setClienteName(entity.getCliente().getClienteName());
 		this.clienteId = entity.getCliente().getClienteId();
+		
 
 	}
 
@@ -108,6 +112,14 @@ public class DispositivoDTO {
 			this.clienteId = clienteId;
 		}
 
+	}
+
+	public String getClienteName() {
+		return clienteName;
+	}
+
+	public void setClienteName(String clienteName) {
+		this.clienteName = clienteName;
 	}
 
 }

@@ -52,6 +52,7 @@ public class DispositivoService {
 	        entity.setCor(dto.getCor());
 	        entity.setSerial(dto.getSerial());
 	        entity.setDescricao(dto.getDescricao());
+	        entity.setClienteName(dto.getClienteName());
 	        entity.setClienteId(dto.getClienteId());
 	        	  
 	        entity = repository.save(entity);

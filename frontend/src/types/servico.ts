@@ -8,5 +8,6 @@ export type Servicos = {
     valor: number;
     descricao: string;
     servicoRealizado: string;
-    clienteId: string;
+    clienteId: number;
+    dispositivoId:number;
 }

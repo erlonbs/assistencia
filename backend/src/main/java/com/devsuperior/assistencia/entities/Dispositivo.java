@@ -28,10 +28,11 @@ public class Dispositivo implements Serializable {
 	private String serial;
 	private String descricao;
 
+
 	// Mapeamento 1 cliente pode ter 1 ou mais dispositivos e 1 dispositivo pertence
 	// a 1 cliente;
 
-	@ManyToOne/*(cascade = CascadeType.PERSIST)*/
+	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 
@@ -50,6 +51,7 @@ public class Dispositivo implements Serializable {
 		this.serial = serial;
 		this.descricao = descricao;
 		this.cliente = cliente;
+		
 
 	}
 
@@ -107,6 +109,10 @@ public class Dispositivo implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public void setClienteName(String clienteName) {
+		this.cliente.setClienteName(clienteName);
 	}
 
 	public void setClienteId(Long clienteId) {

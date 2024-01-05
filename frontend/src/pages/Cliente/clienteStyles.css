@@ -3,10 +3,14 @@
   background-image: url('/src/assets/img/clienteFundo.jpg');
   background-size: cover;
   background-repeat: no-repeat; 
-  height: 100vh; 
-  width: 100vw;
 
-}
+  width: 100vw;
+  
+    height:100vh;
+   padding: 2em;
+  }
+  
+
 
 
 

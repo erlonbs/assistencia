@@ -27,6 +27,7 @@ import ListarOrdemServico from 'pages/servico/listar';
 import Footer from 'components/footer';
 import EditarOrdemServico from 'pages/servico/editar'
 import ExcluirServico from 'pages/servico/excluir'
+import DetalharOrdemServico from 'pages/servico/listar/detalhar'
 
 
 
@@ -57,6 +58,8 @@ function App() {
           <Route path='/servico/listar' element={<ListarOrdemServico/>}/>
           <Route path='/servico/editar' element={<EditarOrdemServico/>}/>
           <Route path='/servico/excluir' element={<ExcluirServico/>}/>
+          
+          <Route path='/servico/listar/detalhar/:id' element={<DetalharOrdemServico/>}/>
         </Route>
 
 

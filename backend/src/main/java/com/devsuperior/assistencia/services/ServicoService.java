@@ -45,10 +45,12 @@ public class ServicoService {
 
 		entity.setCodigoOrcamento(dto.getCodigoOrcamento());
 		entity.setClienteName(dto.getClienteName());
+		entity.setClienteId(dto.getClienteId());
 		entity.setDescricao(dto.getDescricao());
 		entity.setServicoRealizado(dto.getServicoRealizado());
 		entity.setValor(dto.getValor());
 		entity.setPagamento(dto.getPagamento());
+		entity.setDispositivoId(dto.getDispositivoId());
 
 		entity = repository.save(entity);
 		return new ServicoDTO(entity);
@@ -66,6 +68,7 @@ public class ServicoService {
 			entity.setServicoRealizado(dto.getServicoRealizado());
 			entity.setValor(dto.getValor());
 			entity.setPagamento(dto.getPagamento());
+			entity.setDispositivoId(dto.getDispositivoId());
 
 			entity = repository.save(entity);
 			return new ServicoDTO(entity);

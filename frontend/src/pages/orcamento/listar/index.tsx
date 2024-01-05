@@ -51,7 +51,7 @@ function ListarOrcamento() {
             <tr className='coluna'  key={orcamento.id}>
               <td className='celula'>{orcamento.id}</td>
               <td className='celula'>{orcamento.dispositivoId }</td>
-             <td className='celula'>{orcamento.dispositivoName}</td>
+              <td className='celula'>{orcamento.dispositivoName}</td>
               <td className='celula'>{orcamento.clienteName}</td>
               <td className='celula'>{orcamento.defeito}</td>
               <td className='celula'>{orcamento.descricao}</td>

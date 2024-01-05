@@ -1,9 +1,9 @@
-import './styles.css'
+import './buscaStyles.css'
 import { Link } from 'react-router-dom'
 
 function Busca() {
   return (
-    <div className='containerCliente'>
+    <section className='containerCliente'>
       <div className="busca">
         <label htmlFor="bt">Consultar todos</label>
        
@@ -31,7 +31,7 @@ function Busca() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 export default Busca
