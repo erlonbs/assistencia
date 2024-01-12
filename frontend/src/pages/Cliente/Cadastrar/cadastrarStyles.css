@@ -1,29 +1,3 @@
-.containerCliente{
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  align-items: center;
-}
-
-.titulo {
-  text-align: center;
-  margin-top: 0;
-}
-
-.containerForm{
-  display: flex;
-  align-items: center;
-}
-
-
-.entradaDados{
-  height: 30px;
-}
-
-.tituloEntrada{
-  font-size: 20px;
-}
-
 
 
 .btnCadastrar {

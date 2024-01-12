@@ -1,37 +1,11 @@
 .containerCliente {
-  text-align: center;
+
   background-image: url('/src/assets/img/clienteFundo.jpg');
   background-size: cover;
-  background-repeat: no-repeat; 
-
-  width: 100vw;
-  
-    height:100vh;
-   padding: 2em;
-  }
-  
-
-
-
-
-
-
-.btnClientes{
-  display: flex;
-  flex-direction: column;
-  border-radius: 15%;
-  width: 150px;
-  margin: 0.4rem;
-  align-items: center;
+  background-repeat: no-repeat;
+height: 100vh;
 }
 
-.buttons div {
-  font-size: 30px;
-  margin: 10px;
- display: flex;
- justify-content: center;
- 
-}
 
 .voltar {
   margin-bottom: 10px;

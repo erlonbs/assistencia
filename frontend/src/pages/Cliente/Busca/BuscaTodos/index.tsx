@@ -22,7 +22,7 @@ function BuscaTodos() {
     <div className='containerCliente'>
       <form className='formulario' >
 
-        <h2>Lista de todos clientes:</h2>
+        <h2 className='titulo'>Lista de todos clientes:</h2>
 
         <table className='tabela'>
           <thead >

@@ -3,7 +3,6 @@ import { BASE_URL } from 'utils/requests';
 import './excluirDispositivo.css';
 import axios from 'axios';
 
-//import { Clientes } from 'types/cliente'
 
 function ExcluirDispositivo() {
 const [id, setId] = useState('');

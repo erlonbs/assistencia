@@ -2,37 +2,53 @@ import "./orcamentoStyles.css";
 import { Link } from 'react-router-dom';
 
 function Orcamento() {
-  return (
-    <div className="containerOrcamento">
-    <h1 className='containerTitulo'>Orcamentos</h1>
+    return (
+        <body>
 
-   
-    <Link to ={`/orcamento/novo`} >
-        
-        <button className="btnOrcamento" type="button" >Novo</button>" 
-    </Link>
+            <section className="containerOrcamento">
+                <h1 className='titulo'>Orcamentos</h1>
 
-    <Link to ={`/orcamento/listar`} >
-        
-        <button className="btnOrcamento" type="button" >Listar</button>" 
-    </Link>
+                <div className='containerButtons'>
 
-    <Link to ={`/orcamento/editar`} >
-        
-        <button className="btnOrcamento" type="button" >Editar</button>" 
-    </Link>
+                    <div>
 
-    <Link to ={`/orcamento/excluir`} >
-        
-        <button className="btnOrcamento" type="button" >Excluir</button>" 
-    </Link>
+                        <Link to={`/orcamento/novo`} >
+                            <button type="button" >Novo</button>
+                        </Link>
 
-    <Link to ={`/`} >
-        
-        <button className="btnOrcamento" type="button" >Voltar</button>" 
-    </Link>
-    </div>
-)
-  
+                    </div>
+
+                    <div>
+                        <Link to={`/orcamento/listar`} >
+
+                            <button type="button" >Listar</button>
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link to={`/orcamento/editar`} >
+
+                            <button type="button" >Editar</button>
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link to={`/orcamento/excluir`} >
+
+                            <button type="button" >Excluir</button>
+                        </Link>
+                    </div>
+
+                    <div>
+                        <Link to={`/`} >
+
+                            <button type="button" >Voltar</button>
+                        </Link>
+                    </div>
+                </div>
+            </section >
+        </body>
+    )
+
 }
 export default Orcamento

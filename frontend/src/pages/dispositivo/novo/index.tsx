@@ -30,7 +30,7 @@ import React, { useState } from 'react';
   }
 
   return (
-    <div className="containerDispositivo">
+    <section className="containerDispositivo">
       <h1 className="titulo">Novo dispositivo</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -77,7 +77,7 @@ import React, { useState } from 'react';
           <input type="button" value="Voltar " />
         </a>
       </form>
-    </div>
+    </section>
   )
 }
 

@@ -22,7 +22,7 @@ function Listar() {
     <div className='containerDispositivo'>
       <form >
      
-        <h2>Lista de todos Dispositivos:</h2>
+        <h2 className='titulo'>Lista de todos Dispositivos:</h2>
 
 <table className='tabela'>
         <thead >

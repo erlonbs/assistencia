@@ -1,20 +1,5 @@
-.containerServico {
-  text-align: center;
+.containerServico {  
   background-image: url('/src/assets/img/serviçoFundo1.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
-
-
-.btnServico {
-  display: flex;
-  flex-direction: column;
-  border-radius: 15%;
-  width: 150px;
-  height: 43.5px;
-  font-size: 30px ;
-  margin: 0.4rem;
-  align-items: center;
-  justify-content: center;
+  background-repeat: no-repeat; 
 }

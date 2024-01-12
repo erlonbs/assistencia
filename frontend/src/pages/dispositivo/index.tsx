@@ -4,46 +4,48 @@ import './dispositivoStyles.css'
 
 function Dispositivo() {
   return (
-    <body className="containerDispositivo">
 
-      <h1 className='containerTitulo'>Dispositivos</h1>
+    <body>
 
-      <div className='btnDispositivo'>
+      <section className="containerDispositivo">
 
+        <h1 className='titulo'>Dispositivos</h1>
 
-        <div>
-          <Link to={"/Dispositivo/Novo"} >
-            <button className='btnDispositivo' type="button" value="Novo">Novo</button>
-          </Link>
+        <div className='containerButtons'>
+
+          <div>
+            <Link to={"/Dispositivo/Novo"} >
+              <button type="button" value="Novo">Novo</button>
+            </Link>
+          </div>
+
+          <div>
+            <Link to={"/dispositivo/listar"} >
+              <button type="button" value="Listar">Listar</button>
+            </Link>
+          </div>
+          <div>
+            <Link to={"/dispositivo/editar"} >
+              <button type="button" value="Editar">Editar</button>
+            </Link>
+          </div>
+
+          <div>
+            <Link to={"/dispositivo/Excluir"} >
+              <button type="button" value="Excluir">Excluir</button>
+            </Link>
+          </div>
+
+          <div className="voltar">
+
+            <Link to={"/"} >
+              <button  type="button" value="Voltar">Voltar</button>
+            </Link>
+          </div>
         </div>
-
-        <div>
-          <Link to={"/dispositivo/listar"} >
-            <button className='btnDispositivo' type="button" value="Listar">Listar</button>
-          </Link>
-        </div>
-        <div>
-          <Link to={"/dispositivo/editar"} >
-            <button className='btnDispositivo' type="button" value="Editar">Editar</button>
-          </Link>
-        </div>
-       
-        <div>
-          <Link to={"/dispositivo/Excluir"} >
-            <button className='btnDispositivo' type="button" value="Excluir">Excluir</button>
-          </Link>
-        </div>
-
-        <div className="voltar">
-
-          <Link to={"/"} >
-            <button className='btnDispositivo' type="button" value="Voltar">Voltar</button>
-          </Link>
-        </div>
-
-
-      </div>
+      </section>
     </body>
   )
+
 }
 export default Dispositivo

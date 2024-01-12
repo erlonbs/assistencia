@@ -3,6 +3,7 @@ import './atualizarStyles.css'
 import axios from 'axios'
 import { BASE_URL } from 'utils/requests'
 import { Clientes } from 'types/cliente'
+import { Link } from 'react-router-dom'
 
 function Atualizar() {
   const [cliente, setCliente] = useState<Clientes>()
@@ -56,7 +57,7 @@ function Atualizar() {
   }
 
   return (
-    <div className="containerCliente">
+    <section className="containerCliente">
       <h1 className="titulo">Atualizar Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
@@ -124,12 +125,14 @@ function Atualizar() {
 
       <div id="menssagem"></div>
 
-      <form className="btnVoltar">
-        <a href="/Cliente/1">
-          <input type="button" value="Voltar " />
-        </a>
-      </form>
-    </div>
+
+      <Link className="btnVoltar" to="/Cliente/1">
+        <div>
+          <button>Voltar</button>
+        </div>
+      </Link>
+
+    </section>
   )
 }
 export default Atualizar

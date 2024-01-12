@@ -1,29 +1,9 @@
-.containerOrcamento {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
+.containerOrcamento { 
   
   background-image: url('/src/assets/img/orcamentoFundo.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;   
   height: 100vh;
-  
-  align-items: center;
  
-}
 
-.containerTitulo {
-  margin-bottom: 3rem;
-}
-
-.btnOrcamento {
-  display: flex;
-  flex-direction: column;
-  border-radius: 15%;
-  width: 150px;
-  height: 43.5px;
-  font-size: 30px ;
-  margin: 0.4rem;
-  align-items: center;
-  justify-content: center;
 }

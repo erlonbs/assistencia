@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #93b379;
+
 }
 
 * {
@@ -11,17 +12,87 @@
 
 html,
 body {
-  
+  text-align: center;
 
-
-}
-
-section{
   width: 100vw;
   height: 100vh;
+
+
 }
 
- 
+
+.containerForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(227, 235, 226, 0.295);
+  width: 500px;
+  border-radius: 15px;
+  color: rgb(10, 10, 10);
+}
+
+.inputForm {
+  border-radius: 8px;
+}
+
+.entradaDados {
+  height: 30px;
+}
+
+.tituloEntrada {
+  font-size: 20px;
+}
+
+.containerButtons {
+  font-size: 30px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+
+.containerButtons button{
+  display: flex;
+  flex-direction: column;
+  border-radius: 15%;
+  width: 150px;
+  margin: 0.4rem;
+  align-items: center;
+  
+}
+
+
+.titulo {
+  color: blue;
+  text-align: center;
+
+  margin-bottom: 30px;
+  padding: 3rem;
+
+  font-family: 'Courier New', monospace;
+  font-size: 50px;
+  font-weight: 400;
+
+  position: relative;
+  animation: raio-animacao 1.5s linear infinite;
+}
+
+@keyframes raio-animacao {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px #0F0, 0 0 20px #0F0, 0 0 30px #0F0, 0 0 40px #0F0, 0 0 50px #0F0, 0 0 60px #0F0, 0 0 70px #0F0;
+  }
+
+  50% {
+    text-shadow: 0 0 5px #0F0, 0 0 10px #0F0, 0 0 15px #0F0, 0 0 20px #0F0, 0 0 25px #0F0, 0 0 30px #0F0, 0 0 35px #0F0;
+  }
+
+
+}
 
 a,
 a:hover {

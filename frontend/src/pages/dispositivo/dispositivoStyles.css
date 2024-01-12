@@ -1,35 +1,7 @@
 .containerDispositivo {
-  display: flex;
-  text-align: center;
+
   background-image: url('/src/assets/img/dispositivoFundo.jpg');
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
-height: 100vh;
-flex-direction: column;
-}
-
-.containerTitulo {
-  margin-bottom: 3rem;
-}
-
-.contaninerForm{
-  flex-direction: column;
-}
-
-.btnDispositivo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 15%;
-  width: 150px;
-  margin: 0.4rem;
-}
-
-
-.buttons div {
-  font-size: 30px;
-  margin: 10px;
- display: flex;
- justify-content: center;
- 
+  height: 100vh;
 }

@@ -29,7 +29,7 @@ function ListarOrdemServico() {
     <div className='containerServico'>
       <form >
 
-        <h2>Lista de todos os serviços:</h2>
+        <h2 className='titulo'>Lista de todos os serviços:</h2>
 
         <table className='tabela'>
           <thead >

@@ -2,6 +2,7 @@ import { BASE_URL } from 'utils/requests';
 import './novoServico.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 function NovaOrdemServico() {
@@ -111,23 +112,19 @@ function NovaOrdemServico() {
           onChange={e => setClienteId(e.target.value)}
         />
 
-<label htmlFor="valor">Código do dispositivo:</label>
+        <label htmlFor="valor">Código do dispositivo:</label>
         <input className='inputForm'
           type="text"
           value={dispositivoId}
           onChange={e => setDispositivoId(e.target.value)}
         />
-
-
         <button type="submit">Inserir</button>
       </form>
 
-      <form className="btnVoltar">
-        <a href="/Servico/1">
+      <Link className='btnVoltar' to={"/Servico/1"}>
+        <button >Voltar</button>
+      </Link>
 
-          <input type="button" value="Voltar " />
-        </a>
-      </form>
     </div>
   )
 }

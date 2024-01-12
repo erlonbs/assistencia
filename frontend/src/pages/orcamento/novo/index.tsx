@@ -2,7 +2,8 @@ import { BASE_URL } from 'utils/requests';
 import './novoOrcamento.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Clientes}  from 'types/cliente';
+import { Clientes } from 'types/cliente';
+import { Link } from 'react-router-dom';
 
 
 
@@ -13,7 +14,7 @@ function NovoOrcamento() {
   const [clienteName, setClienteName] = useState('');
   const [defeito, setDefeito] = useState('')
   const [valor, setValor] = useState('')
-  const [descricao, setDescricao] = useState('')  
+  const [descricao, setDescricao] = useState('')
   const [autorizado, setAutorizado] = useState(Boolean)
   const [clienteId, setClienteId] = useState('');
 
@@ -23,12 +24,12 @@ function NovoOrcamento() {
 
       axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
         console.log(response.data)
-        if(response.data){
+        if (response.data) {
           setDispositivoName(response.data.dispositivoName);
-         
-         setClienteId(response.data.clienteId);
 
-         setClienteName(response.data.clienteName);
+          setClienteId(response.data.clienteId);
+
+          setClienteName(response.data.clienteName);
         }
         else {
           console.error("a resposta não contem o dado")
@@ -46,12 +47,12 @@ function NovoOrcamento() {
 
   const BASE = `${BASE_URL}/orcamentos/`
 
-  
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoId, dispositivoName, clienteName, defeito, descricao, valor, autorizado ,clienteId }
+    const dadosNovo = { dispositivoId, dispositivoName, clienteName, defeito, descricao, valor, autorizado, clienteId }
 
 
     try {
@@ -67,7 +68,7 @@ function NovoOrcamento() {
   };
 
   return (
-    <div className="containerOrcamento">
+    <section className="containerOrcamento">
       <h1 className="titulo">Novo orçamento</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -76,7 +77,7 @@ function NovoOrcamento() {
         <input className='inputForm'
           type="text"
           value={dispositivoId}
-         
+
           onChange={e => setDispositivoId(e.target.value)}
         />
 
@@ -87,7 +88,7 @@ function NovoOrcamento() {
           readOnly
         />
 
-<label htmlFor="clienteName">Nome do cliente:</label>
+        <label htmlFor="clienteName">Nome do cliente:</label>
         <input className='inputForm'
           type="text"
           value={clienteName}
@@ -103,8 +104,8 @@ function NovoOrcamento() {
 
         <label htmlFor="descricao">Descrição:</label>
         <input className='inputForm'
-         type="text" 
-         value={descricao}
+          type="text"
+          value={descricao}
           onChange={e => setDescricao(e.target.value)} />
 
         <label htmlFor="valor">Valor:</label>
@@ -118,29 +119,28 @@ function NovoOrcamento() {
         <input className='inputForm'
           type="checkbox"
           checked={autorizado}
-        
-         onChange={handleCheckboxChange}
+
+          onChange={handleCheckboxChange}
         />
 
-<label htmlFor="defeito">Código do cliente:</label>
+        <label htmlFor="defeito">Código do cliente:</label>
         <input className='inputForm'
           type="text"
           value={clienteId}
           onChange={e => setClienteId(e.target.value)}
         />
 
-        
-
         <button type="submit">Inserir</button>
       </form>
 
-      <form className="btnVoltar">
-        <a href="/Orcamento/1">
 
-          <input type="button" value="Voltar " />
-        </a>
-      </form>
-    </div>
+      <Link className="btnVoltar" to="/Orcamento/1">
+        <div>
+          <button>Voltar</button>
+        </div>
+      </Link>
+
+    </section>
   )
 }
 

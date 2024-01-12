@@ -40,7 +40,7 @@ function BuscaCodigo() {
   return (
     <section className='containerCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
-        <h2>Entre com o código do cliente:</h2>
+        <h2 className='titulo'>Entre com o código do cliente:</h2>
 
         <div className="entrada">
           <input
@@ -110,7 +110,7 @@ function BuscaCodigo() {
         </div>
       </Link>
 
-      <h1>Dispositivos do cliente:</h1>
+      <h1 className='titulo'>Dispositivos do cliente:</h1>
       <table className="tabela">
         <thead>
           <tr className="coluna">

@@ -1,15 +1,3 @@
-.containerCliente{
-  margin: 0;
-}
-
-.titulo {
-  text-align: center;
-  margin-top: 0;
-}
-
-.containerForm{
-  align-items: flex-start;
-}
 
 
 .entradaDados{
@@ -33,9 +21,3 @@
   font-size: 15px;
 }
 
-.btnVoltar {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 20px;
-
-}

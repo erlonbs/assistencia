@@ -5,37 +5,37 @@ import './servicoStyles.css'
 function Servico() {
   return (
     <body className="containerServico">
-      <h1>Serviços</h1>
+      <h1 className='titulo'>Serviços</h1>
 
-      <Link to={`/servico/novo`} >
+      <div className='containerButtons'>
 
-        <button className="btnServico" type="button" >Novo</button>"
-      </Link>
-
-      <Link to={`/servico/listar`} >
-
-        <button className="btnServico" type="button" >Listar</button>"
-      </Link>
-
-      <Link to={`/servico/editar`} >
-
-        <button className="btnServico" type="button" >Editar</button>"
-      </Link>
-
-      <Link to={`/servico/excluir`} >
-
-        <button className="btnServico" type="button" >Excluir</button>"
-      </Link>
-
-
-      <div>
-        <Link to={`/`} >
-
-          <button className="btnServico" type="button" >Voltar</button>"
+        <Link to={`/servico/novo`} >
+          <button type="button" >Novo</button>
         </Link>
 
-      </div>
+        <Link to={`/servico/listar`} >
 
+          <button type="button" >Listar</button>
+        </Link>
+
+        <Link to={`/servico/editar`} >
+
+          <button type="button" >Editar</button>
+        </Link>
+
+        <Link to={`/servico/excluir`} >
+
+          <button type="button" >Excluir</button>
+        </Link>
+
+
+        <div>
+          <Link to={`/`} >
+            <button type="button" >Voltar</button>
+          </Link>
+
+        </div>
+      </div >
 
     </body>
   )

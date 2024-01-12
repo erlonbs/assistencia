@@ -2,49 +2,50 @@ import { Link } from 'react-router-dom'
 import './clienteStyles.css'
 function Cliente() {
   return (
+    <body>
 
-    <section className="containerCliente">
-      <h1>Clientes</h1>
+      <section className="containerCliente">
+        <h1 className='titulo'>Clientes</h1>
 
-      <div className="buttons">
-        
-        <div>
+        <div className="containerButtons">
 
-          <Link to={"/Cliente/Busca"} >
-            <button className='btnClientes' type="button" value="Consultar">Consultar</button>
-          </Link>
+          <div>
+
+            <Link to={"/Cliente/Busca"} >
+              <button type="button" value="Consultar">Consultar</button>
+            </Link>
+          </div>
+
+          <div>
+
+            <Link to={"/Cliente/Cadastrar"} >
+              <button className='btnClientes' type="button" value="Cadastrar">Cadastrar</button>
+            </Link>
+          </div>
+
+          <div>
+            <Link to={"/Cliente/Atualizar"} >
+              <button className='btnClientes' type="button" value="Atualizar">Atualizar</button>
+            </Link>
+          </div>
+
+          <div>
+            <Link to={"/Cliente/Excluir"} >
+              <button className='btnClientes' type="button" value="Excluir">Excluir</button>
+            </Link>
+          </div>
+
+          <div className="voltar">
+
+            <Link to={"/"} >
+              <button className='btnClientes' type="button" value="Voltar">Voltar</button>
+            </Link>
+          </div>
+
         </div>
 
-        <div>
-
-          <Link to={"/Cliente/Cadastrar"} >
-            <button className='btnClientes' type="button" value="Cadastrar">Cadastrar</button>
-          </Link>
-        </div>
-
-        <div>
-          <Link to={"/Cliente/Atualizar"} >
-            <button className='btnClientes' type="button" value="Atualizar">Atualizar</button>
-          </Link>
-        </div>
-
-        <div>
-          <Link to={"/Cliente/Excluir"} >
-            <button className='btnClientes' type="button" value="Excluir">Excluir</button>
-          </Link>
-        </div>
-
-        <div className="voltar">
-
-          <Link to={"/"} >
-            <button className='btnClientes' type="button" value="Voltar">Voltar</button>
-          </Link>
-        </div>
-
-      </div>
-
-
-    </section>
+      </section>
+    </body>
   )
 }
 export default Cliente

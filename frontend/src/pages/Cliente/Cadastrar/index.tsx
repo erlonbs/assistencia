@@ -2,6 +2,7 @@ import { BASE_URL } from 'utils/requests'
 import './cadastrarStyles.css'
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Cadastrar() {
   const [clienteName, setClienteName] = useState('')
@@ -45,7 +46,7 @@ function Cadastrar() {
   }
 
   return (
-    <div className="containerCliente">
+    <section className="containerCliente">
       <h1 className="titulo">Cadastro de Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
@@ -57,7 +58,7 @@ function Cadastrar() {
           type="text"
           size={35}
           value={clienteName}
-          
+
           onChange={e => setClienteName(e.target.value)}
         />
 
@@ -102,12 +103,14 @@ function Cadastrar() {
 
       <div id="menssagem"></div>
 
-      <form className="btnVoltar">
-        <a href="/Cliente/1">
-          <input type="button" value="Voltar " />
-        </a>
-      </form>
-    </div>
+
+      <Link className="voltar" to="/Cliente/1">
+        <div>
+          <button>voltar</button>
+        </div>
+      </Link>
+
+    </section>
   )
 }
 

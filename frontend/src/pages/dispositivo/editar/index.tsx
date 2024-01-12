@@ -45,7 +45,7 @@ function Editar() {
     <div className="containerDispositivo">
       <h1 className="titulo">Editar Dispositivos</h1>
 
-      <form className="container" onSubmit={handleSubmit}>
+      <form className="containerForm" onSubmit={handleSubmit}>
         <label htmlFor="nome">Codigo </label>
         <input
           type="text"

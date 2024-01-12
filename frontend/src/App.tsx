@@ -30,7 +30,6 @@ import ExcluirServico from 'pages/servico/excluir'
 import DetalharOrdemServico from 'pages/servico/listar/detalhar'
 
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -44,6 +43,7 @@ function App() {
           <Route path="/dispositivo/editar" element={<Editar/>}/>
           <Route path='/dispositivo/excluir' element={<ExcluirDispositivo/>}/>
         </Route>
+
         <Route path="/orcamento">
           <Route path=":orcamentoId" element={<Orcamento />} />
           <Route path="/orcamento/novo" element={<NovoOrcamento/>}/>
@@ -57,11 +57,9 @@ function App() {
           <Route path='/servico/novo' element={<NovaOrdemServico/>}/>
           <Route path='/servico/listar' element={<ListarOrdemServico/>}/>
           <Route path='/servico/editar' element={<EditarOrdemServico/>}/>
-          <Route path='/servico/excluir' element={<ExcluirServico/>}/>
-          
+          <Route path='/servico/excluir' element={<ExcluirServico/>}/>          
           <Route path='/servico/listar/detalhar/:id' element={<DetalharOrdemServico/>}/>
         </Route>
-
 
         <Route path="/cliente">
           <Route path=":clienteId" element={<Cliente />} />
@@ -74,8 +72,7 @@ function App() {
         </Route>
       </Routes>
       <Footer/>
-    </BrowserRouter>
-   
+    </BrowserRouter>   
   )
 }
 
