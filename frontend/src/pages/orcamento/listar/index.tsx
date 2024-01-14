@@ -25,7 +25,7 @@ function ListarOrcamento() {
 
   return (
 
-    <div className='containerOrcamento'>
+    <section className='containerOrcamento'>
       <form >
 
         <h2 className='titulo'>Lista de todos os Orçamentos:</h2>
@@ -72,7 +72,7 @@ function ListarOrcamento() {
         </div>
       </Link>
 
-    </div>
+    </section>
   )
 }
 export default ListarOrcamento

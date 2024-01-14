@@ -1,8 +1,8 @@
 import { BASE_URL } from 'utils/requests';
-import './novoOrcamento.css'
+//import './novoOrcamento.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Clientes } from 'types/cliente';
+
 import { Link } from 'react-router-dom';
 
 
@@ -135,9 +135,7 @@ function NovoOrcamento() {
 
 
       <Link className="btnVoltar" to="/Orcamento/1">
-        <div>
-          <button>Voltar</button>
-        </div>
+        <button>Voltar</button>
       </Link>
 
     </section>

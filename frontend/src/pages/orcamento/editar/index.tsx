@@ -49,7 +49,7 @@ function EditarOrcamento() {
   };
 
   return (
-    <div className="containerOrcamento">
+    <section className="containerOrcamento">
       <h1 className="titulo">Editar orçamento</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -73,8 +73,8 @@ function EditarOrcamento() {
         <input className='inputForm'
           type="text"
           value={orcamento?.dispositivoName}
-       
-        onChange={e => setDispositivoName(e.target.value)}
+
+          onChange={e => setDispositivoName(e.target.value)}
         />
 
         <label htmlFor="defeito">Defeito:</label>
@@ -102,7 +102,7 @@ function EditarOrcamento() {
 
         <label htmlFor="autorizado">Autorizado:</label>
         <input className='inputForm'
-          type="checkbox"         
+          type="checkbox"
           checked={autorizado}
 
           onChange={handleCheckboxChange}
@@ -111,11 +111,11 @@ function EditarOrcamento() {
         <button type="submit">Editar</button>
       </form>
 
-      <Link to ={`/orcamento/1`} className="btnVoltar">
-        
-          <button type="button" >Voltar</button>" 
+      <Link to={`/orcamento/1`} className="btnVoltar">
+
+        <button type="button" >Voltar</button>"
       </Link>
-    </div>
+    </section>
   )
 }
 

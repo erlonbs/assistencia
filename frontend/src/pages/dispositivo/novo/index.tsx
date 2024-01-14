@@ -2,10 +2,11 @@ import { BASE_URL } from 'utils/requests';
 import './novoDispositivo.css';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
- function NovoDispositivo() {
+function NovoDispositivo() {
   const [dispositivoName, setDispositivoName] = useState('')
   const [marca, setMarca] = useState('')
   const [modelo, setModelo] = useState('')
@@ -19,7 +20,7 @@ import React, { useState } from 'react';
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoName, marca, modelo, cor, serial, descricao, clienteId}
+    const dadosNovo = { dispositivoName, marca, modelo, cor, serial, descricao, clienteId }
 
     try {
       const response = await axios.post(BASE, dadosNovo)
@@ -60,7 +61,7 @@ import React, { useState } from 'react';
 
         <label htmlFor="">Serial:</label>
         <input type="text" value={serial} onChange={e => setSerial(e.target.value)} />
-        
+
 
         <label htmlFor="">Descricao:</label>
         <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
@@ -70,13 +71,11 @@ import React, { useState } from 'react';
 
         <button type="submit">Inserir</button>
       </form>
-     
-      <form className="btnVoltar">
-        <a href="/Dispositivo/1">
-          
-          <input type="button" value="Voltar " />
-        </a>
-      </form>
+      
+      <Link to={"/Dispositivo/1"} >
+        <button type="button" value="Voltar">Voltar</button>
+      </Link>
+
     </section>
   )
 }

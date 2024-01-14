@@ -94,13 +94,14 @@ function Editar() {
           type="text"
           placeholder={dispositivo?.descricao}
           onChange={e => setDispositivoDescricao(e.target.value)}
-        />
-
-        
-        <Link to="/dispositivo/1">Voltar
-        <button type="submit">Editar</button>
-        </Link>
+        />        
+          <button type="submit">Editar</button>
+       
       </form>
+      
+      <Link to="/dispositivo/1">
+          <button type="submit">Voltar</button>
+        </Link>
     </div>
   )
 }
