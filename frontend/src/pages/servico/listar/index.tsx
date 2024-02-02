@@ -11,13 +11,13 @@ import { Link } from 'react-router-dom'
 function ListarOrdemServico() {
 
   const [servicos, setServicos] = useState<Servicos[]>([])
-  const [servicoId,setServicoId] = useState('');
+  const [servicoId, setServicoId] = useState('');
 
   useEffect(() => {
     axios.get<Servicos[]>(`${BASE_URL}/servicos`).then(response => {
 
       setServicos(response.data);
-     
+
 
       console.log(response.data)
 
@@ -26,10 +26,10 @@ function ListarOrdemServico() {
 
   return (
 
-    <div className='containerServico'>
-      <form >
+    <section className='containerServico'>
 
-        <h2 className='titulo'>Lista de todos os serviços:</h2>
+      <h2 className='titulo'>Lista de todos os serviços:</h2>
+      <div >
 
         <table className='tabela'>
           <thead >
@@ -68,10 +68,9 @@ function ListarOrdemServico() {
                       className="excluir"
                       src={visualizarImagem}
                       alt="icone excluir"
-                
+
                     />
-                  
-                   
+
                   </Link>
 
                 </td>
@@ -80,16 +79,14 @@ function ListarOrdemServico() {
             ))}
           </tbody>
         </table>
-
-      </form>
-
+      </div>
       <Link className="voltar" to="/servico/1">
         <div>
           <button>voltar</button>
         </div>
       </Link>
 
-    </div>
+    </section>
   )
 }
 export default ListarOrdemServico

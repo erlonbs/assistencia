@@ -38,7 +38,7 @@ function BuscaCodigo() {
   }
 
   return (
-    <section className='containerCliente'>
+    <main className='containerCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
         <h2 className='titulo'>Entre com o código do cliente:</h2>
 
@@ -145,7 +145,7 @@ function BuscaCodigo() {
 
 
       </table >
-    </section >
+    </main >
 
   )
 

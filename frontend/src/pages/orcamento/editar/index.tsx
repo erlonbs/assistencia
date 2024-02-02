@@ -1,5 +1,5 @@
 import { BASE_URL } from 'utils/requests';
-
+import './editarOrcamento.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -49,13 +49,13 @@ function EditarOrcamento() {
   };
 
   return (
-    <section className="containerOrcamento">
+    <main className="containerOrcamento">
       <h1 className="titulo">Editar orçamento</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
 
         <label htmlFor="nome">Codigo Orçamento:</label>
-        <input
+        <input className='inputForm'
           type="text"
           value={orcamentoId}
           onChange={e => setOrcamentoId(e.target.value)}
@@ -109,13 +109,14 @@ function EditarOrcamento() {
         />
 
         <button type="submit">Editar</button>
+
       </form>
 
       <Link to={`/orcamento/1`} className="btnVoltar">
-
-        <button type="button" >Voltar</button>"
+        <button type="button" >Voltar</button>
       </Link>
-    </section>
+
+    </main>
   )
 }
 

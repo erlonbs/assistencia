@@ -1,23 +1,14 @@
 
 
-.entradaDados{
-  height: 30px;
-  font-size: 18px;
-  padding: 0.5rem ;
-  
-}
-
-
-.tituloEntrada{
+.tituloEntrada {
   font-size: 20px;
 }
 
 
 
-.btnAtualizar{
+.btnAtualizar {
   text-align: center;
 
   margin-top: 20px;
   font-size: 15px;
 }
-

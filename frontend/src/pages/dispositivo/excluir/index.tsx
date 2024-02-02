@@ -28,21 +28,21 @@ const[dispositivo, setDispositivo] = useState('')
   }
 
   return (
-    <div className="containerDispositivo">
-      <h1>Excluir Dispositivos</h1>
+    <main className="containerDispositivo">
+      <h1 className='titulo'>Excluir Dispositivos</h1>
 
       <div className="busca">
         <label htmlFor="bt">Buscar todos Dispositivos:</label>
         <form >
           <a href="/">
-            <input type="button" value="Buscar" />
+            <input className='inputForm' type="button" value="Buscar" />
           </a>
         </form>
       </div>     
 
         <h6>insira o dispositivo a ser excluido:</h6>    
       
-            <input type="text" value={id} onChange={e => setId(e.target.value) }/>
+            <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value) }/>
             <button onClick={handleDelete}>Excluir id</button>
 
             {mensagem && <div className="mensagem" >{mensagem}</div> }            
@@ -54,7 +54,7 @@ const[dispositivo, setDispositivo] = useState('')
           </a>
         </form>
       </div>
-    </div>
+    </main>
   )
 }
 export default ExcluirDispositivo

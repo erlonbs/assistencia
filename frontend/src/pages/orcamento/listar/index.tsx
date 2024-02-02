@@ -25,12 +25,13 @@ function ListarOrcamento() {
 
   return (
 
-    <section className='containerOrcamento'>
+    <div className='listarContainer' >
       <form >
 
         <h2 className='titulo'>Lista de todos os Orçamentos:</h2>
 
-        <table className='tabela'>
+        <div className='tabela-scroll'>
+        <table className='tab'>
           <thead >
             <tr className='coluna' >
               <th className='cabecalho'>Código</th>
@@ -46,7 +47,9 @@ function ListarOrcamento() {
 
             </tr>
           </thead>
-          <tbody className='conteudo'>
+         
+          <tbody className='cont'>
+       
             {orcamentos.map((orcamento) => (
               <tr className='coluna' key={orcamento.id}>
                 <td className='celula'>{orcamento.id}</td>
@@ -61,9 +64,11 @@ function ListarOrcamento() {
 
               </tr>
             ))}
+            
           </tbody>
+       
         </table>
-
+        </div >
       </form>
 
       <Link className="voltar" to="/orcamento/1">
@@ -72,7 +77,7 @@ function ListarOrcamento() {
         </div>
       </Link>
 
-    </section>
+    </div>
   )
 }
 export default ListarOrcamento

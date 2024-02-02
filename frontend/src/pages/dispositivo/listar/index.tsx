@@ -19,7 +19,7 @@ function Listar() {
 
   return (
     
-    <div className='containerDispositivo'>
+    <main className='containerDispositivo'>
       <form >
      
         <h2 className='titulo'>Lista de todos Dispositivos:</h2>
@@ -63,7 +63,7 @@ function Listar() {
         </div>
       </Link>
 
-    </div>
+    </main>
   )
 }
 export default Listar

@@ -30,12 +30,12 @@ function ExcluirOrcamento() {
   }
 
   return (
-    <div className="containerOrcamento">
-      <h1>Excluir Orçamentos</h1>
+    <main className="excluirContainer">
+      <h1 className='titulo'>Excluir Orçamentos</h1>
 
       <h6>insira o Orçamento a ser excluido:</h6>
 
-      <input type="text" value={id} onChange={e => setId(e.target.value)} />
+      <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
       <button onClick={handleDelete}>Excluir id</button>
 
       {mensagem && <div className="mensagem" >{mensagem}</div>}
@@ -47,7 +47,7 @@ function ExcluirOrcamento() {
 
         </Link>
       </div>
-    </div>
+    </main>
   )
 }
 export default ExcluirOrcamento

@@ -30,8 +30,9 @@ function ExcluirServico() {
   }
 
   return (
-    <div className="containerServico">
-      <h1>Excluir Serviços</h1>
+    
+    <main className="containerServico">
+      <h1 className='titulo'>Excluir Serviços</h1>
 
     
 
@@ -45,11 +46,11 @@ function ExcluirServico() {
       <div>
         <Link to={"/Servico/1"} className="voltar">
          
-            <input type="button" value="Voltar" />
+            <input className='inputForm' type="button" value="Voltar" />
           
         </Link>
       </div>
-    </div>
+    </main>
   )
 }
 export default ExcluirServico

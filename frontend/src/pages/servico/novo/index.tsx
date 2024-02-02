@@ -58,74 +58,77 @@ function NovaOrdemServico() {
   };
 
   return (
-    <div className="containerServico">
-      <h1 className="titulo">Nova Ordem de Serviço</h1>
+   
 
-      <form className='containerForm' onSubmit={handleSubmit}>
+      <section className="containerServico">
+        <h1 className="titulo">Nova Ordem de Serviço</h1>
 
-        <label htmlFor="codigoOrcamento">Código do Orçamento:</label>
-        <input className='inputForm'
-          type="text"
-          value={codigoOrcamento}
+        <form className='containerForm' onSubmit={handleSubmit}>
 
-          onChange={e => setCodigoOrcamento(e.target.value)}
-        />
+          <label htmlFor="codigoOrcamento">Código do Orçamento:</label>
+          <input className='inputForm'
+            type="text"
+            value={codigoOrcamento}
 
-        <label htmlFor="nomeDispositivo">Nome do Cliente:</label>
-        <input className='inputForm'
-          type="text"
-          value={clienteName}
-          readOnly
-        />
+            onChange={e => setCodigoOrcamento(e.target.value)}
+          />
 
-        <label htmlFor="descricao">Descrição do orçamento:</label>
-        <input className='inputForm'
-          type="text"
-          value={descricao}
-          onChange={e => setDescricao(e.target.value)} />
+          <label htmlFor="nomeDispositivo">Nome do Cliente:</label>
+          <input className='inputForm'
+            type="text"
+            value={clienteName}
+            readOnly
+          />
 
-        <label htmlFor='servicoRealizado'>Serviço realizado:</label>
-        <input className='inputForm'
-          type="text"
-          value={servicoRealizado}
-          onChange={e => setServicoRealizado(e.target.value)} />
+          <label htmlFor="descricao">Descrição do orçamento:</label>
+          <input className='inputForm'
+            type="text"
+            value={descricao}
+            onChange={e => setDescricao(e.target.value)} />
 
-        <label htmlFor="valor">Valor do Serviço:</label>
-        <input className='inputForm'
-          type="text"
-          value={valor}
-          onChange={e => setValor(e.target.value)}
-        />
+          <label htmlFor='servicoRealizado'>Serviço realizado:</label>
+          <input className='inputForm'
+            type="text"
+            value={servicoRealizado}
+            onChange={e => setServicoRealizado(e.target.value)} />
 
-        <label htmlFor="autorizado">Pagamento:</label>
-        <input className='inputForm'
-          type="checkbox"
-          checked={pagamento}
+          <label htmlFor="valor">Valor do Serviço:</label>
+          <input className='inputForm'
+            type="text"
+            value={valor}
+            onChange={e => setValor(e.target.value)}
+          />
 
-          onChange={handleCheckboxChange}
-        />
+          <label htmlFor="autorizado">Pagamento:</label>
+          <input className='inputForm'
+            type="checkbox"
+            checked={pagamento}
 
-        <label htmlFor="valor">Código do cliente:</label>
-        <input className='inputForm'
-          type="text"
-          value={clienteId}
-          onChange={e => setClienteId(e.target.value)}
-        />
+            onChange={handleCheckboxChange}
+          />
 
-        <label htmlFor="valor">Código do dispositivo:</label>
-        <input className='inputForm'
-          type="text"
-          value={dispositivoId}
-          onChange={e => setDispositivoId(e.target.value)}
-        />
-        <button type="submit">Inserir</button>
-      </form>
+          <label htmlFor="valor">Código do cliente:</label>
+          <input className='inputForm'
+            type="text"
+            value={clienteId}
+            onChange={e => setClienteId(e.target.value)}
+          />
 
-      <Link className='btnVoltar' to={"/Servico/1"}>
-        <button >Voltar</button>
-      </Link>
+          <label htmlFor="valor">Código do dispositivo:</label>
+          <input className='inputForm'
+            type="text"
+            value={dispositivoId}
+            onChange={e => setDispositivoId(e.target.value)}
+          />
+          <button type="submit">Inserir</button>y
+        </form>
 
-    </div>
+        <Link className='btnVoltar' to={"/Servico/1"}>
+          <button >Voltar</button>
+        </Link>
+
+      </section>
+   
   )
 }
 

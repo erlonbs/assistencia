@@ -1,5 +1,6 @@
 import { BASE_URL } from 'utils/requests';
-//import './novoOrcamento.css'
+
+import '../orcamentoStyles.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -68,7 +69,10 @@ function NovoOrcamento() {
   };
 
   return (
-    <section className="containerOrcamento">
+
+    <section className=' containerOrcamento'>
+
+
       <h1 className="titulo">Novo orçamento</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -131,14 +135,15 @@ function NovoOrcamento() {
         />
 
         <button type="submit">Inserir</button>
-      </form>
 
+      </form>
 
       <Link className="btnVoltar" to="/Orcamento/1">
         <button>Voltar</button>
       </Link>
 
-    </section>
+      </section>
+
   )
 }
 

@@ -24,28 +24,19 @@ function Excluir() {
       setId('')
     } catch (error) {
       console.error('Não foi possível excluir:', error)
-      setMensagem(`Erro ao excluir o cliente ${id} "" + verifique e tente novamente!`)
+      setMensagem(`Erro ao excluir o cliente ${id} verifique e tente novamente!`)
       setId('')
     }
   }
 
   return (
-    <section className="containerCliente">
-      <h1>Excluir Clientes</h1>
+    <main className="containerExcluirCliente">
+      <h1 className='titulo'>Excluir Clientes</h1>
+  
+      <label>Insira cliente a ser excluído:</label>
 
-      <div className="busca">
-        <label htmlFor="bt">Buscar todos clientes:</label>
-        <form >
-          <a href="/">
-            <input type="button" value="Buscar" />
-          </a>
-        </form>
-      </div>
-
-      <h6>insira cliente a ser excluido:</h6>
-
-      <input type="text" value={id} onChange={e => setId(e.target.value)} />
-      <button onClick={handleDelete}>Excluir id</button>
+      <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
+      <button onClick={handleDelete}>Excluir</button>
 
       {mensagem && <div className="mensagem" >{mensagem}</div>}
 
@@ -56,7 +47,7 @@ function Excluir() {
         </div>
       </Link>
 
-    </section>
+    </main>
   )
 }
 export default Excluir

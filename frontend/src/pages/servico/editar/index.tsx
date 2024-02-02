@@ -56,13 +56,13 @@ function EditarOrdemServico() {
   };
 
   return (
-    <div className="containerServico">
+    <main className="containerServico">
       <h1 className="titulo">Editar Ordem de Serviço</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
 
         <label htmlFor="nome">Codigo do serviço:</label>
-        <input
+        <input className='inputForm'
           type="text"
           value={servicoId}
           onChange={e => setServicoId(e.target.value)}
@@ -116,9 +116,10 @@ function EditarOrdemServico() {
 
       <Link to={`/servico/1`} className="btnVoltar">
 
-        <button type="button" >Voltar</button>"
+        <button type="button" >Voltar</button>
       </Link>
-    </div>
+
+    </main>
   )
 }
 

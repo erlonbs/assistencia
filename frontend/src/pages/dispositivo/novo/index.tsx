@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 function NovoDispositivo() {
   const [dispositivoName, setDispositivoName] = useState('')
   const [marca, setMarca] = useState('')
@@ -31,52 +30,54 @@ function NovoDispositivo() {
   }
 
   return (
-    <section className="containerDispositivo">
+
+    <main className="containerDispositivo">
       <h1 className="titulo">Novo dispositivo</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
-        <label htmlFor="nome">Nome:</label>
-        <input
+        <label className="tituloEntrada" htmlFor="nome">Nome:</label>
+        <input className='inputForm'
           type="text"
           value={dispositivoName}
           onChange={e => setDispositivoName(e.target.value)}
         />
 
-        <label htmlFor="">Marca:</label>
-        <input
+        <label className="tituloEntrada" htmlFor="">Marca:</label>
+        <input className='inputForm'
           type="text"
           value={marca}
           onChange={e => setMarca(e.target.value)}
         />
 
-        <label htmlFor="">Modelo:</label>
-        <input
+        <label className="tituloEntrada" htmlFor="">Modelo:</label>
+        <input className='inputForm'
           type="text"
           value={modelo}
           onChange={e => setModelo(e.target.value)}
         />
 
-        <label htmlFor="">Cor:</label>
-        <input type="text" value={cor} onChange={e => setCor(e.target.value)} />
+        <label className="tituloEntrada" htmlFor="">Cor:</label>
+        <input className='inputForm' type="text" value={cor} onChange={e => setCor(e.target.value)} />
 
-        <label htmlFor="">Serial:</label>
-        <input type="text" value={serial} onChange={e => setSerial(e.target.value)} />
+        <label className="tituloEntrada" htmlFor="">Serial:</label>
+        <input className='inputForm' type="text" value={serial} onChange={e => setSerial(e.target.value)} />
 
 
-        <label htmlFor="">Descricao:</label>
-        <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
+        <label className="tituloEntrada" htmlFor="">Descricao:</label>
+        <input className='inputForm' type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
 
-        <label htmlFor="">Código do Cliente</label>
+        <label className="tituloEntrada" htmlFor="">Código do Cliente</label>
         <input type="text" value={clienteId} onChange={e => setClienteId(e.target.value)} />
 
         <button type="submit">Inserir</button>
       </form>
-      
+
       <Link to={"/Dispositivo/1"} >
-        <button type="button" value="Voltar">Voltar</button>
+        <button className='btnVoltar' type="button" value="Voltar">Voltar</button>
       </Link>
 
-    </section>
+    </main>
+
   )
 }
 

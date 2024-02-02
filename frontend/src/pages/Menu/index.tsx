@@ -5,7 +5,7 @@ function Menu() {
   return (
 
     <div className="menu">
-      <h1 className="menuH1">Menu</h1>
+      <h1 className="titulo">Menu</h1>
       <div className='containerMenu'>
         
 

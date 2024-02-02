@@ -11,13 +11,18 @@
 }
 
 html,
-body, section {
+
+section ,main {
+ 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
+
   width: 100vw;
+
+min-height: 100%;
   
 
 
@@ -28,24 +33,31 @@ body, section {
   display: flex;
   align-items: center;
   flex-direction: column;
+ 
   background-color: rgba(227, 235, 226, 0.295);
   width: 500px;
+  height:100h;
   border-radius: 15px;
   color: rgb(10, 10, 10);
+ 
+
+ 
+
+
   
 }
 
 .inputForm {
   border-radius: 8px;
+  width: 320px;
+  height: 35px;
+
 }
 
 .entradaDados {
   height: 30px;
 }
 
-.tituloEntrada {
-  font-size: 20px;
-}
 
 .containerButtons {
   font-size: 30px;
@@ -54,6 +66,8 @@ body, section {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+
   
   
 }
@@ -67,6 +81,19 @@ body, section {
   
 }
 
+label {
+  color: rgb(27, 3, 54);
+  animation: raio-animacao 1.5s linear infinite; 
+}
+
+
+.mensagem{
+  color: rgb(219, 15, 8);
+  animation: raio-animacao 1.5s linear infinite; 
+  font-size: 29px;
+
+}
+
 .containerButtons button:hover{
   background-color: #0F0;
 }
@@ -76,7 +103,7 @@ body, section {
   color: blue;
   text-align: center;
 
-  margin-bottom: 30px;
+
   padding: 3rem;
 
   font-family: 'Courier New', monospace;

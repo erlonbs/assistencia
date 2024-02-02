@@ -19,7 +19,7 @@ function BuscaTodos() {
 
   return (
 
-    <div className='containerCliente'>
+    <main className='containerCliente'>
       <form className='formulario' >
 
         <h2 className='titulo'>Lista de todos clientes:</h2>
@@ -44,7 +44,7 @@ function BuscaTodos() {
                 <td className='celula'>{cliente.telephone}</td>
                 <td className='celula'>{cliente.cpf}</td>
 
-            {/*Exibindo os dispositivos do cliente em um select*/}
+                {/*Exibindo os dispositivos do cliente em um select*/}
                 <td className='celula' >
                   <select name={`dispositivo-${cliente.clienteId}`} id={`dispositivo-${cliente.clienteId}`}>
                     {cliente.dispositivos.map((dispositivo) => (
@@ -65,7 +65,7 @@ function BuscaTodos() {
           <button>voltar</button>
         </div>
       </Link>
-    </div>
+    </main>
   )
 }
 export default BuscaTodos

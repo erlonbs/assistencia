@@ -42,67 +42,67 @@ function Editar() {
   }
 
   return (
-    <div className="containerDispositivo">
+    <main className="containerDispositivo">
       <h1 className="titulo">Editar Dispositivos</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
-        <label htmlFor="nome">Codigo </label>
-        <input
+        <label className='tituloEntrada' htmlFor="nome">Codigo </label>
+        <input className='inputForm'
           type="text"
           value={dispositivoId}
           onChange={e => setDispositivoId(e.target.value)}
         />
 
-        <label htmlFor="nome">Nome:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="nome">Nome:</label>
+        <input className='inputForm'
           type="text"
           id="nome"
           value={dispositivoName}
           onChange={e => setDispositivoName(e.target.value)}
         />
 
-        <label htmlFor="">Marca:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="">Marca:</label>
+        <input className='inputForm'
           type="text"
           placeholder={dispositivo?.marca}
           onChange={e => setDispositivoMarca(e.target.value)}
         />
 
-        <label htmlFor="">Modelo:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="">Modelo:</label>
+        <input className='inputForm'
           type="text"
           placeholder={dispositivo?.modelo}
           onChange={e => setDispositivoModelo(e.target.value)}
         />
 
-        <label htmlFor="">Cor:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="">Cor:</label>
+        <input className='inputForm'
           type="text"
           placeholder={dispositivo?.cor}
           onChange={e => setDispositivoCor(e.target.value)}
         />
 
-        <label htmlFor="">Serial:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="">Serial:</label>
+        <input className='inputForm'
           type="text"
           placeholder={dispositivo?.serial}
           onChange={e => setDispositivoSerial(e.target.value)}
         />
 
-        <label htmlFor="">Descrição:</label>
-        <input
+        <label className='tituloEntrada' htmlFor="">Descrição:</label>
+        <input className='inputForm'
           type="text"
           placeholder={dispositivo?.descricao}
           onChange={e => setDispositivoDescricao(e.target.value)}
-        />        
-          <button type="submit">Editar</button>
-       
+        />
+        <button type="submit">Editar</button>
       </form>
-      
+
       <Link to="/dispositivo/1">
-          <button type="submit">Voltar</button>
-        </Link>
-    </div>
+        <button type="submit">Voltar</button>
+      </Link>
+
+    </main>
   )
 }
 export default Editar

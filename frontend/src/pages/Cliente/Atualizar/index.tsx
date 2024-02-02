@@ -57,7 +57,7 @@ function Atualizar() {
   }
 
   return (
-    <section className="containerCliente">
+    <main className="containerCliente">
       <h1 className="titulo">Atualizar Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
@@ -65,18 +65,18 @@ function Atualizar() {
           Id{' '}
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           value={clienteId}
           onChange={e => setClienteId(e.target.value)}
         />
 
-        <label className="tituloEntrada" htmlFor="nome">
+        <label className="inputForm" htmlFor="nome">
           Nome:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           id="nome"
@@ -89,7 +89,7 @@ function Atualizar() {
           Endereço:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           placeholder={cliente?.address}
@@ -100,7 +100,7 @@ function Atualizar() {
           Telefone:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           placeholder={cliente?.telephone}
@@ -111,9 +111,9 @@ function Atualizar() {
           Cpf:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
-          size={35}
+
           placeholder={cliente?.cpf}
           onChange={e => setClienteCpf(e.target.value)}
         />
@@ -123,16 +123,15 @@ function Atualizar() {
         </button>
       </form>
 
-      <div id="menssagem"></div>
-
-
       <Link className="btnVoltar" to="/Cliente/1">
         <div>
           <button>Voltar</button>
         </div>
       </Link>
 
-    </section>
+      <div id="menssagem"></div>
+
+    </main>
   )
 }
 export default Atualizar

@@ -2,4 +2,11 @@
   background-image: url('/src/assets/img/serviçoFundo1.jpg');
   background-size: cover;
   background-repeat: no-repeat; 
+  height: 100%;
+
+ 
+}
+
+.btnVoltar{
+  margin-bottom: 50px;
 }

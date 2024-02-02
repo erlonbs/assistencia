@@ -4,40 +4,43 @@ import './servicoStyles.css'
 
 function Servico() {
   return (
-    <body className="containerServico">
-      <h1 className='titulo'>Serviços</h1>
+   
 
-      <div className='containerButtons'>
+      <section className="containerServico">
+        <h1 className='titulo'>Serviços</h1>
 
-        <Link to={`/servico/novo`} >
-          <button type="button" >Novo</button>
-        </Link>
+        <div className='containerButtons'>
 
-        <Link to={`/servico/listar`} >
-
-          <button type="button" >Listar</button>
-        </Link>
-
-        <Link to={`/servico/editar`} >
-
-          <button type="button" >Editar</button>
-        </Link>
-
-        <Link to={`/servico/excluir`} >
-
-          <button type="button" >Excluir</button>
-        </Link>
-
-
-        <div>
-          <Link to={`/`} >
-            <button type="button" >Voltar</button>
+          <Link to={`/servico/novo`} >
+            <button type="button" >Novo</button>
           </Link>
 
-        </div>
-      </div >
+          <Link to={`/servico/listar`} >
 
-    </body>
+            <button type="button" >Listar</button>
+          </Link>
+
+          <Link to={`/servico/editar`} >
+
+            <button type="button" >Editar</button>
+          </Link>
+
+          <Link to={`/servico/excluir`} >
+
+            <button type="button" >Excluir</button>
+          </Link>
+
+
+          <div className='btnVoltar'>
+            <Link to={`/`} >
+              <button  type="button" >Voltar</button>
+            </Link>
+
+          </div>
+        </div >
+
+      </section>
+
   )
 }
 export default Servico

@@ -46,7 +46,7 @@ function Cadastrar() {
   }
 
   return (
-    <section className="containerCliente">
+    <main className="containerCliente">
       <h1 className="titulo">Cadastro de Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ function Cadastrar() {
           Nome:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           value={clienteName}
@@ -66,7 +66,7 @@ function Cadastrar() {
           Endereço:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           value={address}
@@ -77,7 +77,7 @@ function Cadastrar() {
           Telefone:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           value={telephone}
@@ -88,7 +88,7 @@ function Cadastrar() {
           Cpf:
         </label>
         <input
-          className="entradaDados"
+          className="inputForm"
           type="text"
           size={35}
           value={cpf}
@@ -99,18 +99,18 @@ function Cadastrar() {
         <button className="btnCadastrar" type="submit" >
           Cadastrar
         </button>
+
       </form>
+
+      <Link className="btnVoltar" to="/Cliente/1">
+        <button>voltar</button>
+      </Link>
 
       <div id="menssagem"></div>
 
 
-      <Link className="voltar" to="/Cliente/1">
-        <div>
-          <button>voltar</button>
-        </div>
-      </Link>
 
-    </section>
+    </main>
   )
 }
 
