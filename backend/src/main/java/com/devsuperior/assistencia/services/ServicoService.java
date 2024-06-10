@@ -68,7 +68,7 @@ public class ServicoService {
 			entity.setServicoRealizado(dto.getServicoRealizado());
 			entity.setValor(dto.getValor());
 			entity.setPagamento(dto.getPagamento());
-			entity.setDispositivoId(dto.getDispositivoId());
+			//entity.setDispositivoId(dto.getDispositivoId());
 
 			entity = repository.save(entity);
 			return new ServicoDTO(entity);

@@ -1,0 +1,21 @@
+.containerLogin{
+
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 250px;
+  
+   
+}
+
+
+.containerForm input {
+    margin-bottom: 5px;
+}

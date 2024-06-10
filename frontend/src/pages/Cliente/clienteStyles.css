@@ -1,13 +1,6 @@
 .containerCliente {
-
-  background-image: url('/src/assets/img/clienteFundo.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
+  height:66VH;
+ 
 }
 
-
-.voltar {
-  margin-bottom: 10px;
-}

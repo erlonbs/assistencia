@@ -2,7 +2,7 @@ import { Clientes } from "./cliente";
 
 export type Dispositivos = {
   dispositivoId: number;
-  dispositivoName: String;
+  dispositivoName: string;
   marca: string;
   modelo: string;
   cor: string;

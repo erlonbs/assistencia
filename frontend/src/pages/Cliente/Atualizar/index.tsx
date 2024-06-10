@@ -4,6 +4,8 @@ import axios from 'axios'
 import { BASE_URL } from 'utils/requests'
 import { Clientes } from 'types/cliente'
 import { Link } from 'react-router-dom'
+import { Writable } from 'stream'
+import ExibirMensagem from 'components/Mensagem/mensagem'
 
 function Atualizar() {
   const [cliente, setCliente] = useState<Clientes>()
@@ -19,15 +21,6 @@ function Atualizar() {
     })
   }, [clienteId])
 
-  const exibirMensagem = (mensagem: string, responseData: any) => {
-    const mensagemElemento = document.createElement('div')
-    mensagemElemento.textContent = mensagem
-
-    const localParaExibir = document.getElementById('menssagem')
-    localParaExibir?.appendChild(mensagemElemento)
-
-    console.log('Dados da resposata: ' + responseData)
-  }
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
@@ -39,11 +32,11 @@ function Atualizar() {
         cpf: clienteCpf
       })
       .then(response => {
-        exibirMensagem('Atualizado com sucesso!', response) // Handle success
+        ExibirMensagem('Atualizado com sucesso!', response) // Handle success
         limpaCampos()
       })
       .catch(error => {
-        exibirMensagem('Erro não foi possível atualizar!', error) // Handle errors
+        ExibirMensagem('Erro não foi possível atualizar!', error) // Handle errors
         limpaCampos()
       })
   }
@@ -57,36 +50,38 @@ function Atualizar() {
   }
 
   return (
-    <main className="containerCliente">
+    <section className="containerCliente atualizarCliente">
       <h1 className="titulo">Atualizar Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
         <label className="tituloEntrada" htmlFor="nome">
-          Id{' '}
+          Insira o código para editar:{' '}
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
           value={clienteId}
+          placeholder='Código'
           onChange={e => setClienteId(e.target.value)}
         />
 
-        <label className="inputForm" htmlFor="nome">
-          Nome:
+        <label className="tituloEntrada" htmlFor="nome">
+
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
           id="nome"
-          value={clienteName}
+
+
           placeholder={cliente?.clienteName}
           onChange={e => setClienteName(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="endereco">
-          Endereço:
+
         </label>
         <input
           className="inputForm"
@@ -97,7 +92,7 @@ function Atualizar() {
         />
 
         <label className="tituloEntrada" htmlFor="telefone">
-          Telefone:
+
         </label>
         <input
           className="inputForm"
@@ -108,7 +103,7 @@ function Atualizar() {
         />
 
         <label className="tituloEntrada" htmlFor="cpf">
-          Cpf:
+
         </label>
         <input
           className="inputForm"
@@ -117,13 +112,14 @@ function Atualizar() {
           placeholder={cliente?.cpf}
           onChange={e => setClienteCpf(e.target.value)}
         />
-
-        <button className="btnAtualizar" type="submit">
-          Atualizar
-        </button>
+        <div className="btnIcone">
+          <button type="submit">
+            Atualizar
+          </button>
+        </div>
       </form>
 
-      <Link className="btnVoltar" to="/Cliente/1">
+      <Link className="btnIcone" to="/Cliente/">
         <div>
           <button>Voltar</button>
         </div>
@@ -131,7 +127,7 @@ function Atualizar() {
 
       <div id="menssagem"></div>
 
-    </main>
+    </section>
   )
 }
 export default Atualizar

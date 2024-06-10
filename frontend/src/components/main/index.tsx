@@ -1,22 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import './stylesMain.css'
-import Menu from 'pages/Menu'
-import Dispositivo from 'pages/dispositivo'
-import NovoDispositivo from 'pages/dispositivo/novo'
-import Editar from 'pages/dispositivo/editar'
-import Listar from 'pages/dispositivo/listar'
-import ExcluirDispositivo from 'pages/dispositivo/excluir'
 
-import Cliente from 'pages/Cliente/'
-import Busca from 'pages/Cliente/Busca'
-import Cadastrar from 'pages/Cliente/Cadastrar'
+import Menu from 'pages/Menu';
+import Dispositivo from 'pages/dispositivo';
+import NovoDispositivo from 'pages/dispositivo/novo';
+import Editar from 'pages/dispositivo/editar';
+import Listar from 'pages/dispositivo/listar';
+import ExcluirDispositivo from 'pages/dispositivo/excluir';
+
+import Cliente from 'pages/Cliente/';
+import Busca from 'pages/Cliente/Busca';
+import Cadastrar from 'pages/Cliente/Cadastrar';
 import Atualizar from 'pages/Cliente/Atualizar';
 import Excluir from 'pages/Cliente/Excluir';
 import BuscaCodigo from 'pages/Cliente/Busca/BuscaCodigo';
-
 import BuscaTodos from 'pages/Cliente/Busca/BuscaTodos';
-
 import Servico from 'pages/servico';
 import Orcamento from 'pages/orcamento';
 import NovoOrcamento from 'pages/orcamento/novo';
@@ -25,21 +23,24 @@ import EditarOrcamento from 'pages/orcamento/editar';
 import ExcluirOrcamento from 'pages/orcamento/excluir';
 import NovaOrdemServico from 'pages/servico/novo';
 import ListarOrdemServico from 'pages/servico/listar';
-
-import EditarOrdemServico from 'pages/servico/editar'
-import ExcluirServico from 'pages/servico/excluir'
-import DetalharOrdemServico from 'pages/servico/listar/detalhar'
+import EditarOrdemServico from 'pages/servico/editar';
+import ExcluirServico from 'pages/servico/excluir';
+import DetalharOrdemServico from 'pages/servico/listar/detalhar';
+import Login from 'pages/Login';
+import './stylesMain.css';
 
 
 const Main = () => {
 
     return (
-        <main className='principal'>
+        <main className='principalContainer'>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Menu />} />
+                <Route path="/"  element={<Login />}/>
+                    <Route path='/Menu' element={<Menu/>}/>
+                    
                     <Route path="/dispositivo">
-                        <Route path=":dispositivoId" element={<Dispositivo />} />
+                        <Route path="/dispositivo" element={<Dispositivo />} />
                         <Route path="/dispositivo/novo" element={<NovoDispositivo />} />
                         <Route path="/dispositivo/listar" element={<Listar />} />
                         <Route path="/dispositivo/editar" element={<Editar />} />
@@ -47,7 +48,7 @@ const Main = () => {
                     </Route>
 
                     <Route path="/orcamento">
-                        <Route path=":orcamentoId" element={<Orcamento />} />
+                        <Route path="/orcamento" element={<Orcamento />} />
                         <Route path="/orcamento/novo" element={<NovoOrcamento />} />
                         <Route path="/orcamento/listar" element={<ListarOrcamento />} />
                         <Route path="/orcamento/editar" element={<EditarOrcamento />} />
@@ -55,7 +56,7 @@ const Main = () => {
                     </Route>
 
                     <Route path="/servico">
-                        <Route path=":servicoId" element={<Servico />} />
+                        <Route path="/servico" element={<Servico />} />
                         <Route path='/servico/novo' element={<NovaOrdemServico />} />
                         <Route path='/servico/listar' element={<ListarOrdemServico />} />
                         <Route path='/servico/editar' element={<EditarOrdemServico />} />
@@ -64,7 +65,7 @@ const Main = () => {
                     </Route>
 
                     <Route path="/cliente">
-                        <Route path=":clienteId" element={<Cliente />} />
+                        <Route path="/cliente" element={<Cliente />} />
                         <Route path="/cliente/busca" element={<Busca />} />
                         <Route path="/cliente/busca/buscaCodigo" element={<BuscaCodigo />} />
                         <Route path="/cliente/busca/BuscaTodos" element={<BuscaTodos />} />

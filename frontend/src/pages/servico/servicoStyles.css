@@ -1,12 +1,8 @@
-.containerServico {  
-  background-image: url('/src/assets/img/serviçoFundo1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; 
-  height: 100%;
+.containerServico {
+  
+  height: 66vh;
 
- 
-}
 
-.btnVoltar{
-  margin-bottom: 50px;
+
+
 }

@@ -1,63 +1,47 @@
 .menu {
   display: flex;
-  background-image: url('/src/assets/img/menuFundo.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  justify-content: space-around;
+  background-color: var(--color-secundary);
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   flex-direction: column;
 }
 
 .menuH1 {
   text-align: center;
-
-  margin-bottom: 30px;
-  padding: 3rem;
-
   font-family: 'Courier New', monospace;
-  font-size: 70px;
   font-weight: 400;
-  color: #0F0;
+  color: var(--color-primary);
   position: relative;
   animation: raio-animacao 1.5s linear infinite;
 }
 
-@keyframes raio-animacao {
-
-  0%,
-  100% {
-    text-shadow: 0 0 10px #0F0, 0 0 20px #0F0, 0 0 30px #0F0, 0 0 40px #0F0, 0 0 50px #0F0, 0 0 60px #0F0, 0 0 70px #0F0;
-  }
-
-  50% {
-    text-shadow: 0 0 5px #0F0, 0 0 10px #0F0, 0 0 15px #0F0, 0 0 20px #0F0, 0 0 25px #0F0, 0 0 30px #0F0, 0 0 35px #0F0;
-  }
-
-}
 
 .containerMenu {
   display: flex;
   flex-direction: row;
   align-items: center;
+
 }
 
 
 .btnInput {
   border-radius: 15%;
   margin: 8px;
-  width: 180px;
+  width: 170px;
   height: 43.5px;
-  font-size: 25px;
+  font-size: 20px;
 
 }
 
 .btnClienteImagem {
   background-image: url('/src/assets/img/cliente1.png');
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-  height: 150px;
-  width: 150px;
+  height: 140px;
+  width: 120px;
 
 }
 
@@ -70,16 +54,18 @@
 
 
 .btnDispositivoImagem {
-  background-image: url('/src/assets/img/figuras/computer-158743_1280.png');
-
-
+  background-image: url('/src/assets/img/figuras/dispositivos8.png');
   background-size: contain;
-  align-items: center;
-  background-color: transparent;
+  background-position: center;
   mix-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+
   background-repeat: no-repeat;
-  height: 150px;
-  width: 160px;
+  height: 140px;
+  width: 130px;
 }
 
 
@@ -91,14 +77,23 @@
 
 
 .btnOrcamentosImagem {
-  background-image: url('/src/assets/img/figuras/orcamento2.png');
-  background-color: transparent;
+  background-image: url('/src/assets/img/orcamento8.png');
   background-size: contain;
+  background-position: center;
+  mix-blend-mode: multiply;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
   background-repeat: no-repeat;
-  height: 150px;
-  width: 116px;
+  height: 140px;
+  width: 120px;
 }
 
+
+.btnOrcamentosImagem img {
+  mix-blend-mode: multiply;
+}
 
 .btnOrcamentosImagem:hover {
   -webkit-transform: scale(1.3);
@@ -108,16 +103,15 @@
 
 
 .btnServicosImagem {
-  background-image: url('/src/assets/img/figuras/graphic-3982575_1280.png');
+  background-image: url('/src/assets/img/call-8602325_1280.png');
+  background-position: center;
   background-color: transparent;
   background-size: contain;
   background-position-x: center;
   background-position-y: center;
-
-
   background-repeat: no-repeat;
-  height: 146px;
-  width: 144px;
+  height: 140px;
+  width: 140px;
 
 
 }
@@ -130,36 +124,6 @@
 
 
 .menu h1 {
-  font-size: 70px;
+  font-size: 50px;
 }
 
-
-
-@media(max-width: 320px){
-
-  .menu{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .containerMenu{
-      flex-direction: column;
-
-  }
-
-  @media(mix-width: 576px){
-
-    .menu{
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-    }
-  
-    .containerMenu{
-        flex-direction: row;
-  
-    }
-}
-
-}

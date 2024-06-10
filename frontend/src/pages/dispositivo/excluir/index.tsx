@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BASE_URL } from 'utils/requests';
 import './excluirDispositivo.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 function ExcluirDispositivo() {
@@ -28,33 +29,28 @@ const[dispositivo, setDispositivo] = useState('')
   }
 
   return (
-    <main className="containerDispositivo">
+    <section className="containerDispositivo excluirDispositivo">
       <h1 className='titulo'>Excluir Dispositivos</h1>
 
-      <div className="busca">
-        <label htmlFor="bt">Buscar todos Dispositivos:</label>
-        <form >
-          <a href="/">
-            <input className='inputForm' type="button" value="Buscar" />
-          </a>
-        </form>
-      </div>     
+      <div className='containerForm'>
 
-        <h6>insira o dispositivo a ser excluido:</h6>    
+        <label className='tituloEntrada'>insira o dispositivo a ser excluido:</label>    
       
             <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value) }/>
+
+            <div className='btnIcone'>
             <button onClick={handleDelete}>Excluir id</button>
+            </div>
 
             {mensagem && <div className="mensagem" >{mensagem}</div> }            
-
-      <div>
-        <form className="voltar">
-          <a href="/Dispositivo/1">
-            <input type="button" value="Voltar" />
-          </a>
-        </form>
       </div>
-    </main>
+
+      <div className='btnIcone'>
+        <Link to="/dispositivo/">
+          <button type="submit">Voltar</button>
+        </Link>
+      </div>
+    </section>
   )
 }
 export default ExcluirDispositivo

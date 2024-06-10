@@ -35,13 +35,11 @@ function Cliente() {
           </Link>
         </div>
 
-        <div className="voltar">
-
-          <Link to={"/"} >
-            <button className='btnClientes' type="button" value="Voltar">Voltar</button>
-          </Link>
-        </div>
-
+      </div>
+      <div className="btnIcone">
+        <Link to={"/Menu"} >
+          <button type="button" >Voltar</button>
+        </Link>
       </div>
 
     </div>

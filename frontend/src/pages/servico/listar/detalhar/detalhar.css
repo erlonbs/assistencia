@@ -1,16 +1,21 @@
 
-
-.servicoDetalhar{
-  
-   background-color: blue;
-   
+.containerServicoDetalhar{
+    background-color: rgb(240, 240, 177);
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
+.servicoDetalhar {
+
+    background-color: blue;
+
+}
 
 .tabelaDetalhar {
     display: flex;
-    flex-direction: column;  
-    
+    flex-direction: column;
     width: 100%;
 
 }
@@ -19,23 +24,89 @@
     display: flex;
     background-color: rgb(182, 200, 222);
 
-justify-content: space-between;
+    justify-content: space-between;
 
 }
 
-.cabecalhoDetalhar{
-        background-color: rgb(66, 66, 199);
-      
-
-    }
+.cabecalhoDetalhar {
+    background-color: rgb(66, 66, 199);
 
 
-    .celulaCabecalho, .celulaConteudo {
-        padding: 10px;
-        text-align: left;
-      }
+}
 
 
-table, td, th{
-    padding: 5px 2px;
+.celulaCabecalho,
+.celulaConteudo {
+    padding: 10px;
+    text-align: left;
+}
+
+.detalhesCliente{
+    display: flex;
+    flex-direction: column ;
+    align-items: flex-start;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 800px;
+}
+
+.detalhesClientesItens{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detalhesClientesItens p{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detalhesClientesDados{
+    display: flex;
+    flex-direction: column;
+}
+.detalhesDispositivo{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 800px;
+}
+
+.detalhesServico{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: solid black 1px;
+    width: 800px;
+    border-radius: 10px;
+}
+
+.dado{
+    font-weight: 700;
+}
+
+.numero-ordem{
+    font-weight: 700;
+    color: red;
+    font-size: 30px;
+}
+
+.context-titulo{
+    display: flex;
+    align-items: center;
+}
+
+.botoesDetalhar{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.botoesDetalhar button{
+    margin-left: 5px;
+    width: 120px;
+    border-radius: 7px;
 }

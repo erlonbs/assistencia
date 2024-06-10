@@ -31,7 +31,7 @@ function NovoDispositivo() {
 
   return (
 
-    <main className="containerDispositivo">
+    <section className="containerDispositivo novoDispositivo ">
       <h1 className="titulo">Novo dispositivo</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -39,6 +39,7 @@ function NovoDispositivo() {
         <input className='inputForm'
           type="text"
           value={dispositivoName}
+          placeholder='Nome'
           onChange={e => setDispositivoName(e.target.value)}
         />
 
@@ -46,6 +47,7 @@ function NovoDispositivo() {
         <input className='inputForm'
           type="text"
           value={marca}
+          placeholder='Marca'
           onChange={e => setMarca(e.target.value)}
         />
 
@@ -53,30 +55,48 @@ function NovoDispositivo() {
         <input className='inputForm'
           type="text"
           value={modelo}
+          placeholder='Modelo'
           onChange={e => setModelo(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="">Cor:</label>
-        <input className='inputForm' type="text" value={cor} onChange={e => setCor(e.target.value)} />
+        <input className='inputForm' 
+        type="text" 
+        value={cor} 
+        placeholder='Cor'
+        onChange={e => setCor(e.target.value)} />
 
         <label className="tituloEntrada" htmlFor="">Serial:</label>
-        <input className='inputForm' type="text" value={serial} onChange={e => setSerial(e.target.value)} />
+        <input className='inputForm'
+        type="text" 
+        value={serial} 
+        placeholder='Serial'
+        onChange={e => setSerial(e.target.value)} />
 
 
         <label className="tituloEntrada" htmlFor="">Descricao:</label>
-        <input className='inputForm' type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
+        <input className='inputForm' 
+        type="text" 
+        value={descricao}
+        placeholder='Descrição'
+         onChange={e => setDescricao(e.target.value)} />
 
         <label className="tituloEntrada" htmlFor="">Código do Cliente</label>
-        <input type="text" value={clienteId} onChange={e => setClienteId(e.target.value)} />
+        <input type="text"
+         value={clienteId} 
+         placeholder='Código'
+         onChange={e => setClienteId(e.target.value)} />
 
         <button type="submit">Inserir</button>
       </form>
 
-      <Link to={"/Dispositivo/1"} >
-        <button className='btnVoltar' type="button" value="Voltar">Voltar</button>
-      </Link>
+      <div className='btnIcone'>
+        <Link to="/dispositivo/">
+          <button type="submit">Voltar</button>
+        </Link>
+      </div>
 
-    </main>
+    </section>
 
   )
 }

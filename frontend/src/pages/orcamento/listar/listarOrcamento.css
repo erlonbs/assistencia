@@ -1,19 +1,11 @@
-.listarContainer{
+.listarOrcamento{
 
-
-background-image: url('/src/assets/img/orcamentoFundo.jpg');
-background-size: cover;
-background-repeat: no-repeat;
+height: 66vh;
 
 }
 
-.tab{
-    width: 100%;
-    border-collapse: collapse;
+.tabela-scroll{
+ max-height: 320px;
 
-}
-
-tbody{
-    max-height: 600px;
-  overflow-y: scroll; 
+  overflow-y: auto;
 }

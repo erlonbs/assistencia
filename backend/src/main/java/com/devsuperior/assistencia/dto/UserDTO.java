@@ -6,9 +6,9 @@ public class UserDTO {
 	
 	private Long id;
 	private String name;
-	private String telephone;
-	private String address;
-	private String cpf;
+	private String email;
+	private String password;
+
 
 	
 	public UserDTO() {
@@ -16,22 +16,24 @@ public class UserDTO {
 	}
 
 
-	public UserDTO(Long id, String name, String telephone, String address, String cpf) {
+	public UserDTO(Long id, String name, String email, String password ) {
 		
 		this.id = id;
 		this.name = name;
-		this.telephone = telephone;
-		this.address = address;
-		this.cpf = cpf;
+		this.email=email;
+		this.password=password;
+		
+		
 	}
 	
 	public UserDTO(User entity) {
 		
 		id=entity.getId();
 		name=entity.getName();
-		telephone=entity.getTelephone();
-		address=entity.getTelephone();
-		cpf=entity.getCpf();
+		email=entity.getEmail();
+		password=entity.getPassword();
+		
+		
 	}
 
 
@@ -55,33 +57,24 @@ public class UserDTO {
 	}
 
 
-	public String getTelephone() {
-		return telephone;
+	
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
-	public String getAddress() {
-		return address;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public String getCpf() {
-		return cpf;
-	}
-
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

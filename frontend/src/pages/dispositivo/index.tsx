@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 import './dispositivoStyles.css'
-import Navbar from 'components/navbar'
-import Footer from 'components/footer'
 
 
 function Dispositivo() {
@@ -35,13 +33,12 @@ function Dispositivo() {
             <button type="button" value="Excluir">Excluir</button>
           </Link>
         </div>
+      </div>
 
-        <div className="voltar">
-
-          <Link to={"/"} >
-            <button type="button" value="Voltar">Voltar</button>
-          </Link>
-        </div>
+      <div className="btnIcone">
+        <Link to={"/Menu"} >
+          <button type="button" value="Voltar">Voltar</button>
+        </Link>
       </div>
     </main>
 

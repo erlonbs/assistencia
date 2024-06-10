@@ -1,16 +1,10 @@
 import axios from 'axios'
 import './detalhar.css'
-
-
 import { BASE_URL } from 'utils/requests'
-
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-
-
 import { Servicos } from 'types/servico'
 import { Clientes } from 'types/cliente'
-
 import { Dispositivos } from 'types/dispositivo'
 
 
@@ -18,15 +12,11 @@ function DetalharOrdemServico() {
 
   const { id } = useParams();
 
-
   const [servico, setServico] = useState<Servicos>()
-
   const [cliente, setCliente] = useState<Clientes>();
   const [clienteId, setClienteId] = useState('');
-
   const [dispositivo, setDispositivo] = useState<Dispositivos>()
   const [dispositivoId, setDispositivoId] = useState('');
-
 
   useEffect(() => {
 
@@ -34,124 +24,97 @@ function DetalharOrdemServico() {
       setServico(response.data)
       setClienteId(response.data.clienteId)
       setDispositivoId(response.data.dispositivoId)
-
     })
   }, [id])
 
   useEffect(() => {
 
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
-
       setCliente(response.data)
-
     })
   }, [clienteId])
 
   useEffect(() => {
-
     axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
-
       setDispositivo(response.data)
-
     })
   }, [dispositivoId])
 
-
   return (
-    <section className='containerServico'>
-      <h1 className='titulo'>Destalhes da ordem de serviço:</h1>
+    <section className='containerServicoDetalhar'>
+      <div className='context-titulo'>
 
+        <h1 className='titulo'>Detalhes da ordem de serviço:</h1>
+        <span className='numero-ordem'>OS: {servico?.id}</span>
+      </div>
+      <h2 >Dados do cliente:</h2>
 
-      <table className='tabela'>
-        <thead className='servicoDetalhar'>
-          <tr className='coluna' >
-            <th className='cabecalho'>Código</th>
-            <th className='cabecalho'>Nome do cliente</th>
-            <th className='cabecalho'>Endereço</th>
-            <th className='cabecalho'>Telefone</th>
-            <th className='cabecalho'>CPF</th>
+      <div className='detalhesCliente'>
 
-          </tr>
-        </thead>
-        <tbody className='conteudo'>
+        <div className='detalhesClientesItens'>
 
-          <tr className='coluna' key={cliente?.clienteId}>
-            <td className='celula'>{cliente?.clienteId}</td>
-            <td className='celula'>{cliente?.clienteName}</td>
-            <td className='celula'>{cliente?.address}</td>
-            <td className='celula'>{cliente?.telephone}</td>
-            <td className='celula'>{cliente?.cpf}</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-      <table className='tabela'>
-        <thead className='servicoDetalhar'>
-          <tr className='coluna' >
-            <th className='cabecalho'>Código </th>
-            <th className='cabecalho'>Nome do dispositivo</th>
-            <th className='cabecalho'>Marca</th>
-            <th className='cabecalho'>Modelo</th>
-            <th className='cabecalho'>Cor</th>
-            <th className='cabecalho'>Serial</th>
-            <th className='cabecalho'>Descrição</th>
-          </tr>
-        </thead>
-        <tbody className='conteudo'>
-
-          <tr className='coluna' key={dispositivo?.dispositivoId}>
-            <td className='celula'>{dispositivo?.dispositivoId}</td>
-            <td className='celula'>{dispositivo?.dispositivoName}</td>
-            <td className='celula'>{dispositivo?.marca}</td>
-            <td className='celula'>{dispositivo?.modelo}</td>
-            <td className='celula'>{dispositivo?.cor}</td>
-            <td className='celula'>{dispositivo?.serial}</td>
-            <td className='celula'>{dispositivo?.descricao}</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-      <table className='tabela'>
-        <thead className='servicoDetalhar'>
-          <tr className='coluna' >
-            <th className='cabecalho'>Número da ordem</th>
-            <th className='cabecalho'>Código do orçamento</th>         
-            <th className='cabecalho'>Código  do Cliente</th>
-            <th className='cabecalho'>Código  do Dispositivo</th>
-            <th className='cabecalho'>Defeito</th>
-            <th className='cabecalho'>Serviço realizado</th>
-            <th className='cabecalho'>Valor</th>
-            <th className='cabecalho'>Pagamento</th>
-            <th className='cabecalho'>Status da ordem</th>
-
-          </tr>
-        </thead>
-        <tbody className='conteudo'>
-
-          <tr className='coluna' key={servico?.id}>
-            <td className='celula'>{servico?.id}</td>
-            <td className='celula'>{servico?.codigoOrcamento}</td>
-   
-            <td className='celula'>{servico?.clienteId}</td>
-            <td className='celula'>{servico?.dispositivoId}</td>
-            <td className='celula'>{servico?.descricao}</td>
-            <td className='celula'>{servico?.servicoRealizado}</td>
-            <td className='celula'>{servico?.valor}</td>
-            <td className='celula'>{servico?.pagamento ? 'Sim' : 'Não'}</td>
-            <td className='celula'>{servico?.pagamento ? 'aguardando' : 'finalizado'}</td>
-          </tr>
-
-        </tbody>
-      </table>
-
-      <Link className="voltar" to="/Servico/Busca">
-        <div>
-          <button>voltar</button>
+          <p ><b>Código: </b> {cliente?.clienteId}</p>
+          <p ><b>Nome do cliente: </b> {cliente?.clienteName}</p>
+          <p ><b>Endereço: </b> {cliente?.address}</p>
+          <p ><b>Telefone: </b>: {cliente?.telephone}</p>
+          <p ><b>Cpf: </b> {cliente?.cpf}</p>
         </div>
-      </Link>
+        <div >
+        </div>
+      </div>
 
+      <h2>Dados do dispositivo:</h2>
+
+      <div className='detalhesDispositivo'>
+
+        <p className=''><b>Código: </b>{dispositivo?.dispositivoId} </p>
+        <p className=''><b>Nome do dispositivo: </b>{dispositivo?.dispositivoName}</p>
+        <p className=''><b>Marca: </b> {dispositivo?.marca}</p>
+        <p className=''><b>Modelo: </b> {dispositivo?.modelo}</p>
+        <p className=''><b>Cor: </b> {dispositivo?.cor}</p>
+        <p className=''><b>Serial: </b>{dispositivo?.serial}</p>
+        <p className=''><b>Descrição: </b> {dispositivo?.descricao}</p>
+
+      </div>
+
+
+      <h2>Dados do serviço:</h2>
+
+      <div className='detalhesServico'>
+        <p className=''><b>Número da ordem: </b>{servico?.id}</p>
+        <p className=''><b>Código do orçamento: </b>{servico?.codigoOrcamento}</p>
+        <p className=''><b>Código do cliente: </b>{servico?.clienteId}</p>
+        <p className=''><b>Código  do Dispositivo: </b>{servico?.dispositivoId}</p>
+        <p className=''><b>Defeito: </b>{servico?.descricao}</p>
+        <p className=''><b>Serviço realizado: </b> {servico?.servicoRealizado}</p>
+        <p className=''><b>Valor: </b> {servico?.valor}</p>
+        <p className=''><b>Pagamento: </b> {servico?.pagamento ? 'Sim' : 'Não'}</p>
+        <p className=''><b>Status da ordem: </b> {servico?.pagamento ? 'aguardando' : 'finalizado'}</p>
+
+      </div>
+      <div className='botoesDetalhar'>
+
+        <div className='btnIcone'>
+          <Link  to="/Servico/listar">
+            <button>Voltar</button>
+          </Link>
+        </div>
+        <div className='btnIcone'>
+          <Link to="/Servico/listar">
+            <button>Finalizar</button>
+          </Link>
+        </div>
+        <div className='btnIcone'>
+          <Link  to="/Servico/listar">
+            <button>Imprimir</button>
+          </Link>
+        </div>
+        <div className='btnIcone'>
+          <Link  to="/Servico/listar">
+            <button>Baixar PDF</button>
+          </Link>
+        </div>
+      </div>
     </section >
 
   )

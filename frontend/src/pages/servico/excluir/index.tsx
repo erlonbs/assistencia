@@ -30,24 +30,27 @@ function ExcluirServico() {
   }
 
   return (
-    
-    <main className="containerServico">
+
+    <main className="containerServico excluirServico">
       <h1 className='titulo'>Excluir Serviços</h1>
 
-    
+      <div className='containerForm'>
 
-      <h6>insira a Ordem de Serviço a ser excluida:</h6>
+        <label>insira a Ordem de Serviço a ser excluida:</label>
 
-      <input type="text" value={id} onChange={e => setId(e.target.value)} />
-      <button onClick={handleDelete}>Excluir id</button>
+        <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
+        <div className='btnIcone'>
+          <button onClick={handleDelete}>Excluir id</button>
+        </div>
 
-      {mensagem && <div className="mensagem" >{mensagem}</div>}
+        {mensagem && <div className="mensagem" >{mensagem}</div>}
 
-      <div>
-        <Link to={"/Servico/1"} className="voltar">
-         
-            <input className='inputForm' type="button" value="Voltar" />
-          
+      </div>
+
+
+      <div className="btnIcone">
+        <Link to={`/servico`} >
+          <button type="button" >Voltar</button>
         </Link>
       </div>
     </main>

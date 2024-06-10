@@ -49,7 +49,7 @@ function EditarOrcamento() {
   };
 
   return (
-    <main className="containerOrcamento">
+    <section className="containerOrcamento editarOrcamento">
       <h1 className="titulo">Editar orçamento</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -58,6 +58,7 @@ function EditarOrcamento() {
         <input className='inputForm'
           type="text"
           value={orcamentoId}
+          placeholder='Código do orçamento'
           onChange={e => setOrcamentoId(e.target.value)}
         />
 
@@ -112,11 +113,11 @@ function EditarOrcamento() {
 
       </form>
 
-      <Link to={`/orcamento/1`} className="btnVoltar">
+      <Link to={`/orcamento/`} className="btnIcone">
         <button type="button" >Voltar</button>
       </Link>
 
-    </main>
+    </section>
   )
 }
 

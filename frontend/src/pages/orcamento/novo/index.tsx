@@ -1,6 +1,6 @@
 import { BASE_URL } from 'utils/requests';
 
-import '../orcamentoStyles.css';
+import './novoOrcamento.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -70,7 +70,7 @@ function NovoOrcamento() {
 
   return (
 
-    <section className=' containerOrcamento'>
+    <section className=' containerOrcamento containerNovoOrcamento'>
 
 
       <h1 className="titulo">Novo orçamento</h1>
@@ -81,6 +81,7 @@ function NovoOrcamento() {
         <input className='inputForm'
           type="text"
           value={dispositivoId}
+          placeholder='Código do dispositivo  '
 
           onChange={e => setDispositivoId(e.target.value)}
         />
@@ -133,16 +134,19 @@ function NovoOrcamento() {
           value={clienteId}
           onChange={e => setClienteId(e.target.value)}
         />
-
-        <button type="submit">Inserir</button>
+        <div className='btnIcone'>
+          <button type="submit">Inserir</button>
+        </div>
 
       </form>
 
-      <Link className="btnVoltar" to="/Orcamento/1">
-        <button>Voltar</button>
-      </Link>
+      <div className="btnIcone">
+        <Link to={`/orcamento`} >
+          <button type="button" >Voltar</button>
+        </Link>
+      </div>
 
-      </section>
+    </section>
 
   )
 }

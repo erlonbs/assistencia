@@ -46,71 +46,77 @@ function Cadastrar() {
   }
 
   return (
-    <main className="containerCliente">
+    <section className="containerCliente cadastrarCliente">
       <h1 className="titulo">Cadastro de Clientes</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
-        <label className="tituloEntrada" htmlFor="nome">
-          Nome:
+        <label className="tituloEntrada" htmlFor="">
+          Entre com os dados:
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
+          placeholder='Nome'
           value={clienteName}
 
           onChange={e => setClienteName(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="endereco">
-          Endereço:
+
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
           value={address}
+          placeholder='Endereço'
           onChange={e => setAddress(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="telefone">
-          Telefone:
+
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
           value={telephone}
+          placeholder='Telefone'
           onChange={e => setTelephone(e.target.value)}
         />
 
         <label className="tituloEntrada" htmlFor="cpf">
-          Cpf:
+
         </label>
         <input
           className="inputForm"
           type="text"
           size={35}
           value={cpf}
+          placeholder='Cpf'
           onChange={e => setCpf(e.target.value)}
         />
 
-
-        <button className="btnCadastrar" type="submit" >
-          Cadastrar
-        </button>
+        <div className='btnIcone'>
+          <button type="submit" >
+            Cadastrar
+          </button>
+        </div>
 
       </form>
-
-      <Link className="btnVoltar" to="/Cliente/1">
-        <button>voltar</button>
-      </Link>
+      <div className="btnIcone">
+        <Link to="/Cliente/">
+          <button>voltar</button>
+        </Link>
+      </div>
 
       <div id="menssagem"></div>
 
 
 
-    </main>
+    </section>
   )
 }
 

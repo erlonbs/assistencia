@@ -1,0 +1,56 @@
+imagem dispositivo: QuinceCreative Pixabay
+
+imagem dispositivo2 : Magnascan Pixabay
+
+imagem dispositivo3 : JessBaileyDesign Imagem de <a href="https://pixabay.com/pt/users/jessbaileydesign-7369896/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3025558">Jess Bailey</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3025558">Pixabay</a>
+
+imagem placa mãe : Imagem de <a href="https://pixabay.com/pt/users/lrcfree-812646/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=683247">luis cornejo</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=683247">Pixabay</a>
+
+imagem iphone orcamento : Imagem de <a href="https://pixabay.com/pt/users/jessbaileydesign-7369896/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3068617">Jess Bailey</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3068617">Pixabay</a>
+
+imagem servico1 : Imagem de <a href="https://pixabay.com/pt/users/stocksnap-894430/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=924015">StockSnap</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=924015">Pixabay</a>
+
+imagem menu1 : Imagem de <a href="https://pixabay.com/pt/users/firmbee-663163/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=733178">Firmbee</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=733178">Pixabay</a>
+
+imagem menu2: Imagem de <a href="https://pixabay.com/pt/users/tookapic-1386459/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=932180">tookapic</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=932180">Pixabay</a>
+
+imagem menu3 : Imagem de <a href="https://pixabay.com/pt/users/peggy_marco-1553824/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4674870">Peggy und Marco Lachmann-Anke</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4674870">Pixabay</a>
+
+imagem menu4 : Imagem de <a href="https://pixabay.com/pt/users/geralt-9301/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6892340">Gerd Altmann</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6892340">Pixabay</a>
+
+imagem menu5 : Imagem de <a href="https://pixabay.com/pt/users/geralt-9301/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1071162">Gerd Altmann</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1071162">Pixabay</a>
+
+imagem menu6 : Imagem de <a href="https://pixabay.com/pt/users/startupstockphotos-690514/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=593380">StartupStockPhotos</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=593380">Pixabay</a>
+
+imagem menu7 : Imagem de <a href="https://pixabay.com/pt/users/geralt-9301/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1799661">Gerd Altmann</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1799661">Pixabay</a>
+
+imagem menu8 : Imagem de <a href="https://pixabay.com/pt/users/skitterphoto-324082/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1305608">Rudy and Peter Skitterians</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1305608">Pixabay</a>
+
+imagem menu10 : Imagem de <a href="https://pixabay.com/pt/users/thedigitalartist-202249/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4205276">Pete Linforth</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4205276">Pixabay</a>
+
+imagem menu11 : Imagem de <a href="https://pixabay.com/pt/users/fancycrave1-1115284/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=820285">fancycrave1</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=820285">Pixabay</a>
+
+imagem menu12 : Imagem de <a href="https://pixabay.com/pt/users/mediamodifier-1567646/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2170396">Mediamodifier</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2170396">Pixabay</a>
+
+imagem cliente0 > Imagem de <a href="https://pixabay.com/pt/users/openclipart-vectors-30363/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=160032">OpenClipart-Vectors</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=160032">Pixabay</a>
+
+imagem servico5 : Imagem de <a href="https://pixabay.com/pt/users/barbaraalane-756613/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3232784">Barbara A Lane</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3232784">Pixabay</a>
+
+imagem servico6 : Imagem de <a href="https://pixabay.com/pt/users/ylanite-2218222/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3221099">Ylanite Koppens</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=3221099">Pixabay</a>
+
+imagem clienteFundo : Imagem de <a href="https://pixabay.com/pt/users/prawny-162579/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1201003">Prawny</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1201003">Pixabay</a>
+
+imagem dispositivoFundo : Imagem de <a href="https://pixabay.com/pt/users/publicdomainpictures-14/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=213649">PublicDomainPictures</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=213649">Pixabay</a>
+
+imagem orcamentoFundo2 : Imagem de <a href="https://pixabay.com/pt/users/csar-fotografie-556582/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5969508">Csar-Fotografie</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=5969508">Pixabay</a>
+
+imagem servicoFundo2: Imagem de <a href="https://pixabay.com/pt/users/prawny-162579/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1201008">Prawny</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1201008">Pixabay</a>
+
+imagem customer: Imagem de <a href="https://pixabay.com/pt/users/mohamed_hassan-5229782/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8661577">Mohamed Hassan</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8661577">Pixabay</a>
+
+imagem call: Imagem de <a href="https://pixabay.com/pt/users/mohamed_hassan-5229782/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8602325">Mohamed Hassan</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=8602325">Pixabay</a>
+
+IMAGEM orcamento: Imagem de <a href="https://pixabay.com/pt/users/geralt-9301/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1691354">Gerd Altmann</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1691354">Pixabay</a>
+
+
+imagem orçamento: Imagem de <a href="https://pixabay.com/pt/users/jcamargo-2826093/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1857222">José Augusto Camargo</a> por <a href="https://pixabay.com/pt//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1857222">Pixabay</a>

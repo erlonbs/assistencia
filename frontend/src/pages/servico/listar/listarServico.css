@@ -1,5 +1,17 @@
-.tabela{
-    max-height: 300px; 
-    overflow-y: auto;
+.voltar {
+    margin-top: 10px;
+}
 
+.tabela-scroll {
+    max-height: 320px;
+
+    overflow-y: auto;
+}
+
+.visualizar {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: space-between;
 }

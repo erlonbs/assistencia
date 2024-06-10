@@ -1,0 +1,15 @@
+.todosClientes {
+    height: 66vh;
+    display: flex;
+    align-items: center;
+
+
+
+}
+
+.containerButtons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}

@@ -1,22 +1,16 @@
 import axios from 'axios'
 import './buscaCodigo.css'
 import { Clientes } from 'types/cliente'
-
 import { BASE_URL } from 'utils/requests'
-
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
 import editarImagem from 'assets/icon/editar.png'
-
 import excluirImagem from 'assets/icon/excluir.png'
 
 function BuscaCodigo() {
   const [clienteId, setClienteId] = useState<string>()
 
   const [cliente, setCliente] = useState<Clientes>()
-
-
 
   const [mensagem, setMensagem] = useState<string>()
 
@@ -31,16 +25,16 @@ function BuscaCodigo() {
 
     if (cliente) {
       setMensagem(`Verifique abaixo os dados de : ${cliente.clienteName}`)
-      
+
     } else {
       setMensagem(' Cliente inexistente')
     }
   }
 
   return (
-    <main className='containerCliente'>
+    <section className='containerCliente codigoCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
-        <h2 className='titulo'>Entre com o código do cliente:</h2>
+        <h1 className='titulo tituloPersonalizado'>Entre com o código do cliente:</h1>
 
         <div className="entrada">
           <input
@@ -104,13 +98,13 @@ function BuscaCodigo() {
 
       </table>
 
-      <Link className="voltar" to="/Cliente/Busca">
-        <div>
+        <div className='btnIcone'>
+      <Link to="/Cliente/Busca">
           <button>voltar</button>
-        </div>
       </Link>
+        </div>
 
-      <h1 className='titulo'>Dispositivos do cliente:</h1>
+      <h1 className='titulo tituloPersonalizado'>Dispositivos:</h1>
       <table className="tabela">
         <thead>
           <tr className="coluna">
@@ -124,7 +118,7 @@ function BuscaCodigo() {
           </tr>
         </thead>
         <div>
-          
+
         </div>
         <tbody className='conteudo'>
           {cliente?.dispositivos.map((dispositivo) => (
@@ -145,7 +139,7 @@ function BuscaCodigo() {
 
 
       </table >
-    </main >
+    </section >
 
   )
 

@@ -1,3 +1,7 @@
+.cadastrarCliente{
+  height: 100%;
+}
+
 
 .btnCadastrar {
   text-align: center;
@@ -5,13 +9,13 @@
   font-size: 15px;
 }
 
-.btnVoltar {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 20px;
-}
+
 
 #mensagem{
   font-size: large;
 }
 
+
+.tituloEntrada{
+  margin-bottom: 10px;
+}

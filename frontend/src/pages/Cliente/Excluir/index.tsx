@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { BASE_URL } from 'utils/requests'
-import './styles.css'
+import { useState } from 'react';
+import { BASE_URL } from 'utils/requests';
+import './styles.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -30,23 +30,25 @@ function Excluir() {
   }
 
   return (
-    <main className="containerExcluirCliente">
-      <h1 className='titulo'>Excluir Clientes</h1>
-  
-      <label>Insira cliente a ser excluído:</label>
+    <main className="containerCliente excluirCliente">
 
-      <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
-      <button onClick={handleDelete}>Excluir</button>
-
-      {mensagem && <div className="mensagem" >{mensagem}</div>}
-
-
-      <Link className="btnVoltar" to="/Cliente/1">
-        <div>
-          <button>voltar</button>
+        <h1 className='titulo '>Excluir Clientes</h1>
+        
+      <div className='containerForm' >
+        <label className='tituloEntrada'>Insira cliente a ser excluído:</label>
+        <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
+        <div className='btnIcone'>
+          <button onClick={handleDelete}>Excluir</button>
         </div>
-      </Link>
 
+        {mensagem && <div className="mensagem" >{mensagem}</div>}
+
+      </div>
+      <div className="btnIcone">
+        <Link to="/Cliente/">
+          <button>voltar</button>
+        </Link>
+      </div>
     </main>
   )
 }

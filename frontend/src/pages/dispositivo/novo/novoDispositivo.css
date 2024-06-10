@@ -1,4 +1,12 @@
-.btnVoltar{
-    margin-top: 30px;
+
+.novoDispositivo{
+
+    height: 100%;
+}
+
+.containerForm .tituloEntrada{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 

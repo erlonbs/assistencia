@@ -25,58 +25,56 @@ function ListarOrcamento() {
 
   return (
 
-    <div className='listarContainer' >
+    <div className='containerOrcamento listarOrcamento' >
       <form >
 
         <h2 className='titulo'>Lista de todos os Orçamentos:</h2>
 
         <div className='tabela-scroll'>
-        <table className='tab'>
-          <thead >
-            <tr className='coluna' >
-              <th className='cabecalho'>Código</th>
-              <th className='cabecalho'>Dispositivo</th>
-              <th className='cabecalho'>Nome do Dispositivo</th>
-              <th className='cabecalho'>Nome do Cliente</th>
-              <th className='cabecalho'>Defeito</th>
-              <th className='cabecalho'>Descrição</th>
-              <th className='cabecalho'>Valor</th>
-              <th className='cabecalho'>Autorizado</th>
-              <th className='cabecalho'>Código do cliente</th>
+          <table className='tabela-orcamento'>
+            <thead >
+              <tr className='coluna' >
+                <th className='cabecalho'>Código</th>
+                <th className='cabecalho'>Dispositivo</th>
+                <th className='cabecalho'>Nome do Dispositivo</th>
+                <th className='cabecalho'>Nome do Cliente</th>
+                <th className='cabecalho'>Defeito</th>
+                <th className='cabecalho'>Descrição</th>
+                <th className='cabecalho'>Valor</th>
+                <th className='cabecalho'>Autorizado</th>
+                <th className='cabecalho'>Código do cliente</th>
 
-
-            </tr>
-          </thead>
-         
-          <tbody className='cont'>
-       
-            {orcamentos.map((orcamento) => (
-              <tr className='coluna' key={orcamento.id}>
-                <td className='celula'>{orcamento.id}</td>
-                <td className='celula'>{orcamento.dispositivoId}</td>
-                <td className='celula'>{orcamento.dispositivoName}</td>
-                <td className='celula'>{orcamento.clienteName}</td>
-                <td className='celula'>{orcamento.defeito}</td>
-                <td className='celula'>{orcamento.descricao}</td>
-                <td className='celula'>{orcamento.valor}</td>
-                <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>
-                <td className='celula'>{orcamento.clienteId}</td>
 
               </tr>
-            ))}
-            
-          </tbody>
-       
-        </table>
+            </thead>
+
+            <tbody className='cont'>
+
+              {orcamentos.map((orcamento) => (
+                <tr className='coluna' key={orcamento.id}>
+                  <td className='celula'>{orcamento.id}</td>
+                  <td className='celula'>{orcamento.dispositivoId}</td>
+                  <td className='celula'>{orcamento.dispositivoName}</td>
+                  <td className='celula'>{orcamento.clienteName}</td>
+                  <td className='celula'>{orcamento.defeito}</td>
+                  <td className='celula'>{orcamento.descricao}</td>
+                  <td className='celula'>{orcamento.valor}</td>
+                  <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>
+                  <td className='celula'>{orcamento.clienteId}</td>
+
+                </tr>
+              ))}
+
+            </tbody>
+
+          </table>
         </div >
       </form>
-
-      <Link className="voltar" to="/orcamento/1">
-        <div>
-          <button>voltar</button>
-        </div>
-      </Link>
-
+      <div className="btnIcone">
+        <Link to={`/orcamento`} >
+          <button type="button" >Voltar</button>
+        </Link>
+      </div>
     </div>
   )
 }

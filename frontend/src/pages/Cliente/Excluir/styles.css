@@ -1,4 +1,7 @@
-.containerExcluirCliente{
-    height: 100vh;
-    background-image: url('/src/assets/img/clienteFundo.jpg');
+.excluirCliente{
+ height: 66vh;
+}
+
+.containerForm{
+    height: 100%;
 }

@@ -42,22 +42,25 @@ function Editar() {
   }
 
   return (
-    <main className="containerDispositivo">
+    <section className="containerDispositivo editarDispositivo">
       <h1 className="titulo">Editar Dispositivos</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
-        <label className='tituloEntrada' htmlFor="nome">Codigo </label>
+        <label className='tituloEntrada' htmlFor="nome"> </label>
         <input className='inputForm'
           type="text"
           value={dispositivoId}
+          placeholder='Código'
           onChange={e => setDispositivoId(e.target.value)}
         />
 
         <label className='tituloEntrada' htmlFor="nome">Nome:</label>
         <input className='inputForm'
           type="text"
-          id="nome"
           value={dispositivoName}
+          placeholder={dispositivoName}
+
+
           onChange={e => setDispositivoName(e.target.value)}
         />
 
@@ -98,11 +101,13 @@ function Editar() {
         <button type="submit">Editar</button>
       </form>
 
-      <Link to="/dispositivo/1">
-        <button type="submit">Voltar</button>
-      </Link>
+      <div className='btnIcone'>
+        <Link to="/dispositivo/">
+          <button type="submit">Voltar</button>
+        </Link>
+      </div>
 
-    </main>
+    </section>
   )
 }
 export default Editar

@@ -56,7 +56,7 @@ function EditarOrdemServico() {
   };
 
   return (
-    <main className="containerServico">
+    <section className="containerServico containerEditarServico">
       <h1 className="titulo">Editar Ordem de Serviço</h1>
 
       <form className='containerForm' onSubmit={handleSubmit}>
@@ -79,7 +79,7 @@ function EditarOrdemServico() {
         <input className='inputForm'
           type="text"
           value={clienteName}
-          onChange={e => setClienteName(e.target.value)}
+          onChange={e => setClienteName(e.currentTarget.value)}
         />
 
 
@@ -110,16 +110,18 @@ function EditarOrdemServico() {
 
           onChange={handleCheckboxChange}
         />
-
-        <button type="submit">Editar</button>
+        <div className='btnIcone'>
+          <button type="submit">Editar</button>
+        </div>
       </form>
 
-      <Link to={`/servico/1`} className="btnVoltar">
+      <div className="btnIcone">
+        <Link to={`/servico`} >
+          <button type="button" >Voltar</button>
+        </Link>
+      </div>
 
-        <button type="button" >Voltar</button>
-      </Link>
-
-    </main>
+    </section >
   )
 }
 

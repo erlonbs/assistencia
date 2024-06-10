@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Orcamento() {
     return (
-      
+
         <div className="containerOrcamento">
             <h1 className='titulo'>Orçamentos</h1>
 
@@ -33,16 +33,14 @@ function Orcamento() {
                         <button type="button" >Excluir</button>
                     </Link>
                 </div>
-
-                <div>
-                    <Link to={`/`} >
-
-                        <button type="button" >Voltar</button>
-                    </Link>
-                </div>
+            </div>
+            <div className="btnIcone">
+                <Link to={`/Menu`} >
+                    <button type="button" >Voltar</button>
+                </Link>
             </div>
         </div >
-     
+
 
     )
 

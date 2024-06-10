@@ -1,7 +1,10 @@
-
+.atualizarCliente{
+  height: 100%;
+}
 
 .tituloEntrada {
   font-size: 20px;
+  text-align: start;
 }
 
 

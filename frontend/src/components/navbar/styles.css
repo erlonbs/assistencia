@@ -2,8 +2,8 @@
   height: 80px;
   width: 100vw;
   background-color: var(--color-primary);
-  display: flex; 
-justify-content: center;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -13,10 +13,6 @@ justify-content: center;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-
- 
-
-
   color: rgb(21, 20, 95);
 }
 
@@ -24,6 +20,7 @@ justify-content: center;
   margin: 0%;
   font-weight: 700;
   font-size: 24px;
+  animation: raio-animacao 1.5s linear infinite;
 }
 
 .container-gitImg {
@@ -34,4 +31,15 @@ justify-content: center;
 .container-link-gitName {
   margin: 0 0 0 10px;
   font-size: 13px;
+}
+
+@media(max-width:320px) {
+  
+  .container-header {
+    height: 80px;
+    width: 100vh;
+ 
+  }
+  
+  
 }
