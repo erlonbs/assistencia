@@ -9,6 +9,6 @@ Backend:
   Frontend:  
    Typescript, ReactJS, CSS.
 
-   #![Alt text](image.png)
+   #![Imagem de assistência](frontend/src/assets/img/assistencia.png)
 
 
