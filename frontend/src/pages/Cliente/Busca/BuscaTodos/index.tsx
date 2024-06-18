@@ -1,7 +1,8 @@
 import { Clientes } from 'types/cliente'
 import { BASE_URL } from 'utils/requests'
 import axios from 'axios'
-import './buscaTodos.css'
+import './buscaTodos.css';
+
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -18,7 +19,7 @@ function BuscaTodos() {
 
   return (
 
-    <section className='containerCliente containerTodosCliente'>
+    <section className='containerCliente todosClientes'>
       <div className='formulario' >
 
         <h2 className='titulo'>Lista de todos clientes:</h2>

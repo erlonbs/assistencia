@@ -127,3 +127,40 @@
   font-size: 50px;
 }
 
+
+@media(min-width:200px) and (max-width:519px) {
+  
+
+  .containerMenu{
+    display: flex;
+    
+    flex-direction: column;
+  }
+  
+}
+
+@media(min-width:520px) {
+  .menu {
+     width: 100%;
+    height: 100%;
+   
+  }
+
+  .containerMenu{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    flex-direction: row;
+  }
+  
+}
+
+@media(min-width:897px) {
+
+
+  .containerMenu{
+    display: flex;
+   
+    flex-direction: row;
+  }
+  
+}

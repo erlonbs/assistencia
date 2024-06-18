@@ -1,6 +1,7 @@
 import { Dispositivos } from 'types/dispositivo'
 import { BASE_URL } from 'utils/requests'
 import axios from 'axios'
+import '../../../index.css'
 import './listarDispositivo.css'
 import { useEffect, useState } from 'react'
 

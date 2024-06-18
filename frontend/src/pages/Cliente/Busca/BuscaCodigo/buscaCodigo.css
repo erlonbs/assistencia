@@ -1,12 +1,9 @@
 .codigoCliente {
   display: flex;
-
-  height: 100vh;
-
-}
-
-.coluna {
-  background-color: rgb(182, 200, 222);
+  justify-content: center;
+ 
+  width: 100%;
+  height: 100%;
 
 }
 
@@ -56,10 +53,7 @@
   align-self: center;
 }
 
-.tabela {
-  width: 100%;
 
-}
 
 .tituloPersonalizado {
   font-size: 35px;

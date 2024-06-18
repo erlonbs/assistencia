@@ -2,11 +2,6 @@
     margin-top: 10px;
 }
 
-.tabela-scroll {
-    max-height: 320px;
-
-    overflow-y: auto;
-}
 
 .visualizar {
     display: flex;
@@ -14,4 +9,9 @@
     height: 20px;
     align-items: center;
     justify-content: space-between;
+}
+
+.containerListarServico{
+    width: 100%;
+    height: 100%;
 }

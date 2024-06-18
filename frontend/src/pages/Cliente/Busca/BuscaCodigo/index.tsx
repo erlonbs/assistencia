@@ -1,5 +1,6 @@
 import axios from 'axios'
 import './buscaCodigo.css'
+
 import { Clientes } from 'types/cliente'
 import { BASE_URL } from 'utils/requests'
 import { useEffect, useState } from 'react'
@@ -48,97 +49,102 @@ function BuscaCodigo() {
 
       {mensagem && <div className="mensagem">{mensagem}</div>}
 
-      <table className="tabela">
-        <thead>
-          <tr className="coluna">
-            <th className="cabecalho">Código</th>
-            <th className="cabecalho">Nome</th>
-            <th className="cabecalho">Endereço</th>
-            <th className="cabecalho">Telefone</th>
-            <th className="cabecalho">CPF</th>
-            <th className="cabecalho">Editar</th>
-            <th className="cabecalho">Excluir</th>
+      <div className='tabela-scroll'>
 
-          </tr>
-        </thead>
-        <div>
+        <table className="tabela">
+          <thead>
+            <tr className="coluna">
+              <th className="cabecalho">Código</th>
+              <th className="cabecalho">Nome</th>
+              <th className="cabecalho">Endereço</th>
+              <th className="cabecalho">Telefone</th>
+              <th className="cabecalho">CPF</th>
+              <th className="cabecalho">Editar</th>
+              <th className="cabecalho">Excluir</th>
 
-
-        </div>
-        <tbody className="conteudo">
-          {
-            <tr className="coluna" key={cliente?.clienteId}>
-              <td className="celula">{cliente?.clienteId}</td>
-              <td className="celula">{cliente?.clienteName}</td>
-              <td className="celula">{cliente?.address}</td>
-              <td className="celula">{cliente?.telephone}</td>
-              <td className="celula">{cliente?.cpf}</td>
-
-              <td className="celula">
-                <a href="/Cliente/Atualizar">
-                  <img
-                    className="editar"
-                    src={editarImagem}
-                    alt="icone editar"
-                  />
-                </a>
-              </td>
-              <td className="celula">
-                <a href="/Cliente/Excluir">
-                  <img
-                    className="excluir"
-                    src={excluirImagem}
-                    alt="icone excluir"
-                  />
-                </a>
-              </td>
             </tr>
-          }
-        </tbody>
+          </thead>
+         
+          <tbody className="conteudo">
+            {
+              <tr className="coluna" key={cliente?.clienteId}>
+                <td className="celula">{cliente?.clienteId}</td>
+                <td className="celula">{cliente?.clienteName}</td>
+                <td className="celula">{cliente?.address}</td>
+                <td className="celula">{cliente?.telephone}</td>
+                <td className="celula">{cliente?.cpf}</td>
 
-      </table>
+                <td className="celula">
+                  <a href="/Cliente/Atualizar">
+                    <img
+                      className="editar"
+                      src={editarImagem}
+                      alt="icone editar"
+                    />
+                  </a>
+                </td>
+                <td className="celula">
+                  <a href="/Cliente/Excluir">
+                    <img
+                      className="excluir"
+                      src={excluirImagem}
+                      alt="icone excluir"
+                    />
+                  </a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
 
-        <div className='btnIcone'>
-      <Link to="/Cliente/Busca">
+      <div className='btnIcone'>
+        <Link to="/Cliente/Busca">
           <button>voltar</button>
-      </Link>
-        </div>
+        </Link>
+      </div>
 
       <h1 className='titulo tituloPersonalizado'>Dispositivos:</h1>
-      <table className="tabela">
-        <thead>
-          <tr className="coluna">
-            <th className="cabecalho">Código</th>
-            <th className="cabecalho">Nome do dispositivo</th>
-            <th className="cabecalho">Marca</th>
-            <th className="cabecalho">Modelo</th>
-            <th className="cabecalho">Cor</th>
-            <th className="cabecalho">Serial</th>
-            <th className="cabecalho">Descrição</th>
-          </tr>
-        </thead>
-        <div>
 
-        </div>
-        <tbody className='conteudo'>
-          {cliente?.dispositivos.map((dispositivo) => (
-            <tr className="coluna" key={dispositivo.dispositivoId}>
-              <td className="celula">{cliente?.clienteId}</td>
-              <td className='celula' >{dispositivo.dispositivoName} </td>
-              <td className='celular'>{dispositivo.marca} </td>
-              <td className='celula'>{dispositivo.modelo} </td>
-              <td className='celular'>{dispositivo.cor} </td>
-              <td className='celula'> {dispositivo.serial}</td>
-              <td className='celula'> {dispositivo.descricao}</td>
 
+      <div className='tabela-scroll'>
+
+
+        <table className="tabela">
+          <thead>
+            <tr className="coluna">
+              <th className="cabecalho">Código</th>
+              <th className="cabecalho">Nome do dispositivo</th>
+              <th className="cabecalho">Marca</th>
+              <th className="cabecalho">Modelo</th>
+              <th className="cabecalho">Cor</th>
+              <th className="cabecalho">Serial</th>
+              <th className="cabecalho">Descrição</th>
             </tr>
-          ))}
+          </thead>
+          <div>
+
+          </div>
+          <tbody className='conteudo'>
+            {cliente?.dispositivos.map((dispositivo) => (
+              <tr className="coluna" key={dispositivo.dispositivoId}>
+                <td className="celula">{cliente?.clienteId}</td>
+                <td className='celula' >{dispositivo.dispositivoName} </td>
+                <td className='celular'>{dispositivo.marca} </td>
+                <td className='celula'>{dispositivo.modelo} </td>
+                <td className='celular'>{dispositivo.cor} </td>
+                <td className='celula'> {dispositivo.serial}</td>
+                <td className='celula'> {dispositivo.descricao}</td>
+
+              </tr>
+            ))}
 
 
-        </tbody>
+          </tbody>
 
 
-      </table >
+        </table >
+      </div>
     </section >
 
   )

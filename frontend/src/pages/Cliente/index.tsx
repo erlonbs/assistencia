@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import './clienteStyles.css'
+import './clienteStyles.css';
+import './../../index.css';
 function Cliente() {
-  return (
 
+  return (
 
     <div className="containerCliente">
       <h1 className='titulo'>Clientes</h1>

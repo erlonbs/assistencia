@@ -56,7 +56,7 @@ const Login: React.FC = () => {
 
                 <h1 className='titulo'>Login</h1>
                 <form className='containerForm' onSubmit={handSubmit}>
-
+                    <label className='tituloEntrada'>Entre com os dados:</label>
                     <input className='inputForm' type="text"
                         placeholder='Email'
 

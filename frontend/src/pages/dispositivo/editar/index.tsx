@@ -46,7 +46,7 @@ function Editar() {
       <h1 className="titulo">Editar Dispositivos</h1>
 
       <form className="containerForm" onSubmit={handleSubmit}>
-        <label className='tituloEntrada' htmlFor="nome"> </label>
+        <label className='tituloEntrada' htmlFor="nome">Código do dispositivo </label>
         <input className='inputForm'
           type="text"
           value={dispositivoId}
@@ -98,7 +98,9 @@ function Editar() {
           placeholder={dispositivo?.descricao}
           onChange={e => setDispositivoDescricao(e.target.value)}
         />
+        <div className='btnIcone'>
         <button type="submit">Editar</button>
+        </div>
       </form>
 
       <div className='btnIcone'>

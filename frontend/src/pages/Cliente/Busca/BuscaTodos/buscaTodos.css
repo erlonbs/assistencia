@@ -1,5 +1,5 @@
-.containerTodosCliente{
-  height: 65vh;
+.todosClientes{
+  height: 100vh;
 }
 
 .formulario {
@@ -9,37 +9,6 @@
 }
 
 
-.coluna:nth-child(even) {
-  background-color: #f5f5f5;
-}
-
-.cabecalho {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-.conteudo {
-  background-color: #e8e8e8;
-  border: 1px solid #444444;
-  max-height: 200px;
-
+.container-header {
   width: 100%;
 }
-
-.celula {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-.tabela:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.tabela-scroll{
-  height: 280px;
- 
-   overflow-y: auto;
- }

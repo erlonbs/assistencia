@@ -1,19 +1,11 @@
-.containerLogin{
-
+.containerLogin {
+    display: flex;
+    justify-content: space-between;
     height: 65vh;
     display: flex;
     flex-direction: column;
 }
 
-.containerForm{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 250px;
-  
-   
-}
 
 
 .containerForm input {

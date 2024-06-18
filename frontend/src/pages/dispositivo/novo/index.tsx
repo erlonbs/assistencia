@@ -60,34 +60,36 @@ function NovoDispositivo() {
         />
 
         <label className="tituloEntrada" htmlFor="">Cor:</label>
-        <input className='inputForm' 
-        type="text" 
-        value={cor} 
-        placeholder='Cor'
-        onChange={e => setCor(e.target.value)} />
+        <input className='inputForm'
+          type="text"
+          value={cor}
+          placeholder='Cor'
+          onChange={e => setCor(e.target.value)} />
 
         <label className="tituloEntrada" htmlFor="">Serial:</label>
         <input className='inputForm'
-        type="text" 
-        value={serial} 
-        placeholder='Serial'
-        onChange={e => setSerial(e.target.value)} />
+          type="text"
+          value={serial}
+          placeholder='Serial'
+          onChange={e => setSerial(e.target.value)} />
 
 
         <label className="tituloEntrada" htmlFor="">Descricao:</label>
-        <input className='inputForm' 
-        type="text" 
-        value={descricao}
-        placeholder='Descrição'
-         onChange={e => setDescricao(e.target.value)} />
+        <input className='inputForm'
+          type="text"
+          value={descricao}
+          placeholder='Descrição'
+          onChange={e => setDescricao(e.target.value)} />
 
         <label className="tituloEntrada" htmlFor="">Código do Cliente</label>
-        <input type="text"
-         value={clienteId} 
-         placeholder='Código'
-         onChange={e => setClienteId(e.target.value)} />
+        <input className='inputForm' type="text"
+          value={clienteId}
+          placeholder='Código'
+          onChange={e => setClienteId(e.target.value)} />
 
-        <button type="submit">Inserir</button>
+        <div className='btnIcone'>
+          <button type="submit">Inserir</button>
+        </div>
       </form>
 
       <div className='btnIcone'>

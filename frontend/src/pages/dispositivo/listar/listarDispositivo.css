@@ -1,10 +1,5 @@
 .listarDispositivo{
-    height: 66vh;
+    height: 100%;
+    width: 100%;
 }
 
-
-.tabela-scroll{
-    max-height: 320px;
-   
-     overflow-y: auto;
-   }
