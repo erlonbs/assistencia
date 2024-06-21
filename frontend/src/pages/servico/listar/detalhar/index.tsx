@@ -53,11 +53,11 @@ function DetalharOrdemServico() {
 
         <div className='detalhesClientesItens'>
 
-          <p ><b>Código: </b> {cliente?.clienteId}</p>
-          <p ><b>Nome do cliente: </b> {cliente?.clienteName}</p>
-          <p ><b>Endereço: </b> {cliente?.address}</p>
-          <p ><b>Telefone: </b>: {cliente?.telephone}</p>
-          <p ><b>Cpf: </b> {cliente?.cpf}</p>
+          <p  className='detalharNome'><b>Código: </b> {cliente?.clienteId}</p>
+          <p  className='detalharNome'><b>Nome do cliente: </b> {cliente?.clienteName}</p>
+          <p  className='detalharNome'><b>Endereço: </b> {cliente?.address}</p>
+          <p  className='detalharNome'><b>Telefone: </b>: {cliente?.telephone}</p>
+          <p  className='detalharNome'><b>Cpf: </b> {cliente?.cpf}</p>
         </div>
         <div >
         </div>
@@ -67,13 +67,13 @@ function DetalharOrdemServico() {
 
       <div className='detalhesDispositivo'>
 
-        <p className=''><b>Código: </b>{dispositivo?.dispositivoId} </p>
-        <p className=''><b>Nome do dispositivo: </b>{dispositivo?.dispositivoName}</p>
-        <p className=''><b>Marca: </b> {dispositivo?.marca}</p>
-        <p className=''><b>Modelo: </b> {dispositivo?.modelo}</p>
-        <p className=''><b>Cor: </b> {dispositivo?.cor}</p>
-        <p className=''><b>Serial: </b>{dispositivo?.serial}</p>
-        <p className=''><b>Descrição: </b> {dispositivo?.descricao}</p>
+        <p className='detalharNome'><b>Código: </b>{dispositivo?.dispositivoId} </p>
+        <p className='detalharNome'><b>Nome do dispositivo: </b>{dispositivo?.dispositivoName}</p>
+        <p className='detalharNome'><b>Marca: </b> {dispositivo?.marca}</p>
+        <p className='detalharNome'><b>Modelo: </b> {dispositivo?.modelo}</p>
+        <p className='detalharNome'><b>Cor: </b> {dispositivo?.cor}</p>
+        <p className='detalharNome'><b>Serial: </b>{dispositivo?.serial}</p>
+        <p className='detalharNome'><b>Descrição: </b> {dispositivo?.descricao}</p>
 
       </div>
 
@@ -81,15 +81,15 @@ function DetalharOrdemServico() {
       <h2>Dados do serviço:</h2>
 
       <div className='detalhesServico'>
-        <p className=''><b>Número da ordem: </b>{servico?.id}</p>
-        <p className=''><b>Código do orçamento: </b>{servico?.codigoOrcamento}</p>
-        <p className=''><b>Código do cliente: </b>{servico?.clienteId}</p>
-        <p className=''><b>Código  do Dispositivo: </b>{servico?.dispositivoId}</p>
-        <p className=''><b>Defeito: </b>{servico?.descricao}</p>
-        <p className=''><b>Serviço realizado: </b> {servico?.servicoRealizado}</p>
-        <p className=''><b>Valor: </b> {servico?.valor}</p>
-        <p className=''><b>Pagamento: </b> {servico?.pagamento ? 'Sim' : 'Não'}</p>
-        <p className=''><b>Status da ordem: </b> {servico?.pagamento ? 'aguardando' : 'finalizado'}</p>
+        <p className='detalharNome'><b>Número da ordem: </b>{servico?.id}</p>
+        <p className='detalharNome'><b>Código do orçamento: </b>{servico?.codigoOrcamento}</p>
+        <p className='detalharNome'><b>Código do cliente: </b>{servico?.clienteId}</p>
+        <p className='detalharNome'><b>Código  do Dispositivo: </b>{servico?.dispositivoId}</p>
+        <p className='detalharNome'><b>Defeito: </b>{servico?.descricao}</p>
+        <p className='detalharNome'><b>Serviço realizado: </b> {servico?.servicoRealizado}</p>
+        <p className='detalharNome'><b>Valor: </b> {servico?.valor}</p>
+        <p className='detalharNome'><b>Pagamento: </b> {servico?.pagamento ? 'Sim' : 'Não'}</p>
+        <p className='detalharNome'><b>Status da ordem: </b> {servico?.pagamento ? 'aguardando' : 'finalizado'}</p>
 
       </div>
       <div className='botoesDetalhar'>

@@ -27,15 +27,11 @@ const Login: React.FC = () => {
     const handSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-
         try {
-
-
             if (user != null)
-
+                
                 if ((user?.email === email) && (user.password === password)) {
                     ExibirMensagem('Logado com sucesso!', user.email) // Handle success
-
 
                     setTimeout(function () {                      //depois de logado vai para Menu em 2 segundos
                         window.location.href = 'Menu';
@@ -47,7 +43,7 @@ const Login: React.FC = () => {
                 }
         } catch {
 
-            (ExibirMensagem('não foi possivel acessar banco de dados', ''))
+            (ExibirMensagem('não foi possivel acessar banco de dados. Tente novamente mais tarde!', ''))
         }
     }
     return (
@@ -77,10 +73,10 @@ const Login: React.FC = () => {
                     <button type='submit'>Login</button>
                         
                     </div>
-
+                    <div id="mensagem"></div>
                 </form>
 
-                <div id="menssagem"></div>
+                
             </section>
 
         </>

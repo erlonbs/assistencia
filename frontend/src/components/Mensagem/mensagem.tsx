@@ -5,7 +5,7 @@ const ExibirMensagem = (mensagem: string, responseData: any) => {
     const mensagemElemento = document.createElement('div')
     mensagemElemento.textContent = mensagem
 
-    const localParaExibir = document.getElementById('menssagem')
+    const localParaExibir = document.getElementById('mensagem')
     localParaExibir?.appendChild(mensagemElemento)
 
     console.log('Dados da resposta: ' + responseData)

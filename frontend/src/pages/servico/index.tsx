@@ -5,7 +5,6 @@ import './servicoStyles.css'
 function Servico() {
   return (
 
-
     <main className="containerServico">
       <h1 className='titulo'>Serviços</h1>
 
