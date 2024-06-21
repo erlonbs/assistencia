@@ -4,7 +4,6 @@ import axios from 'axios'
 import { BASE_URL } from 'utils/requests'
 import { Clientes } from 'types/cliente'
 import { Link } from 'react-router-dom'
-import { Writable } from 'stream'
 import ExibirMensagem from 'components/Mensagem/mensagem'
 
 function Atualizar() {

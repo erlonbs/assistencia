@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom'
 function ListarOrdemServico() {
 
   const [servicos, setServicos] = useState<Servicos[]>([])
-  const [servicoId, setServicoId] = useState('');
 
   useEffect(() => {
     axios.get<Servicos[]>(`${BASE_URL}/servicos`).then(response => {
