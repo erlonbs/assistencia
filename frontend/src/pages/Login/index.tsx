@@ -19,7 +19,7 @@ const Login: React.FC = () => {
                 setUser(response.data)
             
             })).catch(erro => {
-                ExibirMensagem('Sem acesso a base de dados, contact o administrador do sistema', erro);
+                ExibirMensagem('Sem acesso a base de dados, contact o administrador do sistema');
             });
     }, [])
 
@@ -31,19 +31,19 @@ const Login: React.FC = () => {
             if (user != null)
                 
                 if ((user?.email === email) && (user.password === password)) {
-                    ExibirMensagem('Logado com sucesso!', user.email) // Handle success
+                    ExibirMensagem('Logado com sucesso!') // Handle success
 
                     setTimeout(function () {                      //depois de logado vai para Menu em 2 segundos
                         window.location.href = 'Menu';
                     }, 1500);
 
                 } else {
-                    ExibirMensagem('Usuário ou senha inválidos!', user.email) // Handle success
+                    ExibirMensagem('Usuário ou senha inválidos!') // Handle success
 
                 }
         } catch {
 
-            (ExibirMensagem('não foi possivel acessar banco de dados. Tente novamente mais tarde!', ''))
+            (ExibirMensagem('não foi possivel acessar banco de dados. Tente novamente mais tarde!'))
         }
     }
     return (
@@ -73,7 +73,7 @@ const Login: React.FC = () => {
                     <button type='submit'>Login</button>
                         
                     </div>
-                    <div id="mensagem"></div>
+                    <div className='containerMensagem'></div>
                 </form>
 
                 

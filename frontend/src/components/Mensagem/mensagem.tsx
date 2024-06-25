@@ -1,14 +1,19 @@
 import './styles.css';
 
 
-const ExibirMensagem = (mensagem: string, responseData: any) => {
+const ExibirMensagem = (mensagem: string) => {
     const mensagemElemento = document.createElement('div')
-    mensagemElemento.textContent = mensagem
+    mensagemElemento.textContent=mensagem;
 
-    const localParaExibir = document.getElementById('mensagem')
-    localParaExibir?.appendChild(mensagemElemento)
+    const localParaExibir = document.getElementsByClassName('containerMensagem')[0];
+if(localParaExibir){
+  localParaExibir.appendChild(mensagemElemento)
+}
 
-    console.log('Dados da resposta: ' + responseData)
-  }
-
+  return(
+    <div className='containerMensagem'>
+    <p>mensagem:</p>
+    </div>
+  )
+}
   export default ExibirMensagem

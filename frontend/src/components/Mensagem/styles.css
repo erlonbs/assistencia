@@ -3,3 +3,10 @@ div {
     font-weight: 400;
   
 }
+
+
+@media(max-width: 768px){
+    .containerMensagem div{
+        font-size: 15px;
+    }
+}

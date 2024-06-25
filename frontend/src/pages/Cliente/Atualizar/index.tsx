@@ -31,11 +31,11 @@ function Atualizar() {
         cpf: clienteCpf
       })
       .then(response => {
-        ExibirMensagem('Atualizado com sucesso!', response) // Handle success
+        ExibirMensagem('Atualizado com sucesso!') // Handle success
         limpaCampos()
       })
       .catch(error => {
-        ExibirMensagem('Erro não foi possível atualizar!', error) // Handle errors
+        ExibirMensagem('Erro não foi possível atualizar!') // Handle errors
         limpaCampos()
       })
   }
