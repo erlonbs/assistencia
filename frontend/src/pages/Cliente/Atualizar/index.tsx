@@ -12,7 +12,8 @@ function Atualizar() {
   const [clienteName, setClienteName] = useState<string>('')
   const [clienteTelefone, setClienteTelefone] = useState<string>('')
   const [clienteEndereco, setClienteEndereco] = useState<string>('')
-  const [clienteCpf, setClienteCpf] = useState<string>('')
+  const [clienteCpf, setClienteCpf] = useState<string>('');
+  const [mensagem,setMensagem] = useState<string>('')
 
   useEffect(() => {
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
@@ -31,11 +32,11 @@ function Atualizar() {
         cpf: clienteCpf
       })
       .then(response => {
-        ExibirMensagem('Atualizado com sucesso!') // Handle success
+        setMensagem('Atualizado com sucesso!') // Handle success
         limpaCampos()
       })
       .catch(error => {
-        ExibirMensagem('Erro não foi possível atualizar!') // Handle errors
+        setMensagem('Não foi possível') // Handle errors
         limpaCampos()
       })
   }
@@ -124,7 +125,7 @@ function Atualizar() {
         </div>
       </Link>
 
-      <div id="menssagem"></div>
+      <ExibirMensagem mensagem={mensagem}/>
 
     </section>
   )

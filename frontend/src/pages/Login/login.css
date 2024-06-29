@@ -1,13 +1,14 @@
 .containerLogin {
     display: flex;
     justify-content: space-between;
-    height: 65vh;
+
     display: flex;
     flex-direction: column;
+    margin-bottom: 25px;
 }
 
 
 
 .containerForm input {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }

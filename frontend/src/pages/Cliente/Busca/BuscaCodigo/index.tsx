@@ -7,36 +7,37 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import editarImagem from 'assets/icon/editar.png'
 import excluirImagem from 'assets/icon/excluir.png'
+import ExibirMensagem from 'components/Mensagem/mensagem'
+
 
 function BuscaCodigo() {
-  const [clienteId, setClienteId] = useState<string>()
-
-  const [cliente, setCliente] = useState<Clientes>()
-
-  const [mensagem, setMensagem] = useState<string>()
+  const [clienteId, setClienteId] = useState<string>('');
+  const [cliente, setCliente] = useState<Clientes>();
+  const [mensagem, setMensagem] = useState('');
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
-      setCliente(response.data)
-    })
+    if (clienteId) {
+      axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
+        setCliente(response.data)
+        setMensagem(`Dados do cliente: ${response.data.clienteName}`)
+      })
+        .catch(error =>
+          setMensagem(`Cliente não existe!`));
+
+    } else (setMensagem('Prencha o campo'))
   }, [clienteId])
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
 
-    if (cliente) {
-      setMensagem(`Verifique abaixo os dados de : ${cliente.clienteName}`)
 
-    } else {
-      setMensagem(' Cliente inexistente')
-    }
   }
 
   return (
     <section className='containerCliente codigoCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
         <h1 className='titulo tituloPersonalizado'>Entre com o código do cliente:</h1>
-
+        <ExibirMensagem mensagem={mensagem} />
         <div className="entrada">
           <input
             type="text"
@@ -47,7 +48,7 @@ function BuscaCodigo() {
         </div>
       </form>
 
-      {mensagem && <div className="mensagem">{mensagem}</div>}
+   
 
       <div className='tabela-scroll'>
 
@@ -64,7 +65,7 @@ function BuscaCodigo() {
 
             </tr>
           </thead>
-         
+
           <tbody className="conteudo">
             {
               <tr className="coluna" key={cliente?.clienteId}>
@@ -122,9 +123,7 @@ function BuscaCodigo() {
               <th className="cabecalho">Descrição</th>
             </tr>
           </thead>
-          <div>
 
-          </div>
           <tbody className='conteudo'>
             {cliente?.dispositivos.map((dispositivo) => (
               <tr className="coluna" key={dispositivo.dispositivoId}>

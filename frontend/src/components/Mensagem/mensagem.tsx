@@ -1,19 +1,31 @@
+import { useEffect, useState } from 'react';
 import './styles.css';
 
 
-const ExibirMensagem = (mensagem: string) => {
-    const mensagemElemento = document.createElement('div')
-    mensagemElemento.textContent=mensagem;
+const ExibirMensagem = ({ mensagem }: { mensagem: string }) => {
+  const [showMensage, setShowMessage] = useState(false);
 
-    const localParaExibir = document.getElementsByClassName('containerMensagem')[0];
-if(localParaExibir){
-  localParaExibir.appendChild(mensagemElemento)
-}
 
-  return(
-    <div className='containerMensagem'>
-    <p>mensagem:</p>
-    </div>
+  useEffect(() => {
+
+    if (mensagem) {
+      setShowMessage(true)
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 3000)
+    }
+  }, [mensagem]);
+
+  return (
+    <>
+      {showMensage && (
+        <div className='mensagem'>
+          {mensagem}
+        </div>
+      )}
+
+    </>
   )
 }
-  export default ExibirMensagem
+export default ExibirMensagem
+
