@@ -3,6 +3,7 @@ import { BASE_URL } from 'utils/requests';
 import './styles.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 
 
@@ -41,8 +42,8 @@ function Excluir() {
           <button onClick={handleDelete}>Excluir</button>
         </div>
 
-        {mensagem && <div className="mensagem" >{mensagem}</div>}
-
+        <ExibirMensagem  mensagem={mensagem}/>
+ 
       </div>
       <div className="btnIcone">
         <Link to="/Cliente/">

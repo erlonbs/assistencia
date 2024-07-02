@@ -211,9 +211,9 @@ label {
 }
 
 .tabela-scroll {
-  height: 280px;
-
+  height: 100%;
   overflow-y: auto;
+  margin-bottom: 10px;
 }
 
 

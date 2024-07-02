@@ -3,6 +3,7 @@ import { BASE_URL } from 'utils/requests';
 import './excluirDispositivo.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 
 function ExcluirDispositivo() {
@@ -16,13 +17,12 @@ const[dispositivo, setDispositivo] = useState('')
   const handleDelete = async () => {
          
     try {
-      const response = await axios.delete(`${BASE}/${id}`);
-      console.log('Dispositivo excluído com sucesso!', dispositivo)
-      setDispositivo(response.data.name)
-      setMensagem(`Dispositivo com Id '  ${id} ${response.data}'  excluído com sucesso!`)
+      const response = await axios.delete(`${BASE}/${id}`);     
+      setDispositivo(response.data)
+      setMensagem(`Dispositivo com Id  ${id} ${response.data}excluído com sucesso!`)
       setId('')
     } catch (error) {
-      console.error('Não foi possível excluir:', error)
+    
       setMensagem(`Erro ao excluir o cliente ${id} "" + verifique e tente novamente!`)
       setId('')
     }
@@ -41,8 +41,7 @@ const[dispositivo, setDispositivo] = useState('')
             <div className='btnIcone'>
             <button onClick={handleDelete}>Excluir id</button>
             </div>
-
-            {mensagem && <div className="mensagem" >{mensagem}</div> }            
+            <ExibirMensagem mensagem={mensagem}/>         
       </div>
 
       <div className='btnIcone'>

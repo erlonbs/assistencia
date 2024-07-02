@@ -16,9 +16,22 @@ function Atualizar() {
   const [mensagem,setMensagem] = useState<string>('')
 
   useEffect(() => {
+    if(clienteId || clienteId != null){ 
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
       setCliente(response.data)
+      setClienteName(response.data.clienteName)
+      setClienteEndereco(response.data.address) 
+      setClienteTelefone(response.data.telephone)
+      setClienteCpf(response.data.cpf)
+      setMensagem(`Dados do cliente: ${response.data.clienteName}`)
+    
     })
+    .catch(error =>
+      setMensagem(`Cliente não existe!`));
+   
+
+} else (setMensagem('Prencha o campo'))
+    
   }, [clienteId])
 
 
@@ -29,14 +42,15 @@ function Atualizar() {
         clienteName: clienteName,
         address: clienteEndereco,
         telephone: clienteTelefone,
-        cpf: clienteCpf
+        cpf: clienteCpf,
+       
       })
       .then(response => {
         setMensagem('Atualizado com sucesso!') // Handle success
-        limpaCampos()
+             
       })
       .catch(error => {
-        setMensagem('Não foi possível') // Handle errors
+        setMensagem(`Não foi possível atualizar ${error}`) // Handle errors      
         limpaCampos()
       })
   }
@@ -74,9 +88,7 @@ function Atualizar() {
           type="text"
           size={35}
           id="nome"
-
-
-          placeholder={cliente?.clienteName}
+          value={clienteName}        
           onChange={e => setClienteName(e.target.value)}
         />
 
@@ -87,7 +99,7 @@ function Atualizar() {
           className="inputForm"
           type="text"
           size={35}
-          placeholder={cliente?.address}
+          value={clienteEndereco}          
           onChange={e => setClienteEndereco(e.target.value)}
         />
 
@@ -98,7 +110,7 @@ function Atualizar() {
           className="inputForm"
           type="text"
           size={35}
-          placeholder={cliente?.telephone}
+          value={clienteTelefone}          
           onChange={e => setClienteTelefone(e.target.value)}
         />
 
@@ -108,24 +120,28 @@ function Atualizar() {
         <input
           className="inputForm"
           type="text"
-
-          placeholder={cliente?.cpf}
+          value={clienteCpf}  
           onChange={e => setClienteCpf(e.target.value)}
         />
         <div className="btnIcone">
           <button type="submit">
             Atualizar
+
           </button>
+       
         </div>
+        <ExibirMensagem mensagem={mensagem}/>
       </form>
 
       <Link className="btnIcone" to="/Cliente/">
         <div>
           <button>Voltar</button>
+        
         </div>
+        
       </Link>
 
-      <ExibirMensagem mensagem={mensagem}/>
+  
 
     </section>
   )

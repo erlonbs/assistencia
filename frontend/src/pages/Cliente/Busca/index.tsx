@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Busca() {
   return (
-    <section className='containerCliente todosClientes'>
+    <section className='containerCliente '>
       <div className="containerButtons">
         <div className='buscaTodos'>
           <h2 className='titulo'>Listar todos</h2>

@@ -27,9 +27,10 @@ const Login: React.FC = () => {
 
     const handSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+            
 
         try {
-            if (user != null)
+            if (user != null )
                 
                 if ((user?.email === email) && (user.password === password)) {
                     setMensagem('Logado com sucesso!') // Handle success
@@ -75,6 +76,7 @@ const Login: React.FC = () => {
                         
                     </div>
                     <div className='containerMensagem'></div>
+                  
                 </form>
                 <ExibirMensagem mensagem={mensagem}/>
                 

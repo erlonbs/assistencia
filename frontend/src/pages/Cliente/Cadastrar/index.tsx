@@ -3,26 +3,18 @@ import './cadastrarStyles.css'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 function Cadastrar() {
   const [clienteName, setClienteName] = useState('')
   const [address, setAddress] = useState('')
   const [telephone, setTelephone] = useState('')
   const [cpf, setCpf] = useState('')
+  const [mensagem, setMensagem] = useState('');
 
 
   const BASE = `${BASE_URL}/clientes`
-
-  const exibirMensagem = (mensagem: string, responseData: any) => {
-    const mensagemElemento = document.createElement('div')
-    mensagemElemento.textContent = mensagem
-
-    const localParaExibir = document.getElementById('menssagem')
-    localParaExibir?.appendChild(mensagemElemento)
-
-    console.log('Dados da resposata: ' + responseData)
-  }
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -30,11 +22,11 @@ function Cadastrar() {
 
     try {
       const response = await axios.post(BASE, dadosCadastro)
-      exibirMensagem('cadastro realizado com sucesso!', response.data)
+      setMensagem('cadastro realizado com sucesso!')
       // limpa dados após cadastrar
       limpaCampos();
     } catch (error) {
-      exibirMensagem('Não foi possível realizar o cadastro:', error)
+      setMensagem('Não foi possível realizar o cadastro:')
     }
   }
 
@@ -104,16 +96,14 @@ function Cadastrar() {
             Cadastrar
           </button>
         </div>
-
+        <ExibirMensagem mensagem={mensagem}/>
       </form>
       <div className="btnIcone">
         <Link to="/Cliente/">
           <button>voltar</button>
         </Link>
+    
       </div>
-
-      <div id="menssagem"></div>
-
 
 
     </section>

@@ -23,8 +23,10 @@ function BuscaCodigo() {
       })
         .catch(error =>
           setMensagem(`Cliente não existe!`));
+          
 
     } else (setMensagem('Prencha o campo'))
+    
   }, [clienteId])
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -140,7 +142,6 @@ function BuscaCodigo() {
 
 
           </tbody>
-
 
         </table >
       </div>

@@ -11,3 +11,4 @@ export type Servicos = {
     clienteId: number;
     dispositivoId:number;
 }
+
