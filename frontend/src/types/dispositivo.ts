@@ -8,7 +8,7 @@ export type Dispositivos = {
   cor: string;
   serial: string;
   descricao: string;
-  clienteId: number;
+  clienteId: string;
   clienteName:string;
  
 }

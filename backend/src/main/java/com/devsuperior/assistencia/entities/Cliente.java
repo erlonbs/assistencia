@@ -27,7 +27,7 @@ public class Cliente implements Serializable {
 	private String telephone;
 	private String cpf;
 																// será removido também dispositivo ao remover cliente				
-	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER , cascade = CascadeType.ALL, orphanRemoval = true) //Pegando todos os dados do dispositivo do cliente usando EAGER
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER , cascade = CascadeType.DETACH, orphanRemoval = true) //Pegando todos os dados do dispositivo do cliente usando EAGER
 	private Set<Dispositivo> dispositivos = new HashSet<>();
 
 	public Cliente() {

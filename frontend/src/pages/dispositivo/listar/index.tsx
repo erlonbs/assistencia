@@ -12,7 +12,8 @@ function Listar() {
   const [dispositivos, setDispositivos] = useState<Dispositivos[]>([])
 
   useEffect(() => {
-    axios.get<Dispositivos[]>(`${BASE_URL}/dispositivos`).then(response => {
+    axios.get<Dispositivos[]>(`${BASE_URL}/dispositivos`)
+    .then(response => {
       setDispositivos(response.data)
 
     })

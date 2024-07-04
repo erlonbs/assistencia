@@ -1,4 +1,4 @@
-package com.devsuperior.assistencia.recources;
+package com.devsuperior.assistencia.resources;
 
 import java.net.URI;
 import java.util.List;
@@ -15,51 +15,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.devsuperior.assistencia.dto.DispositivoDTO;
-import com.devsuperior.assistencia.services.DispositivoService;
+import com.devsuperior.assistencia.dto.OrcamentoDTO;
+import com.devsuperior.assistencia.services.OrcamentoService;
 
 @RestController
-@RequestMapping(value = "/dispositivos")
-public class DispositivoResource {
+@RequestMapping(value = "/orcamentos")
+public class OrcamentoResource {
 
 	@Autowired
-	private DispositivoService service;
+	private OrcamentoService service;
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<DispositivoDTO> findById(@PathVariable Long id) {
-		DispositivoDTO dto = service.findById(id);
+	public ResponseEntity<OrcamentoDTO> findById(@PathVariable Long id) {
+		OrcamentoDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto) ; 
 	}
 	
 	@GetMapping
-	public ResponseEntity <List<DispositivoDTO>>findAll(){
-		List<DispositivoDTO> dto = service.findAll();
+	public ResponseEntity <List<OrcamentoDTO>>findAll(){
+		List<OrcamentoDTO> dto = service.findAll();
 		return ResponseEntity.ok().body(dto);
 	}
 	
-	@PostMapping
-	public ResponseEntity<DispositivoDTO> insert(@RequestBody DispositivoDTO dto, Long clienteId) {
-
-		dto = service.insert(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id")
-				.buildAndExpand(dto.getDispositivoId()).toUri();
-		return ResponseEntity.created(uri).body(dto);
-
-}
-	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<DispositivoDTO> update(@PathVariable Long id, @RequestBody DispositivoDTO dto) {
+	public ResponseEntity<OrcamentoDTO> update(@PathVariable Long id, @RequestBody OrcamentoDTO dto) {
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 
 	}
 	
-	@DeleteMapping(value="/{id}")
-	public ResponseEntity <Void> delete(@PathVariable Long id){
-			
-	service.delete(id);
+
+	@PostMapping
+	public ResponseEntity <OrcamentoDTO> insert(@RequestBody OrcamentoDTO dto) {
+		dto = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(dto.getId()).toUri();
+		return ResponseEntity.created(uri).body(dto);
+	}
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		service.delete(id);
 		return ResponseEntity.noContent().build();
-		
 	}
 	
 }

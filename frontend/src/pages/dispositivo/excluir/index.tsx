@@ -19,11 +19,11 @@ const[dispositivo, setDispositivo] = useState('')
     try {
       const response = await axios.delete(`${BASE}/${id}`);     
       setDispositivo(response.data)
-      setMensagem(`Dispositivo com Id  ${id} ${response.data}excluído com sucesso!`)
+      setMensagem(`Dispositivo com código: ${id}  foi excluído com sucesso!`)
       setId('')
     } catch (error) {
     
-      setMensagem(`Erro ao excluir o cliente ${id} "" + verifique e tente novamente!`)
+      setMensagem(`Erro ao excluir o dispositivo ${id} verifique e tente novamente!`)
       setId('')
     }
   }

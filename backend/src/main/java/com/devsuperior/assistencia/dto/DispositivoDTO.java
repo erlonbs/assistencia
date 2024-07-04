@@ -19,7 +19,7 @@ public class DispositivoDTO {
 	}
 
 	public DispositivoDTO(Long dispositivoId, String dispositivoName, String clienteName, String marca, String modelo, String cor,
-			String serial, String descricao) {
+			String serial, String descricao, Long clienteId) {
 
 		this.dispositivoId = dispositivoId;
 		this.dispositivoName = dispositivoName;
@@ -29,6 +29,7 @@ public class DispositivoDTO {
 		this.serial = serial;
 		this.descricao = descricao;
 		this.clienteName=clienteName;
+		this.clienteId=clienteId;
 
 	}
 

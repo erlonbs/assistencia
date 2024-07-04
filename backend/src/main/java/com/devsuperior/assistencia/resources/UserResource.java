@@ -1,4 +1,4 @@
-package com.devsuperior.assistencia.recources;
+package com.devsuperior.assistencia.resources;
 
 import java.net.URI;
 import java.util.List;

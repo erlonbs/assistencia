@@ -4,41 +4,77 @@ import axios from 'axios'
 import { BASE_URL } from 'utils/requests'
 import { Dispositivos } from 'types/dispositivo'
 import { Link } from 'react-router-dom'
+import ExibirMensagem from 'components/Mensagem/mensagem'
 
 
 function Editar() {
   const [dispositivo, setDispositivo] = useState<Dispositivos>()
   const [dispositivoId, setDispositivoId] = useState<string>('')
   const [dispositivoName, setDispositivoName] = useState<string>('')
-  const [dispositivoMarca, setDispositivoMarca] = useState<string>('')
+  const [dispositivoMarca, setDispositivoMarca] = useState('')
   const [dispositivoModelo, setDispositivoModelo] = useState<string>('')
   const [dispositivoCor, setDispositivoCor] = useState<string>('')
   const [dispositivoSerial, setDispositivoSerial] = useState<string>('')
   const [dispositivoDescricao, setDispositivoDescricao] = useState<string>('')
+  const [clienteName, setClienteName]= useState<string>('')
+  const [codigoCliente, setCodigoCliente]= useState<string>()
+  const [mensagem, setMensagem] = useState('');
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
-      setDispositivo(response.data)
-    })
+    if (dispositivoId ) {
+      axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
+        setDispositivo(response.data);
+        setMensagem(`Cliente: ${response.data.clienteName}`)
+        setDispositivoName(response.data.dispositivoName);
+        setDispositivoMarca(response.data.marca);
+        setDispositivoModelo(response.data.modelo);
+        setDispositivoCor(response.data.cor);
+        setDispositivoSerial(response.data.serial);
+        setDispositivoDescricao(response.data.descricao);
+        setClienteName(response.data.clienteName);
+        setCodigoCliente(response.data.clienteId);
+
+      }).catch(error => {
+        setMensagem('Verifique os dados digitados:')
+      })
+    } else  {
+      setMensagem('preecha o campo')
+      limpaCampos()
+    }
   }, [dispositivoId])
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     axios
       .put(`${BASE_URL}/dispositivos/${dispositivoId}`, {
-        name: dispositivoName,
+        dispositivoName: dispositivoName,
         marca: dispositivoMarca,
         modelo: dispositivoModelo,
         cor: dispositivoCor,
         serial: dispositivoSerial,
-        descricao: dispositivoDescricao
+        descricao: dispositivoDescricao,
+        clienteName: clienteName,
+        clienteId: codigoCliente,
       })
       .then(response => {
-        console.log('sucesso') // Handle success
+        setMensagem('Editado com sucesso!')
+        limpaCampos() // Handle success
       })
       .catch(error => {
-        console.log('erro não foi possível') // Handle errors
+        setMensagem('Não foi possivel editar, verifique e tente novamente!')
+        console.log('erro não foi possível editar') // Handle errors
       })
+      
+  }
+   function limpaCampos () {
+    setDispositivoName('');
+    setDispositivoMarca('');
+    setDispositivoModelo('');
+    setDispositivoCor('');
+    setDispositivoSerial('');
+    setDispositivoDescricao('');
+    setClienteName('');  
+    setCodigoCliente('');
   }
 
   return (
@@ -58,49 +94,62 @@ function Editar() {
         <input className='inputForm'
           type="text"
           value={dispositivoName}
-          placeholder={dispositivoName}
-
-
           onChange={e => setDispositivoName(e.target.value)}
         />
 
-        <label className='tituloEntrada' htmlFor="">Marca:</label>
+        <label className='tituloEntrada' htmlFor="marca">Marca:</label>
         <input className='inputForm'
           type="text"
-          placeholder={dispositivo?.marca}
+          value={dispositivoMarca}
           onChange={e => setDispositivoMarca(e.target.value)}
         />
 
-        <label className='tituloEntrada' htmlFor="">Modelo:</label>
+        <label className='tituloEntrada' htmlFor="modelo">Modelo:</label>
         <input className='inputForm'
           type="text"
-          placeholder={dispositivo?.modelo}
+          value={dispositivoModelo}
           onChange={e => setDispositivoModelo(e.target.value)}
         />
 
-        <label className='tituloEntrada' htmlFor="">Cor:</label>
+        <label className='tituloEntrada' htmlFor="cor">Cor:</label>
         <input className='inputForm'
           type="text"
-          placeholder={dispositivo?.cor}
+          value={dispositivoCor}
           onChange={e => setDispositivoCor(e.target.value)}
         />
 
-        <label className='tituloEntrada' htmlFor="">Serial:</label>
+        <label className='tituloEntrada' htmlFor="serial">Serial:</label>
         <input className='inputForm'
           type="text"
-          placeholder={dispositivo?.serial}
+          value={dispositivoSerial}
           onChange={e => setDispositivoSerial(e.target.value)}
         />
 
-        <label className='tituloEntrada' htmlFor="">Descrição:</label>
+        <label className='tituloEntrada' htmlFor="descricao">Descrição:</label>
         <input className='inputForm'
           type="text"
-          placeholder={dispositivo?.descricao}
+          value={dispositivoDescricao}
           onChange={e => setDispositivoDescricao(e.target.value)}
         />
+
+        <label className='tituloEntrada' htmlFor="descricao">Nome do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={clienteName}
+          onChange={e => setClienteName(e.target.value)}
+        />
+
+        <label className='tituloEntrada' htmlFor="descricao">Código do cliente:</label>
+        <input className='inputForm'
+          type="text"
+          value={codigoCliente}
+          onChange={e => setCodigoCliente(e.target.value)}
+        />
+
         <div className='btnIcone'>
-        <button type="submit">Editar</button>
+          <button type="submit">Editar</button>
         </div>
+        <ExibirMensagem mensagem={mensagem} />
       </form>
 
       <div className='btnIcone'>
@@ -108,7 +157,7 @@ function Editar() {
           <button type="submit">Voltar</button>
         </Link>
       </div>
-
+     
     </section>
   )
 }

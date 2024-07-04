@@ -12,7 +12,7 @@ const ExibirMensagem = ({ mensagem }: { mensagem: string }) => {
       setShowMessage(true)
       setTimeout(() => {
         setShowMessage(false);
-      }, 3000)
+      }, 4000)
     }
   }, [mensagem]);
 
