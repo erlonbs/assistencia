@@ -5,12 +5,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 
 
 function NovoOrcamento() {
 
   const [dispositivoId, setDispositivoId] = useState('');
+  const [dispositivo, setDispositivo] = useState(null);
   const [dispositivoName, setDispositivoName] = useState('');
   const [clienteName, setClienteName] = useState('');
   const [defeito, setDefeito] = useState('')
@@ -18,14 +20,16 @@ function NovoOrcamento() {
   const [descricao, setDescricao] = useState('')
   const [autorizado, setAutorizado] = useState(Boolean)
   const [clienteId, setClienteId] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
 
   useEffect(() => {
-    if (dispositivoId) {
+    if (dispositivoId!=='' ) {
 
       axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
         console.log(response.data)
         if (response.data) {
+          setDispositivo(response.data);
           setDispositivoName(response.data.dispositivoName);
 
           setClienteId(response.data.clienteId);
@@ -33,11 +37,11 @@ function NovoOrcamento() {
           setClienteName(response.data.clienteName);
         }
         else {
-          console.error("a resposta não contem o dado")
+          setMensagem("A resposta não contem o dado")
         }
       })
         .catch(error => {
-          console.error('erro ao obter dados do dispositivo', error);
+          setMensagem('Erro ao obter dados do dispositivo');
         })
     } else {
       setDispositivoName('');
@@ -53,13 +57,15 @@ function NovoOrcamento() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { dispositivoId, dispositivoName, clienteName, defeito, descricao, valor, autorizado, clienteId }
+    const dadosNovo = {dispositivoId, dispositivo, dispositivoName, clienteName, defeito, descricao, valor, autorizado, clienteId }
 
 
     try {
       const response = await axios.post(BASE, dadosNovo)
+      setMensagem('Novo orcamento inserido!')
       console.log('Novo orcamento inserido!', response.data)
     } catch (error) {
+       setMensagem('Não foi possível inserir o orçamento:')
       console.error('Não foi possível inserir o orçamento:', error)
     }
   }
@@ -137,6 +143,8 @@ function NovoOrcamento() {
         <div className='btnIcone'>
           <button type="submit">Inserir</button>
         </div>
+
+        <ExibirMensagem mensagem={mensagem}/>
 
       </form>
 

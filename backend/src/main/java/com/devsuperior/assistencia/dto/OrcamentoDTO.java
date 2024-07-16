@@ -2,13 +2,13 @@ package com.devsuperior.assistencia.dto;
 
 import java.math.BigDecimal;
 
+import com.devsuperior.assistencia.entities.Dispositivo;
 import com.devsuperior.assistencia.entities.Orcamento;
 
 public class OrcamentoDTO {
 
-	private Long id;
+	private Long orcamentoId;
 	
-	private Long dispositivoId;
 	private String dispositivoName;
 
 	private String defeito;
@@ -18,17 +18,19 @@ public class OrcamentoDTO {
 	
 	private String clienteName;
 	private Long clienteId;
-
+	private Long dispositivoId;
+//	private Dispositivo dispositivo;
+	
 
 	public OrcamentoDTO() {
 		
 	}
 	
-	public OrcamentoDTO(Long id , Long dispositivoId , String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
+	public OrcamentoDTO(Long orcamentoId  ,Long dispositivoId, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId, Dispositivo dispositivo 
 			) {
 		
-		this.id = id;
-		this.dispositivoId=dispositivoId;
+		this.orcamentoId=orcamentoId;
+	
 		this.dispositivoName=dispositivoName;
 		this.clienteName=clienteName;
 		this.defeito = defeito;
@@ -36,7 +38,8 @@ public class OrcamentoDTO {
 		this.valor = valor;
 		this.autorizado = autorizado;
 		this.clienteId=clienteId;
-	
+		this.dispositivoId=dispositivoId;
+		//this.dispositivo=dispositivo;
 		
 		
 	
@@ -45,27 +48,28 @@ public class OrcamentoDTO {
 	
 	public OrcamentoDTO(Orcamento entity) {
 		
-		id=entity.getId();
-		dispositivoId=entity.getDispositivoId();
-		dispositivoName=entity.getDispositivoName();
+		orcamentoId=entity.getOrcamentoId();
+		dispositivoName=entity.getDispositivo().getDispositivoName();
 		clienteName=entity.getClienteName();
 		defeito=entity.getDefeito();
 		descricao=entity.getDescricao();
 		valor=entity.getValor();
 		autorizado=entity.isAutorizado();
-		clienteId= entity.getClienteId();
-	
+		clienteId= entity.getDispositivo().getCliente().getClienteId();
+		dispositivoId=entity.getDispositivo().getDispositivoId();
+		//dispositivo=entity.getDispositivo();
+			
 		
 		
 	}
 
 
-	public Long getId() {
-		return id;
+	public Long getOrcamentoIdId() {
+		return orcamentoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setOrcamentoId(Long orcamentoId) {
+		this.orcamentoId = orcamentoId;
 	}
 
 	
@@ -102,14 +106,7 @@ public class OrcamentoDTO {
 		this.descricao = descricao;
 	}
 
-	public Long getDispositivoId() {
-		return dispositivoId;
-	}
-
-	public void setDispositivoId(Long dispositivoId) {
-		this.dispositivoId = dispositivoId;
-	}
-
+	
 	public String getDispositivoName() {
 		return dispositivoName;
 	}
@@ -127,13 +124,37 @@ public class OrcamentoDTO {
 	}
 
 	public Long getClienteId() {
+		
 		return clienteId;
 	}
 
 	public void setClienteId(Long clienteId) {
 		this.clienteId = clienteId;
 	}
+	
 
+	
+	
+	public Long getDispositivoId() {
+		 			
+		return dispositivoId;
+	}
+	
+	public void setDispositivoId(Long dispositivoId) {
+	
+			this.dispositivoId=dispositivoId;
+			}
+
+	/*
+	
+	public Dispositivo getDispositivo() {
+		return dispositivo;
+	}
+
+	public void setDispositivo(Dispositivo dispositivo) {
+		this.dispositivo = dispositivo;
+	}
+*/
 	
 	
 	

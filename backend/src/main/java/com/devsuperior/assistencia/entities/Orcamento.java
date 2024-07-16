@@ -3,12 +3,15 @@ package com.devsuperior.assistencia.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 @Entity(name="tb_orcamento")
 public class Orcamento implements Serializable{
@@ -16,18 +19,20 @@ public class Orcamento implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id ;
+	private Long orcamentoId ;
 	
 		
 	private String defeito;
 	private BigDecimal valor;
 	private Boolean autorizado;
 	private String descricao;	
-	
+
+
 
 	
-	@Column(name = "dispositivo_id")
-    private Long dispositivoId;
+	@ManyToOne(cascade=CascadeType.REFRESH)
+    @JoinColumn(name = "dispositivo_id")
+    private Dispositivo dispositivo;
 	
 	@Column(name = "dispositivo_name")
     private String dispositivoName;	
@@ -40,29 +45,34 @@ public class Orcamento implements Serializable{
 
 
 	public Orcamento() {
+		this.dispositivo = new Dispositivo();
 		
 	}
 	
 
-	public Orcamento(Long id,  Long dispositivoId, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
+	public Orcamento(Long orcamentoId,  Dispositivo dispositivo,Long dispositivoId, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
 			) {
 	
-	    this.id=id;
-	    this.dispositivoId=dispositivoId;	
+	    this.orcamentoId=orcamentoId;
+	    this.dispositivo=dispositivo;	
 	    this.dispositivoName=dispositivoName;
 		this.defeito = defeito;
 		this.descricao = descricao;
 		this.valor = valor;
 		this.autorizado = autorizado;
 		this.clienteId=clienteId;
+	
 		
 		
 	}
 
+	public void setOrcamentoId(Long orcamentoId) {
+		this.orcamentoId=orcamentoId;
+	}
 
 
-	public Long getId() {
-		return id;
+	public Long getOrcamentoId() {
+		return orcamentoId;
 	}
 
 
@@ -112,13 +122,25 @@ public class Orcamento implements Serializable{
 		this.descricao = descricao;
 	}
 	
-	public Long getDispositivoId() {
-		return dispositivoId;
+	public Dispositivo getDispositivo() {		
+	return dispositivo;
+		
 	}
 
 
-	public void setDispositivoId(Long dispositivo) {
-		this.dispositivoId = dispositivo;
+	public void setDispositivo(Dispositivo dispositivo) {
+		
+		this.dispositivo = dispositivo;
+		
+		
+	}
+	
+	public Long getDispotivoId() {
+		return dispositivo.getDispositivoId();
+	}
+	
+	public void setDispositivoId(Long dispositivoId) {
+		dispositivo.setDispositivoId(dispositivoId);
 	}
 
 
@@ -144,12 +166,14 @@ public class Orcamento implements Serializable{
 
 
 	public Long getClienteId() {
+		
 		return clienteId;
 	}
 
 
-	public void setClienteId(Long clienteId) {
+	public void setClienteId(Long clienteId) {		
 		this.clienteId = clienteId;
+		
 	}
 	
 	

@@ -12,11 +12,14 @@ import { Link } from 'react-router-dom'
 function ListarOrcamento() {
 
   const [orcamentos, setOrcamentos] = useState<Orcamentos[]>([])
+  const [orcamentoId,setOrcamentoId] = useState(Number);
 
   useEffect(() => {
+
     axios.get<Orcamentos[]>(`${BASE_URL}/orcamentos`).then(response => {
 
       setOrcamentos(response.data)
+   
 
       console.log(response.data)
 
@@ -34,7 +37,7 @@ function ListarOrcamento() {
           <table className='tabela-orcamento'>
             <thead >
               <tr className='coluna' >
-                <th className='cabecalho'>Código</th>
+                <th className='cabecalho'>Código do orçamento</th>
                 <th className='cabecalho'>Dispositivo</th>
                 <th className='cabecalho'>Nome do Dispositivo</th>
                 <th className='cabecalho'>Nome do Cliente</th>
@@ -49,10 +52,11 @@ function ListarOrcamento() {
             </thead>
 
             <tbody className='cont'>
-
+           
               {orcamentos.map((orcamento) => (
-                <tr className='coluna' key={orcamento.id}>
-                  <td className='celula'>{orcamento.id}</td>
+               
+                <tr className='coluna' key={orcamentoId}>
+                  <td className='celula'>{(orcamento.orcamentoIdId)}</td>
                   <td className='celula'>{orcamento.dispositivoId}</td>
                   <td className='celula'>{orcamento.dispositivoName}</td>
                   <td className='celula'>{orcamento.clienteName}</td>

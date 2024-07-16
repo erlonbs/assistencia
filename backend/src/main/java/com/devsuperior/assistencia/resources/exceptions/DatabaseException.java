@@ -1,4 +1,4 @@
-package com.devsuperior.assistencia.recources.exceptions;
+package com.devsuperior.assistencia.resources.exceptions;
 
 public class DatabaseException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

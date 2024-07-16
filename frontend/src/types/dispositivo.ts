@@ -8,7 +8,8 @@ export type Dispositivos = {
   cor: string;
   serial: string;
   descricao: string;
-  clienteId: string;
+  clienteId: number;
   clienteName:string;
+  orcamentoId: number
  
 }

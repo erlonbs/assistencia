@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.assistencia.dto.ServicoDTO;
 import com.devsuperior.assistencia.entities.Servico;
-import com.devsuperior.assistencia.recources.exceptions.DatabaseException;
-import com.devsuperior.assistencia.recources.exceptions.ResourceNotFoundException;
 import com.devsuperior.assistencia.repositories.ServicoRepository;
+import com.devsuperior.assistencia.resources.exceptions.DatabaseException;
+import com.devsuperior.assistencia.resources.exceptions.ResourceNotFoundException;
 
 @Service
 public class ServicoService {

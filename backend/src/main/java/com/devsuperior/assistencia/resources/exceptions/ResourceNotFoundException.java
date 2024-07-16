@@ -1,4 +1,4 @@
-package com.devsuperior.assistencia.recources.exceptions;
+package com.devsuperior.assistencia.resources.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

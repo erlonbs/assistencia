@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.assistencia.dto.ClienteDTO;
 import com.devsuperior.assistencia.entities.Cliente;
-import com.devsuperior.assistencia.recources.exceptions.DatabaseException;
-import com.devsuperior.assistencia.recources.exceptions.ResourceNotFoundException;
 import com.devsuperior.assistencia.repositories.ClienteRepository;
+import com.devsuperior.assistencia.resources.exceptions.DatabaseException;
+import com.devsuperior.assistencia.resources.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClienteService {

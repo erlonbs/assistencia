@@ -1,17 +1,24 @@
 package com.devsuperior.assistencia.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 import com.devsuperior.assistencia.dto.ClienteDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_dispositivo")
@@ -32,16 +39,22 @@ public class Dispositivo implements Serializable {
 	// Mapeamento 1 cliente pode ter 1 ou mais dispositivos e 1 dispositivo pertence
 	// a 1 cliente;
 
-	@ManyToOne
+	@ManyToOne()  
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
-
+	
+	@OneToMany( mappedBy = "dispositivo" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)  // remove o orçamento ao remover dispositivo
+	@JsonIgnore
+	private List<Orcamento> orcamentos = new ArrayList<>();
+ 
 	public Dispositivo() {
 		this.cliente = new Cliente();
+		
 	}
+	
 
 	public Dispositivo(Long dispositivoId, String dispositivoName, String marca, String modelo, String cor,
-			String serial, String descricao, Cliente cliente) {
+			String serial, String descricao, Cliente cliente, List<Orcamento> orcamentos) {
 
 		this.dispositivoId = dispositivoId;
 		this.dispositivoName = dispositivoName;
@@ -51,9 +64,12 @@ public class Dispositivo implements Serializable {
 		this.serial = serial;
 		this.descricao = descricao;
 		this.cliente = cliente;
+		this.orcamentos= orcamentos;
+		
+		}
 		
 
-	}
+	
 
 	public Long getDispositivoId() {
 		return dispositivoId;
@@ -111,27 +127,29 @@ public class Dispositivo implements Serializable {
 		this.descricao = descricao;
 	}
 	
-	public void setClienteName(String clienteName) {
-		this.cliente.setClienteName(clienteName);
-	}
-
-	public void setClienteId(Long clienteId) {
-		if (cliente != null) {
-
-			this.cliente.setClienteId(clienteId);
-		}
-
-	}
-
+	
 	public Cliente getCliente() {
-		if (cliente != null) {
-		}
+		
 		return cliente;
 
 	}
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+
+	
+	public List<Orcamento> getOrcamentos() {
+			
+		return orcamentos;
+
+	}
+	
+
+	public void setOrcamentos(List<Orcamento> orcamentos) {	
+		this.orcamentos= orcamentos;
+		
 	}
 
 	@Override
@@ -153,7 +171,11 @@ public class Dispositivo implements Serializable {
 
 	public ClienteDTO getClienteDTO() {
 		// TODO Auto-generated method stub
-		return new ClienteDTO();
+		return new ClienteDTO(cliente);
 	}
+
+
+
+	
 
 }

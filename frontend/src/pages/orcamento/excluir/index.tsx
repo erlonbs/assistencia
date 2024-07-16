@@ -3,6 +3,7 @@ import { BASE_URL } from 'utils/requests';
 import './excluirOrcamento.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 
 
@@ -20,11 +21,11 @@ function ExcluirOrcamento() {
       const response = await axios.delete(`${BASE}/${id}`);
       console.log('Orçamento excluído com sucesso!', orcamento)
       setOrcamento(response.data.name)
-      setMensagem(`Orçamento com Id '  ${id} ${response.data}'  excluído com sucesso!`)
+      setMensagem(`Orçamento com código:'  ${id} ${response.data}'  excluído com sucesso!`)
       setId('')
     } catch (error) {
-      console.error('Não foi possível excluir:', error)
-      setMensagem(`Erro ao excluir o orçamento ${id} "" + verifique e tente novamente!`)
+     
+      setMensagem(`Erro ao excluir com o valor digitado ${id} verifique e tente novamente!`)
       setId('')
     }
   }
@@ -41,7 +42,7 @@ function ExcluirOrcamento() {
           <button onClick={handleDelete}>Excluir id</button>
         </div>
 
-        {mensagem && <div className="mensagem" >{mensagem}</div>}
+        <ExibirMensagem mensagem ={mensagem}/>
       </div>
 
 

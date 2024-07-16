@@ -1,6 +1,10 @@
 package com.devsuperior.assistencia.dto;
 
+
 import com.devsuperior.assistencia.entities.Dispositivo;
+
+
+
 
 public class DispositivoDTO {
 
@@ -13,13 +17,18 @@ public class DispositivoDTO {
 	private String descricao;
 	private String clienteName;
 	private Long clienteId;
+	private Long orcamentoId;
 
+	
+
+	
 	public DispositivoDTO() {
-
+	
 	}
+		
 
 	public DispositivoDTO(Long dispositivoId, String dispositivoName, String clienteName, String marca, String modelo, String cor,
-			String serial, String descricao, Long clienteId) {
+			String serial, String descricao, Long clienteId, Long orcamentoId) {
 
 		this.dispositivoId = dispositivoId;
 		this.dispositivoName = dispositivoName;
@@ -30,6 +39,7 @@ public class DispositivoDTO {
 		this.descricao = descricao;
 		this.clienteName=clienteName;
 		this.clienteId=clienteId;
+		this.orcamentoId=orcamentoId;
 
 	}
 
@@ -41,11 +51,10 @@ public class DispositivoDTO {
 		this.modelo = entity.getModelo();
 		this.cor = entity.getCor();
 		this.serial = entity.getSerial();
-		this.descricao = entity.getDescricao();
-		this.setClienteName(entity.getCliente().getClienteName());
+		this.descricao = entity.getDescricao();			
+		this.clienteName=entity.getCliente().getClienteName();
 		this.clienteId = entity.getCliente().getClienteId();
-		
-
+	
 	}
 
 	public Long getDispositivoId() {
@@ -123,4 +132,14 @@ public class DispositivoDTO {
 		this.clienteName = clienteName;
 	}
 
-}
+	public Long getOrcamentoId() {
+		
+		return orcamentoId;
+	}
+
+	public void setOrcamentoId(Long orcamentoId) {				
+			this.orcamentoId=orcamentoId;
+		}
+	}
+
+

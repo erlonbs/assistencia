@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.assistencia.dto.DispositivoDTO;
+import com.devsuperior.assistencia.entities.Cliente;
 import com.devsuperior.assistencia.entities.Dispositivo;
-import com.devsuperior.assistencia.recources.exceptions.DatabaseException;
-import com.devsuperior.assistencia.recources.exceptions.ResourceNotFoundException;
+import com.devsuperior.assistencia.entities.Orcamento;
 import com.devsuperior.assistencia.repositories.DispositivoRepository;
+import com.devsuperior.assistencia.resources.exceptions.DatabaseException;
+import com.devsuperior.assistencia.resources.exceptions.ResourceNotFoundException;
 
 @Service
 public class DispositivoService {
@@ -52,9 +54,16 @@ public class DispositivoService {
 	        entity.setCor(dto.getCor());
 	        entity.setSerial(dto.getSerial());
 	        entity.setDescricao(dto.getDescricao());
-	        entity.setClienteName(dto.getClienteName());
-	        entity.setClienteId(dto.getClienteId());
-	        	  
+	        if(dto.getClienteId() !=null) {
+	        	Cliente cliente = new Cliente();
+	        	cliente.setClienteId(dto.getClienteId());
+	        	cliente.setClienteName(dto.getClienteName());
+	        	entity.setCliente(cliente);
+	        }
+	       
+	     //   entity.setOrcamentos(dto.getOrcamentos());
+	       
+	        
 	        entity = repository.save(entity);
 	
 			return new DispositivoDTO(entity);
@@ -87,7 +96,7 @@ public class DispositivoService {
 			entity.setCor(dto.getCor());
 			entity.setSerial(dto.getSerial());
 			entity.setDescricao(dto.getDescricao());
-			entity.setClienteId(dto.getClienteId());
+	
 			entity = repository.save(entity);
 			return new DispositivoDTO(entity);
 

@@ -13,17 +13,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.assistencia.dto.OrcamentoDTO;
+
 import com.devsuperior.assistencia.entities.Orcamento;
-import com.devsuperior.assistencia.recources.exceptions.DatabaseException;
-import com.devsuperior.assistencia.recources.exceptions.ResourceNotFoundException;
+
 import com.devsuperior.assistencia.repositories.OrcamentoRepository;
+import com.devsuperior.assistencia.resources.exceptions.DatabaseException;
+import com.devsuperior.assistencia.resources.exceptions.ResourceNotFoundException;
 
 @Service
 public class OrcamentoService {
 	
 	@Autowired
 	private OrcamentoRepository repository;
-	
+
+
+		
 	@Transactional
 	public OrcamentoDTO findById(Long id) {
 		
@@ -51,6 +55,10 @@ public class OrcamentoService {
 			entity.setDefeito(dto.getDefeito());
 			entity.setDescricao(dto.getDescricao());
 			entity.setValor(dto.getValor());
+			entity.setClienteId(dto.getClienteId());
+			entity.setDispositivoId(dto.getDispositivoId());
+			entity.setDispositivoName(dto.getDispositivoName());
+		//	entity.setDispositivo(dto.getDispositivo());
 			entity=repository.save(entity);
 			return new OrcamentoDTO(entity);
 			
@@ -63,9 +71,11 @@ public class OrcamentoService {
 	@Transactional
 	public OrcamentoDTO insert( OrcamentoDTO dto) {
 		
+				
 		Orcamento entity = new Orcamento();
 		
-		entity.setDispositivoId(dto.getDispositivoId());
+		if(entity != null) {
+			
 		entity.setDispositivoName(dto.getDispositivoName());
 		entity.setClienteName(dto.getClienteName());
 		entity.setDefeito(dto.getDefeito());	
@@ -73,11 +83,19 @@ public class OrcamentoService {
 		entity.setValor(dto.getValor());
 		entity.setAutorizado(dto.isAutorizado());
 		entity.setClienteId(dto.getClienteId());
+		entity.setDispositivoId(dto.getDispositivoId());
+	//	entity.setDispositivo(dto.getDispositivo());
 		
 				
 		entity = repository.save(entity);
+		}
+		
 		return new OrcamentoDTO(entity);
-	}
+		}
+		
+		
+		
+	
 	
 	
 	public void delete(Long id){
