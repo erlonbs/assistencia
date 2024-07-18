@@ -8,7 +8,7 @@ export type Orcamentos = {
     defeito: string;
     descricao: string;
     valor: number;
-    autorizado: boolean;
+    autorizado: Boolean;
     clienteId: number;
   
     

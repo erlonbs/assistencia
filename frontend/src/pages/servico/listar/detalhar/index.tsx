@@ -6,6 +6,9 @@ import { Link, useParams } from 'react-router-dom'
 import { Servicos } from 'types/servico'
 import { Clientes } from 'types/cliente'
 import { Dispositivos } from 'types/dispositivo'
+import ExibirMensagem from 'components/Mensagem/mensagem'
+
+
 
 
 function DetalharOrdemServico() {
@@ -14,29 +17,41 @@ function DetalharOrdemServico() {
 
   const [servico, setServico] = useState<Servicos>()
   const [cliente, setCliente] = useState<Clientes>();
-  const [clienteId, setClienteId] = useState('');
+  const [clienteId, setClienteId] = useState('')
   const [dispositivo, setDispositivo] = useState<Dispositivos>()
   const [dispositivoId, setDispositivoId] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
   useEffect(() => {
-
+      if(id)
     axios.get(`${BASE_URL}/servicos/${id}`).then(response => {
       setServico(response.data)
       setClienteId(response.data.clienteId)
-      setDispositivoId(response.data.dispositivoId)
+      setDispositivoId(response.data.dispositivoId)               
+     
+    }).catch(error =>{
+      console.log(  'esta dando erro',error)
+      setMensagem('Não foi possivel acessar')
     })
   }, [id])
 
   useEffect(() => {
-
+    if(clienteId){      
+    
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
-      setCliente(response.data)
+      setCliente(response.data)         
+     
     })
+  }
   }, [clienteId])
 
-  useEffect(() => {
+  useEffect(() => {  
+
     axios.get(`${BASE_URL}/dispositivos/${dispositivoId}`).then(response => {
       setDispositivo(response.data)
+    
+    }).catch(error =>{
+      setMensagem(`Não foi possivel acessar o dispoistivo ${error}`)
     })
   }, [dispositivoId])
 
@@ -48,7 +63,7 @@ function DetalharOrdemServico() {
         <span className='numero-ordem'>OS: {servico?.id}</span>
       </div>
       <h2 >Dados do cliente:</h2>
-
+        <ExibirMensagem mensagem = {mensagem}/>
       <div className='detalhesCliente'>
 
         <div className='detalhesClientesItens'>

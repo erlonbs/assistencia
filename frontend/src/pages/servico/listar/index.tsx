@@ -3,7 +3,7 @@ import { Servicos } from 'types/servico'
 import { BASE_URL } from 'utils/requests'
 import axios from 'axios'
 import './listarServico.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import visualizarImagem from 'assets/icon/visualizar.png'
 import { Link } from 'react-router-dom'
 
@@ -11,13 +11,10 @@ import { Link } from 'react-router-dom'
 function ListarOrdemServico() {
 
   const [servicos, setServicos] = useState<Servicos[]>([])
-
-  useEffect(() => {
+  
     axios.get<Servicos[]>(`${BASE_URL}/servicos`).then(response => {
-      setServicos(response.data);
-
+      setServicos(response.data); 
     })
-  }, [])
 
   return (
 

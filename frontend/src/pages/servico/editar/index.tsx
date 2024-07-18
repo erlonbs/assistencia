@@ -3,7 +3,7 @@ import './editarServico.css'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import ExibirMensagem from 'components/Mensagem/mensagem';
 
 
 function EditarOrdemServico() {
@@ -17,21 +17,29 @@ function EditarOrdemServico() {
   const [servicoRealizado, setServicoRealizado] = useState('')
   const [pagamento, setPagamento] = useState(Boolean)
   const [clienteId, setClienteId] = useState('')
+  const [mensagem, setMensagem] = useState('');
 
 
   useEffect(() => {
-
+if(servicoId !==''){
     axios.get(`${BASE_URL}/servicos/${servicoId}`).then(response => {
-      setCodigoOrcamento(response.data.codigoOrcamento);
-      setClienteName(response.data.clienteName);
-      setValor(response.data.valor);
-      setDescricao(response.data.descricao);
-      setServicoRealizado(response.data.servicoRealizado);
-      setPagamento(response.data.pagamento);
-      setClienteId(response.data.clienteId);
+      if(response){
 
+        setCodigoOrcamento(response.data.codigoOrcamento);
+        setClienteName(response.data.clienteName);
+        setValor(response.data.valor);
+        setDescricao(response.data.descricao);
+        setServicoRealizado(response.data.servicoRealizado);
+        setPagamento(response.data.pagamento);
+        setClienteId(response.data.clienteId);
+      }
+
+    }).catch(error =>{
+
+      setMensagem(`Código digitado inválido  ${error}`)
     })
-
+    
+  } setMensagem('Digite o código da Ordem de serviço para edição')
   }, [servicoId]);
 
   const BASE = `${BASE_URL}/servicos/${servicoId}`
@@ -45,9 +53,11 @@ function EditarOrdemServico() {
 
     try {
       const response = await axios.put(BASE, dadosEditar)
+      setMensagem('Serviço atualizado com sucesso!')
       console.log('Editado serviço!', response.data)
-    } catch (error) {
-      console.error('Não foi possível editar:', error)
+    } catch {
+      setMensagem('Hão foi possível editar o serviço')
+     
     }
   }
 
@@ -113,6 +123,8 @@ function EditarOrdemServico() {
         <div className='btnIcone'>
           <button type="submit">Editar</button>
         </div>
+
+        <ExibirMensagem mensagem = {mensagem}/>
       </form>
 
       <div className="btnIcone">
