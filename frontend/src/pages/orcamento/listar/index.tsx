@@ -6,23 +6,28 @@ import './listarOrcamento.css'
 import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
+import ExibirMensagem from 'components/Mensagem/mensagem'
 
 
 
 function ListarOrcamento() {
 
   const [orcamentos, setOrcamentos] = useState<Orcamentos[]>([])
-  const [orcamentoId,setOrcamentoId] = useState(Number);
+  const [codigoOrcamento,setCodigoOrcamento] = useState(Number);
+  const [mensagem, setMensagem]= useState('');
 
   useEffect(() => {
-
-    axios.get<Orcamentos[]>(`${BASE_URL}/orcamentos`).then(response => {
-
-      setOrcamentos(response.data)
    
+    axios.get<Orcamentos[]>(`${BASE_URL}/orcamentos`).then(response => {
+      if(response !=null)
+      setOrcamentos(response.data)   
+  
+  
 
       console.log(response.data)
 
+    }).catch(error =>{
+      setMensagem(`Não foi possível exibir!`)
     })
   }, [])
 
@@ -55,8 +60,8 @@ function ListarOrcamento() {
            
               {orcamentos.map((orcamento) => (
                
-                <tr className='coluna' key={orcamentoId}>
-                  <td className='celula'>{(orcamento.orcamentoIdId)}</td>
+                <tr className='coluna' key={codigoOrcamento}>
+                  <td className='celula'>{(orcamento.orcamentoId)}</td>
                   <td className='celula'>{orcamento.dispositivoId}</td>
                   <td className='celula'>{orcamento.dispositivoName}</td>
                   <td className='celula'>{orcamento.clienteName}</td>
@@ -74,6 +79,7 @@ function ListarOrcamento() {
           </table>
         </div >
       </form>
+      <ExibirMensagem mensagem={mensagem}/>
       <div className="btnIcone">
         <Link to={`/orcamento`} >
           <button type="button" >Voltar</button>

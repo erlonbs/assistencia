@@ -1,7 +1,7 @@
 
 
 export type Orcamentos = {
-    orcamentoIdId: number;
+    orcamentoId: number;
     dispositivoId: number;  
     dispositivoName: string;
     clienteName: String;

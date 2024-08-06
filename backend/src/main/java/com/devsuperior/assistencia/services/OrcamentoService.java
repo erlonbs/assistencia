@@ -58,7 +58,7 @@ public class OrcamentoService {
 			entity.setClienteId(dto.getClienteId());
 			entity.setDispositivoId(dto.getDispositivoId());
 			entity.setDispositivoName(dto.getDispositivoName());
-		//	entity.setDispositivo(dto.getDispositivo());
+	
 			entity=repository.save(entity);
 			return new OrcamentoDTO(entity);
 			
@@ -84,9 +84,7 @@ public class OrcamentoService {
 		entity.setAutorizado(dto.isAutorizado());
 		entity.setClienteId(dto.getClienteId());
 		entity.setDispositivoId(dto.getDispositivoId());
-	//	entity.setDispositivo(dto.getDispositivo());
-		
-				
+								
 		entity = repository.save(entity);
 		}
 		

@@ -10,7 +10,7 @@ import { Orcamentos } from 'types/orcamento';
 function NovaOrdemServico() {
 
   const [orcamento,setOrcamento]= useState<Orcamentos>();
-  const [codigoOrcamento, setCodigoOrcamento] = useState('');
+  const [orcamentoId, setOrcamentoId] = useState('');
   const [orcamentoAutorizado, setOrcamentoAutorizado] = useState('');
   const [clienteName, setClienteName] = useState('');
   const [valor, setValor] = useState('')
@@ -25,11 +25,12 @@ function NovaOrdemServico() {
   const BASE = `${BASE_URL}/servicos`
 
   useEffect(() => {
-    if (codigoOrcamento) {
+    if (orcamentoId !=='') {
 
-      axios.get(`${BASE_URL}/orcamentos/${codigoOrcamento}`).then(response => {
+      axios.get(`${BASE_URL}/orcamentos/${orcamentoId}`).then(response => {
         console.log(response.data)
-        setOrcamento(response.data)
+        setOrcamento(response.data)       
+        setOrcamentoId(response.data.orcamentoId)
         setOrcamentoAutorizado(response.data.autorizado)
         setClienteName(response.data.clienteName);
         setValor(response.data.valor);
@@ -49,13 +50,13 @@ function NovaOrdemServico() {
 
         })
     }
-  }, [codigoOrcamento]);
+  }, [orcamentoId]);
 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosNovo = { codigoOrcamento, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId, dispositivoId }
+    const dadosNovo = { orcamentoId, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId, dispositivoId }
 
     try {
       const response = await axios.post(BASE, dadosNovo)
@@ -82,7 +83,7 @@ function NovaOrdemServico() {
 
 
   function limpaCampos() {
-    setCodigoOrcamento('');
+    setOrcamentoId('');
     setClienteName('');
     setValor('');
     setDescricao('');
@@ -108,10 +109,10 @@ function NovaOrdemServico() {
         <label htmlFor="codigoOrcamento">Código do Orçamento:</label>
         <input className='inputForm'
           type="text"
-          value={codigoOrcamento}
+          value={orcamentoId}
           placeholder='Código do orçamento'
           required
-          onChange={e => setCodigoOrcamento(e.target.value)}
+          onChange={e => setOrcamentoId(e.target.value)}
         />
 
         <label htmlFor="orcamentoAutorizado">Orcamento autorizado:</label>

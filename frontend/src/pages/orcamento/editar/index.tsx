@@ -82,7 +82,7 @@ function EditarOrcamento() {
         <label htmlFor="nome">Codigo Orçamento:</label>
         <input className='inputForm'
           type="text"
-          value={orcamento?.orcamentoIdId}
+          value={orcamento?.orcamentoId}
           placeholder='Código do orçamento'
           onChange={e => setOrcamentoId(e.target.value)}
         />

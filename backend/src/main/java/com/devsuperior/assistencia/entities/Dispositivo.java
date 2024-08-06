@@ -39,16 +39,17 @@ public class Dispositivo implements Serializable {
 	// Mapeamento 1 cliente pode ter 1 ou mais dispositivos e 1 dispositivo pertence
 	// a 1 cliente;
 
-	@ManyToOne()  
+	@ManyToOne(cascade=CascadeType.ALL)  
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 	@OneToMany( mappedBy = "dispositivo" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)  // remove o orçamento ao remover dispositivo
 	@JsonIgnore
-	private List<Orcamento> orcamentos = new ArrayList<>();
+	private List<Orcamento> orcamentos;
  
 	public Dispositivo() {
 		this.cliente = new Cliente();
+		this.orcamentos = new ArrayList<>();
 		
 	}
 	
@@ -140,14 +141,17 @@ public class Dispositivo implements Serializable {
 	
 
 	
-	public List<Orcamento> getOrcamentos() {
-			
+	public List<Orcamento> getOrcamento() {
+			if(orcamentos!=null) {
+				
+			}
 		return orcamentos;
 
 	}
 	
 
-	public void setOrcamentos(List<Orcamento> orcamentos) {	
+	public void setOrcamento(List<Orcamento> orcamentos) {	
+		if(orcamentos!=null)
 		this.orcamentos= orcamentos;
 		
 	}

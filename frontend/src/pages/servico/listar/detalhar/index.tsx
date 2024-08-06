@@ -10,7 +10,6 @@ import ExibirMensagem from 'components/Mensagem/mensagem'
 
 
 
-
 function DetalharOrdemServico() {
 
   const { id } = useParams();
@@ -27,7 +26,7 @@ function DetalharOrdemServico() {
     axios.get(`${BASE_URL}/servicos/${id}`).then(response => {
       setServico(response.data)
       setClienteId(response.data.clienteId)
-      setDispositivoId(response.data.dispositivoId)               
+      setDispositivoId(response.data.dispositivoId) 
      
     }).catch(error =>{
       console.log(  'esta dando erro',error)
@@ -41,8 +40,12 @@ function DetalharOrdemServico() {
     axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
       setCliente(response.data)         
      
+    }).catch(error=>{
+
+      setMensagem('Não foi possível exibir!')
     })
-  }
+    }
+  
   }, [clienteId])
 
   useEffect(() => {  
@@ -60,7 +63,7 @@ function DetalharOrdemServico() {
       <div className='context-titulo'>
 
         <h1 className='titulo'>Detalhes da ordem de serviço:</h1>
-        <span className='numero-ordem'>OS: {servico?.id}</span>
+        <span className='numero-ordem'>OS: {servico?.servicoId}</span>
       </div>
       <h2 >Dados do cliente:</h2>
         <ExibirMensagem mensagem = {mensagem}/>
@@ -92,12 +95,11 @@ function DetalharOrdemServico() {
 
       </div>
 
-
       <h2>Dados do serviço:</h2>
 
       <div className='detalhesServico'>
-        <p className='detalharNome'><b>Número da ordem: </b>{servico?.id}</p>
-        <p className='detalharNome'><b>Código do orçamento: </b>{servico?.codigoOrcamento}</p>
+        <p className='detalharNome'><b>Número da ordem: </b>{servico?.servicoId}</p>
+        <p className='detalharNome'><b>Código do orçamento: </b>{servico?.orcamentoId}</p>
         <p className='detalharNome'><b>Código do cliente: </b>{servico?.clienteId}</p>
         <p className='detalharNome'><b>Código  do Dispositivo: </b>{servico?.dispositivoId}</p>
         <p className='detalharNome'><b>Defeito: </b>{servico?.descricao}</p>

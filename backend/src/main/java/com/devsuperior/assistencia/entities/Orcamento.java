@@ -2,37 +2,48 @@ package com.devsuperior.assistencia.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity(name="tb_orcamento")
+
 public class Orcamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long orcamentoId ;
-	
+	private Long orcamentoId ;	
 		
 	private String defeito;
 	private BigDecimal valor;
 	private Boolean autorizado;
 	private String descricao;	
 
-
-
 	
-	@ManyToOne(cascade=CascadeType.REFRESH)
+	
+	@OneToOne(cascade=CascadeType.REFRESH)
     @JoinColumn(name = "dispositivo_id")
     private Dispositivo dispositivo;
+	
+	
+	@OneToMany( mappedBy = "orcamento" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)  // remove o orçamento ao remover dispositivo
+	@JsonIgnore
+	private List<Servico> servicos = new ArrayList<>();
 	
 	@Column(name = "dispositivo_name")
     private String dispositivoName;	
@@ -50,17 +61,18 @@ public class Orcamento implements Serializable{
 	}
 	
 
-	public Orcamento(Long orcamentoId,  Dispositivo dispositivo,Long dispositivoId, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId
+	public Orcamento(Long orcamentoId,  Dispositivo dispositivo, String dispositivoName, String clienteName, String defeito, String descricao, BigDecimal valor, Boolean autorizado, Long clienteId ,  List<Servico> servicos
 			) {
 	
 	    this.orcamentoId=orcamentoId;
 	    this.dispositivo=dispositivo;	
 	    this.dispositivoName=dispositivoName;
 		this.defeito = defeito;
-		this.descricao = descricao;
+		this.descricao = descricao; 
 		this.valor = valor;
 		this.autorizado = autorizado;
 		this.clienteId=clienteId;
+		this.servicos=servicos;
 	
 		
 		
@@ -129,7 +141,7 @@ public class Orcamento implements Serializable{
 
 
 	public void setDispositivo(Dispositivo dispositivo) {
-		
+	  if(dispositivo!=null)
 		this.dispositivo = dispositivo;
 		
 		
@@ -140,6 +152,9 @@ public class Orcamento implements Serializable{
 	}
 	
 	public void setDispositivoId(Long dispositivoId) {
+		if(this.dispositivo == null) {
+			this.dispositivo=new Dispositivo();
+		}
 		dispositivo.setDispositivoId(dispositivoId);
 	}
 
@@ -176,6 +191,12 @@ public class Orcamento implements Serializable{
 		
 	}
 	
+	public List< Servico> getServicos(){
+		return servicos;
+	}
 	
+	public void setServicos(List <Servico> servicos){
+		this.servicos=servicos;
+	}
 	
 }

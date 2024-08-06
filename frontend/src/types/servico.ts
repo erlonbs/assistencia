@@ -1,9 +1,9 @@
 export type Servicos = {
 
-    id: number;
+    servicoId: number;
     clienteName: string;
     marca: string;
-    codigoOrcamento: number;
+    orcamentoId: number;
     pagamento: boolean;
     valor: number;
     descricao: string;

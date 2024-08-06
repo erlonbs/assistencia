@@ -49,7 +49,7 @@ public class OrcamentoResource {
 	public ResponseEntity <OrcamentoDTO> insert(@RequestBody OrcamentoDTO dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(dto.getOrcamentoIdId()).toUri();
+				.buildAndExpand(dto.getOrcamentoId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 

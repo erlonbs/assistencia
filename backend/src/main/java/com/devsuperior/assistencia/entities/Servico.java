@@ -2,51 +2,64 @@ package com.devsuperior.assistencia.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+
+
 
 @Entity
 @Table(name="tb_servico")
 public class Servico implements Serializable {
 	private static final long serialVersionUID = 1L;
+		
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long servicoId;
 	private String descricao;
 	private double valor;
 	private String pagamento;
-	private Long codigoOrcamento;
 	private String clienteName;
 	private Long clienteId;
 	private String servicoRealizado;
 	private Long dispositivoId;
 	
+	
+	@ManyToOne(cascade=CascadeType.REFRESH)
+    @JoinColumn(name = "orcamento_id")		
+    private Orcamento orcamento;
+	
 	public Servico() {
-		
+		this.orcamento= new Orcamento();
 	}
 
-	public Servico(Long id, Long codigoOrcamento, String clienteName,Long clienteId, String descricao,String servicoRealizado, double valor, String pagamento) {
+	public Servico(Long servicoId, Orcamento orcamento, String clienteName,Long clienteId, String descricao,String servicoRealizado, double valor, String pagamento, Long dispositivoId) {
 	
-		this.id = id;
-		this.codigoOrcamento=codigoOrcamento;
+		this.servicoId = servicoId;	
+		this.orcamento=orcamento;
 		this.clienteName=clienteName;
 		this.descricao = descricao;
 		this.servicoRealizado=servicoRealizado;
 		this.valor = valor;
 		this.pagamento = pagamento;
 		this.clienteId=clienteId;
+		this.dispositivoId=dispositivoId;
+		this.orcamento=orcamento;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getServicoId() {
+		return servicoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setServicoId(Long id) {
+		this.servicoId = id;
 	}
 
 	public String getDescricao() {
@@ -77,14 +90,28 @@ public class Servico implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Long getCodigoOrcamento() {
-		return codigoOrcamento;
+	public Orcamento getOrcamento() {
+	
+	return orcamento;
 	}
 
-	public void setCodigoOrcamento(Long codigoOrcamento) {
-		this.codigoOrcamento = codigoOrcamento;
+	public void setOrcamento(Orcamento orcamento) {
+		if(orcamento!=null)
+		this.orcamento = orcamento;
 	}
 
+	
+	public Long getOrcamentoId() {
+
+		return this.orcamento.getOrcamentoId();
+	}
+	
+	
+	public void setOrcamentoId(Long orcamentoId) {
+		if(orcamentoId!=null)
+		this.orcamento.setOrcamentoId(orcamentoId);
+	}
+	
 	public String getClienteName() {
 		return clienteName;
 	}
@@ -118,7 +145,7 @@ public class Servico implements Serializable {
 		this.dispositivoId = dispositivoId;
 	}
 
-	
+		
 	
 	
 }

@@ -3,13 +3,15 @@ import { BASE_URL } from 'utils/requests';
 import './excluirServico.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ExibirMensagem from 'components/Mensagem/mensagem';
+import { Servicos } from 'types/servico';
 
 
 
 function ExcluirServico() {
-  const [id, setId] = useState('');
+  const [servicoId, setServicoId] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [servico, setServico] = useState('')
+  const [servico, setServico] = useState<Servicos>()
 
 
   const BASE = `${BASE_URL}/servicos`
@@ -17,15 +19,15 @@ function ExcluirServico() {
   const handleDelete = async () => {
 
     try {
-      const response = await axios.delete(`${BASE}/${id}`);
-      console.log('Orçamento excluído com sucesso!', servico)
-      setServico(response.data.name)
-      setMensagem(`Servico com Id '  ${id} ${response.data}'  excluído com sucesso!`)
-      setId('')
+      const response = await axios.delete(`${BASE}/${servicoId}`);
+     
+      setServico(response.data.clienteName)
+      setMensagem(`Servico do cliente ${servico?.clienteName}  excluído com sucesso!`)
+      setServicoId('')
     } catch (error) {
       console.error('Não foi possível excluir:', error)
-      setMensagem(`Erro ao excluir o serviço ${id} "" + verifique e tente novamente!`)
-      setId('')
+      setMensagem(`Erro ao excluir o serviço ${servicoId}  verifique e tente novamente!`)
+      setServicoId('')
     }
   }
 
@@ -38,13 +40,12 @@ function ExcluirServico() {
 
         <label>insira a Ordem de Serviço a ser excluida:</label>
 
-        <input className='inputForm' type="text" value={id} onChange={e => setId(e.target.value)} />
+        <input className='inputForm' type="text" value={servicoId} onChange={e => setServicoId(e.target.value)} />
         <div className='btnIcone'>
-          <button onClick={handleDelete}>Excluir id</button>
+          <button onClick={handleDelete}>Excluir </button>
         </div>
 
-        {mensagem && <div className="mensagem" >{mensagem}</div>}
-
+        <ExibirMensagem mensagem= {mensagem}/>
       </div>
 
 

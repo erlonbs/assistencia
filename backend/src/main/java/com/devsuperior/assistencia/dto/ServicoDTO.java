@@ -1,56 +1,62 @@
 package com.devsuperior.assistencia.dto;
-
+import com.devsuperior.assistencia.entities.Orcamento;
 import com.devsuperior.assistencia.entities.Servico;
+
 
 public class ServicoDTO {
 
-	private Long id;
+	private Long servicoId;
 	private String descricao;
 	private double valor;
 	private String pagamento;
-	private String servicoRealizado;	
-	private Long codigoOrcamento;
+	private String servicoRealizado;
+	private Orcamento orcamento;
+	private Long orcamentoId;
 	private String clienteName;
 	private Long clienteId;
 	private Long dispositivoId;
-	
+
 	public ServicoDTO() {
-		
+		this.orcamento = new Orcamento();
 	}
 
-	public ServicoDTO(Long id, Long codigoOrcamento, String clienteName, String descricao, String servicoRealizado, double valor, String pagamento) {
+	public ServicoDTO(Long servicoId, Orcamento orcamento, String clienteName, String descricao,
+			String servicoRealizado, double valor, String pagamento, Long dispositivoId) {
 
-		this.id = id;
+		this.servicoId = servicoId;
 		this.descricao = descricao;
-		this.servicoRealizado=servicoRealizado;
+		this.servicoRealizado = servicoRealizado;
 		this.valor = valor;
 		this.pagamento = pagamento;
-		this.codigoOrcamento=codigoOrcamento;
-		this.clienteName=clienteName;
+		this.orcamento = orcamento;
+		this.clienteName = clienteName;		
+		this.orcamentoId = orcamento.getOrcamentoId();
+		this.dispositivoId = orcamento.getDispotivoId();
 	}
-	
+
 	public ServicoDTO(Servico entity) {
-		
-		id=entity.getId();
-		descricao=entity.getDescricao();
-		servicoRealizado=entity.getServicoRealizado();
-		valor=entity.getValor();
-		pagamento=entity.getPagamento();
-		codigoOrcamento=entity.getCodigoOrcamento();
-		clienteName=entity.getClienteName();
-		clienteId=entity.getClienteId();
-		dispositivoId=entity.getDispositivoId();
-		
-		
-		
+
+		servicoId = entity.getServicoId();
+		descricao = entity.getDescricao();
+		servicoRealizado = entity.getServicoRealizado();
+		valor = entity.getValor();
+		pagamento = entity.getPagamento();
+
+		if (entity.getOrcamento() != null)
+			orcamentoId = entity.getOrcamento().getOrcamentoId();
+
+		clienteName = entity.getClienteName();
+		clienteId = entity.getClienteId();
+		dispositivoId = entity.getDispositivoId();
+
 	}
 
-	public Long getId() {
-		return id;
+	public Long getServicoId() {
+		return servicoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setServicoId(Long servicoId) {
+		this.servicoId = servicoId;
 	}
 
 	public String getDescricao() {
@@ -77,12 +83,16 @@ public class ServicoDTO {
 		this.pagamento = pagamento;
 	}
 
-	public Long getCodigoOrcamento() {
-		return codigoOrcamento;
+	public Orcamento getOrcamento() {
+		if (orcamento == null) {
+			orcamento = new Orcamento();
+			return orcamento;
+		}
+		return orcamento;
 	}
 
-	public void setCodigoOrcamento(Long codigoOrcamento) {
-		this.codigoOrcamento = codigoOrcamento;
+	public void setOrcamento(Orcamento codigoOrcamento) {
+		this.orcamento = codigoOrcamento;
 	}
 
 	public String getClienteName() {
@@ -116,7 +126,13 @@ public class ServicoDTO {
 	public void setDispositivoId(Long dispositivoId) {
 		this.dispositivoId = dispositivoId;
 	}
-	
-	
-	
+
+	public Long getOrcamentoId() {
+		return orcamentoId;
+	}
+
+	public void setOrcamentoId(Long orcamentoId) {
+		this.orcamentoId = orcamentoId;
+	}
+
 }

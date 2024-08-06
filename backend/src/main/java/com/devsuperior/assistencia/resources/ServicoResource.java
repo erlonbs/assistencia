@@ -40,7 +40,7 @@ public class ServicoResource {
 	@PostMapping
 	public ResponseEntity<ServicoDTO> insert(@RequestBody ServicoDTO dto) {
 		dto = service.insert(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getServicoId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	

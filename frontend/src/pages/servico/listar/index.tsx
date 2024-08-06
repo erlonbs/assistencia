@@ -6,14 +6,24 @@ import './listarServico.css'
 import { useState } from 'react'
 import visualizarImagem from 'assets/icon/visualizar.png'
 import { Link } from 'react-router-dom'
+import ExibirMensagem from 'components/Mensagem/mensagem'
 
 
 function ListarOrdemServico() {
 
   const [servicos, setServicos] = useState<Servicos[]>([])
+  const[mensagem, setMensagem] = useState('');
   
+   
     axios.get<Servicos[]>(`${BASE_URL}/servicos`).then(response => {
+      
+      if(response)
       setServicos(response.data); 
+ 
+    }).catch(error =>{
+      setMensagem(`Não foi possível exibir! ${error}`)
+      
+      console.log(error)
     })
 
   return (
@@ -28,8 +38,9 @@ function ListarOrdemServico() {
               <tr className='coluna' >
                 <th className='cabecalho'>Número da ordem</th>
                 <th className='cabecalho'>Código do orçamento</th>
-                <th className='cabecalho'>Nome do Cliente</th>
-                <th className='cabecalho'>Código do Cliente</th>
+                <th className='cabecalho'>Nome do cliente</th>
+                <th className='cabecalho'>Código do cliente</th>
+                <th className='cabecalho'>Código do dispositivo</th>
                 <th className='cabecalho'>Defeito</th>
                 <th className='cabecalho'>Serviço realizado</th>
                 <th className='cabecalho'>Valor</th>
@@ -41,11 +52,12 @@ function ListarOrdemServico() {
             </thead>
             <tbody className='conteudo'>
               {servicos.map((servico) => (
-                <tr className='coluna' key={servico.id}>
-                  <td className='celula'>{servico.id}</td>
-                  <td className='celula'>{servico.codigoOrcamento}</td>
+                <tr className='coluna' key={servico.servicoId}>
+                  <td className='celula'>{servico.servicoId}</td>
+                  <td className='celula'>{servico.orcamentoId}</td>
                   <td className='celula'>{servico.clienteName}</td>
                   <td className='celula'>{servico.clienteId}</td>
+                  <td className='celula'>{servico.dispositivoId}</td>
                   <td className='celula'>{servico.descricao}</td>
                   <td className='celula'>{servico.servicoRealizado}</td>
                   <td className='celula'>{servico.valor}</td>
@@ -55,7 +67,7 @@ function ListarOrdemServico() {
 
                     {/* {passa o id para a outra página de detalhes da Ordem de Serviço e
                     exibindo os dados*/}
-                    <Link className="detalhar" to={`/Servico/listar/detalhar/${servico.id}`}>
+                    <Link className="detalhar" to={`/Servico/listar/detalhar/${servico.servicoId}`}>
                       <img
                         className="visualizar"
                         src={visualizarImagem}
@@ -67,6 +79,7 @@ function ListarOrdemServico() {
               ))}
             </tbody>
           </table>
+          <ExibirMensagem mensagem={mensagem}/>
         </div>
       </div>
       <div className="btnIcone">

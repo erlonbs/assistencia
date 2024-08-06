@@ -19,7 +19,7 @@ public class OrcamentoDTO {
 	private String clienteName;
 	private Long clienteId;
 	private Long dispositivoId;
-//	private Dispositivo dispositivo;
+
 	
 
 	public OrcamentoDTO() {
@@ -39,7 +39,7 @@ public class OrcamentoDTO {
 		this.autorizado = autorizado;
 		this.clienteId=clienteId;
 		this.dispositivoId=dispositivoId;
-		//this.dispositivo=dispositivo;
+
 		
 		
 	
@@ -57,14 +57,12 @@ public class OrcamentoDTO {
 		autorizado=entity.isAutorizado();
 		clienteId= entity.getDispositivo().getCliente().getClienteId();
 		dispositivoId=entity.getDispositivo().getDispositivoId();
-		//dispositivo=entity.getDispositivo();
-			
-		
-		
+				
+				
 	}
 
 
-	public Long getOrcamentoIdId() {
+	public Long getOrcamentoId() {
 		return orcamentoId;
 	}
 
@@ -145,18 +143,7 @@ public class OrcamentoDTO {
 			this.dispositivoId=dispositivoId;
 			}
 
-	/*
-	
-	public Dispositivo getDispositivo() {
-		return dispositivo;
-	}
 
-	public void setDispositivo(Dispositivo dispositivo) {
-		this.dispositivo = dispositivo;
-	}
-*/
-	
-	
 	
 	
 	
