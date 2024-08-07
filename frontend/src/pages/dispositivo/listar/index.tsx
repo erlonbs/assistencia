@@ -37,7 +37,7 @@ function Listar() {
               <th className='cabecalho'>Serial</th>
               <th className='cabecalho'>Descrição</th>
               <th className='cabecalho'>Nome do cliente</th>
-              <th className='cabecalho'>Códigio do cliente</th>
+              <th className='cabecalho'>Código do cliente</th>
             </tr>
           </thead>
           <tbody className='conteudo'>

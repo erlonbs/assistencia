@@ -90,10 +90,7 @@ public class Orcamento implements Serializable{
 
 	public Boolean getAutorizado() {
 		return autorizado;
-	}
-
-
-	
+	}	
 
 	public String getDefeito() {
 		return defeito;

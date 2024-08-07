@@ -69,7 +69,7 @@ function ListarOrcamento() {
                   <td className='celula'>{orcamento.clienteName}</td>
                   <td className='celula'>{orcamento.defeito}</td>
                   <td className='celula'>{orcamento.descricao}</td>
-                  <td className='celula'>{orcamento.valor}</td>
+                  <td className='celula'>{orcamento.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
                   <td className='celula'>{orcamento.autorizado ? 'Sim' : 'Não'}</td>
                   <td className='celula'>{orcamento.clienteId}</td>
 

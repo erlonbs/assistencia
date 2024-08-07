@@ -155,7 +155,10 @@ function NovaOrdemServico() {
 
         <label htmlFor="valor">Valor do Serviço:</label>
         <input className='inputForm'
-          type="text"
+          type="number"
+          step={0.01}
+          name='quantity'
+          min={0.01}
           value={valor}
           required
           onChange={e => setValor(e.target.value)}

@@ -126,7 +126,10 @@ function NovoOrcamento() {
 
         <label htmlFor="valor">Valor:</label>
         <input className='inputForm'
-          type="text"
+          type="number"
+          step={0.01}
+          name='quantity'
+          min={0.01}
           value={valor}
           onChange={e => setValor(e.target.value)}
         />

@@ -62,7 +62,7 @@ function ListarOrdemServico() {
                   <td className='celula'>{servico.dispositivoId}</td>
                   <td className='celula'>{servico.descricao}</td>
                   <td className='celula'>{servico.servicoRealizado}</td>
-                  <td className='celula'>{servico.valor}</td>
+                  <td className='celula'>{servico.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
                   <td className='celula'>{servico.pagamento ? 'Sim' : 'Não'}</td>
                   <td className='celula'>{servico.status ? 'aguardando' : 'finalizado'}</td>
                   <td className="celula">

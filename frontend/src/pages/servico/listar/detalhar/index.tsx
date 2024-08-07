@@ -108,7 +108,7 @@ function DetalharOrdemServico() {
         <p className='detalharNome'><b>Código  do Dispositivo: </b>{servico?.dispositivoId}</p>
         <p className='detalharNome'><b>Defeito: </b>{servico?.descricao}</p>
         <p className='detalharNome'><b>Serviço realizado: </b> {servico?.servicoRealizado}</p>
-        <p className='detalharNome'><b>Valor: </b> {servico?.valor}</p>
+        <p className='detalharNome'><b>Valor: </b> {servico?.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</p>
         <p className='detalharNome'><b>Pagamento: </b> {servico?.pagamento ? 'Sim' : 'Não'}</p>
         <p className='detalharNome'><b>Status da ordem: </b> {servico?.pagamento ? 'aguardando' : 'finalizado'}</p>
 

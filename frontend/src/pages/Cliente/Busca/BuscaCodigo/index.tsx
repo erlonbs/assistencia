@@ -120,7 +120,7 @@ function BuscaCodigo() {
         <table className="tabela">
           <thead>
             <tr className="coluna">
-              <th className="cabecalho">Código</th>
+              <th className="cabecalho">Código do cliente</th>
               <th className="cabecalho">Nome do dispositivo</th>
               <th className="cabecalho">Marca</th>
               <th className="cabecalho">Modelo</th>
