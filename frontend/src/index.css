@@ -129,9 +129,23 @@ label {
 }
 
 .mensagem {
+  padding: 10px;  
+  margin: 10px 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.mensagem.erro {
   color: rgb(219, 15, 8);
   animation: raio-animacao 1.5s linear infinite;
-  font-size: 29px;
+  font-size: 22px;
+
+}
+
+.mensagem.sucesso {
+  color: rgb(29, 8, 219);
+  animation: raio-animacao 1.5s linear infinite;
+  font-size: 22px;
 
 }
 

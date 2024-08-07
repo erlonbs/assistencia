@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 
 
-const ExibirMensagem = ({ mensagem }: { mensagem: string }) => {
-  const [showMensage, setShowMessage] = useState(false);
+const ExibirMensagem = ({mensagem, mensagemType}: { mensagem: string, mensagemType: 'sucesso' | 'erro' }) => {
+  const [showMenssage, setShowMessage] = useState(false);
 
 
   useEffect(() => {
 
     if (mensagem) {
-      setShowMessage(true)
+      setShowMessage(true)   
       setTimeout(() => {
         setShowMessage(false);
       }, 4000)
@@ -18,8 +18,8 @@ const ExibirMensagem = ({ mensagem }: { mensagem: string }) => {
 
   return (
     <>
-      {showMensage && (
-        <div className='mensagem'>
+      {showMenssage && (
+        <div className={`mensagem ${mensagemType}`}>
           {mensagem}
         </div>
       )}

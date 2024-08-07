@@ -11,7 +11,6 @@ function EditarOrdemServico() {
   const [servicoId, setServicoId] = useState('')
   const [orcamentoId, setOrcamentoId] = useState('');
   const [clienteName, setClienteName] = useState('');
-
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')
   const [servicoRealizado, setServicoRealizado] = useState('')
@@ -19,6 +18,7 @@ function EditarOrdemServico() {
   const [clienteId, setClienteId] = useState('');
   const [dispositivoId, setDispositivoId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'| 'erro'>('erro');
 
 
   useEffect(() => {
@@ -39,9 +39,11 @@ if(servicoId !==''){
     }).catch(error =>{
 
       setMensagem(`Código digitado inválido  ${error}`)
+      setMensagemTipo('erro')
     })
     
   } setMensagem('Digite o código da Ordem de serviço para edição')
+    setMensagemTipo('erro')
   }, [servicoId]);
 
   const BASE = `${BASE_URL}/servicos/${servicoId}`
@@ -56,9 +58,11 @@ if(servicoId !==''){
     try {
       const response = await axios.put(BASE, dadosEditar)
       setMensagem('Serviço atualizado com sucesso!')
+      setMensagemTipo('sucesso')
       console.log('Editado serviço!', response.data)
     } catch {
       setMensagem('Hão foi possível editar o serviço')
+      setMensagemTipo('erro')
      
     }
   }
@@ -133,7 +137,7 @@ if(servicoId !==''){
           <button type="submit">Editar</button>
         </div>
 
-        <ExibirMensagem mensagem = {mensagem}/>
+        <ExibirMensagem mensagem = {mensagem} mensagemType={mensagemTipo}/>
       </form>
 
       <div className="btnIcone">

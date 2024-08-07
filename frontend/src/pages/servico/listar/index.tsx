@@ -13,6 +13,7 @@ function ListarOrdemServico() {
 
   const [servicos, setServicos] = useState<Servicos[]>([])
   const[mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'| 'erro'>('erro')
   
    
     axios.get<Servicos[]>(`${BASE_URL}/servicos`).then(response => {
@@ -22,6 +23,7 @@ function ListarOrdemServico() {
  
     }).catch(error =>{
       setMensagem(`Não foi possível exibir! ${error}`)
+      setMensagemTipo('erro')
       
       console.log(error)
     })
@@ -79,7 +81,7 @@ function ListarOrdemServico() {
               ))}
             </tbody>
           </table>
-          <ExibirMensagem mensagem={mensagem}/>
+          <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
         </div>
       </div>
       <div className="btnIcone">

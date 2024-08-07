@@ -11,6 +11,7 @@ import { Servicos } from 'types/servico';
 function ExcluirServico() {
   const [servicoId, setServicoId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
   const [servico, setServico] = useState<Servicos>()
 
 
@@ -23,10 +24,12 @@ function ExcluirServico() {
      
       setServico(response.data.clienteName)
       setMensagem(`Servico do cliente ${servico?.clienteName}  excluído com sucesso!`)
+      setMensagemTipo('sucesso')
       setServicoId('')
     } catch (error) {
       console.error('Não foi possível excluir:', error)
       setMensagem(`Erro ao excluir o serviço ${servicoId}  verifique e tente novamente!`)
+      setMensagemTipo('erro')
       setServicoId('')
     }
   }
@@ -45,7 +48,7 @@ function ExcluirServico() {
           <button onClick={handleDelete}>Excluir </button>
         </div>
 
-        <ExibirMensagem mensagem= {mensagem}/>
+        <ExibirMensagem mensagem= {mensagem} mensagemType={mensagemTipo}/>
       </div>
 
 

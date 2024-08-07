@@ -20,6 +20,7 @@ function NovaOrdemServico() {
   const [clienteId, setClienteId] = useState('');
   const [dispositivoId, setDispositivoId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'| 'erro'>('erro')
 
 
   const BASE = `${BASE_URL}/servicos`
@@ -40,11 +41,16 @@ function NovaOrdemServico() {
         setMensagem(`Orcamento de ${response.data.clienteName}`)
         if(!response.data.autorizado){
           setMensagem(` O cliente ${response.data.clienteName} ainda não autorizou o serviço!`)
+          setMensagemTipo('erro')
         }else {
           setMensagem(`O Cliente ${response.data.clienteName} autoriza o serviço!`)
+          setMensagemTipo('sucesso')
         }
       })
         .catch(error => {
+
+          setMensagem('Erro! Verifique se o cliente autorizou o serviço')
+          setMensagemTipo('erro')
 
           console.error('Verifique se o cliente autorizou o serviço', error);
 
@@ -64,15 +70,17 @@ function NovaOrdemServico() {
      
 
         setMensagem('Nova ordem de serviço criada com sucesso!')
+        setMensagemTipo('sucesso')
         limpaCampos()
       
       } else {
         setMensagem('Erro! verifique os dados digitados ou se o cliente autorizou o serviço!')
+        setMensagemTipo('erro')
       }
 
     } catch (error) {
       setMensagem('Não foi possível criar nova ordem de serviço, verifique os dados e tente novamente!')
-    
+      setMensagemTipo('erro')
     }
 
   }
@@ -104,7 +112,7 @@ function NovaOrdemServico() {
 
     <main className="containerServico containerNovoServico ">
       <h1 className="titulo">Nova Ordem de Serviço</h1>
-      <ExibirMensagem mensagem={mensagem} />
+      <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo} />
       <form className='containerForm' onSubmit={handleSubmit}>
 
         <label htmlFor="codigoOrcamento">Código do Orçamento:</label>
@@ -178,7 +186,7 @@ function NovaOrdemServico() {
         <div className='btnIcone'>
           <button type="submit">Inserir</button>
         </div>
-        <ExibirMensagem mensagem={mensagem} />
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo} />
       </form>
 
       <div className='btnIcone'>

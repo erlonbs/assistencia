@@ -10,6 +10,7 @@ import ExibirMensagem from 'components/Mensagem/mensagem';
 function Excluir() {
   const [id, setId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
   const [cliente, setCliente] = useState('')
 
 
@@ -19,13 +20,14 @@ function Excluir() {
 
     try {
       const response = await axios.delete(`${BASE}/${id}`);
-      console.log('cliente excluído com sucesso!', cliente)
+         
       setCliente(response.data.name)
-      setMensagem(`Cliente com Id '  ${id} ${response.data}'  excluído com sucesso!`)
+      setMensagem(`Cliente com código '  ${id}'  excluído com sucesso!`)
+      setMensagemTipo('sucesso')
       setId('')
-    } catch (error) {
-      console.error('Não foi possível excluir:', error)
+    } catch (error) {     
       setMensagem(`Erro ao excluir o cliente ${id} verifique e tente novamente!`)
+      setMensagemTipo('erro')
       setId('')
     }
   }
@@ -42,7 +44,7 @@ function Excluir() {
           <button onClick={handleDelete}>Excluir</button>
         </div>
 
-        <ExibirMensagem  mensagem={mensagem}/>
+        <ExibirMensagem  mensagem={mensagem} mensagemType={mensagemTipo}/>
  
       </div>
       <div className="btnIcone">

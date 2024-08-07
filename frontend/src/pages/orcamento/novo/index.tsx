@@ -21,7 +21,8 @@ function NovoOrcamento() {
   const [autorizado, setAutorizado] = useState(Boolean)
   const [clienteId, setClienteId] = useState('');
   const [mensagem, setMensagem] = useState('');
-
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'|'erro'>('erro');
+ 
 
   useEffect(() => {
     if (dispositivoId!=='' ) {
@@ -38,10 +39,12 @@ function NovoOrcamento() {
         }
         else {
           setMensagem("A resposta não contem o dado")
+          setMensagemTipo('erro')
         }
       })
         .catch(error => {
           setMensagem('Erro ao obter dados do dispositivo');
+          setMensagemTipo('erro')
         })
     } else {
       setDispositivoName('');
@@ -63,9 +66,11 @@ function NovoOrcamento() {
     try {
       const response = await axios.post(BASE, dadosNovo)
       setMensagem('Novo orcamento inserido!')
+      setMensagemTipo('sucesso')
       console.log('Novo orcamento inserido!', response.data)
     } catch (error) {
        setMensagem('Não foi possível inserir o orçamento:')
+       setMensagemTipo('erro')
       console.error('Não foi possível inserir o orçamento:', error)
     }
   }
@@ -144,7 +149,7 @@ function NovoOrcamento() {
           <button type="submit">Inserir</button>
         </div>
 
-        <ExibirMensagem mensagem={mensagem}/>
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
 
       </form>
 

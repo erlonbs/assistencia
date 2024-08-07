@@ -19,6 +19,7 @@ function Editar() {
   const [clienteName, setClienteName]= useState<string>('')
   const [codigoCliente, setCodigoCliente]= useState<string>()
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro');
 
   useEffect(() => {
     if (dispositivoId ) {
@@ -36,9 +37,11 @@ function Editar() {
 
       }).catch(error => {
         setMensagem('Verifique os dados digitados:')
+        setMensagemTipo('erro')
       })
     } else  {
       setMensagem('preecha o campo')
+      setMensagem('erro')
       limpaCampos()
     }
   }, [dispositivoId])
@@ -58,10 +61,12 @@ function Editar() {
       })
       .then(response => {
         setMensagem('Editado com sucesso!')
+        setMensagemTipo('sucesso')
         limpaCampos() // Handle success
       })
       .catch(error => {
         setMensagem('Não foi possivel editar, verifique e tente novamente!')
+        setMensagemTipo('erro')
         console.log('erro não foi possível editar') // Handle errors
       })
       
@@ -149,7 +154,7 @@ function Editar() {
         <div className='btnIcone'>
           <button type="submit">Editar</button>
         </div>
-        <ExibirMensagem mensagem={mensagem} />
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo} />
       </form>
 
       <div className='btnIcone'>

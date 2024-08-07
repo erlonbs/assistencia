@@ -21,6 +21,7 @@ function EditarOrcamento() {
   const [descricao, setDescricao] = useState<string>('');
   const [autorizado, setAutorizado] = useState(false);
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'| 'erro'>('erro')
 
 
   useEffect(() => {
@@ -39,10 +40,12 @@ function EditarOrcamento() {
 
         } else {
           setMensagem('dados não foram obtidos')
+          setMensagemTipo('erro')
           console.log('dados não foram obtidos na requisção')
         }
       }).catch(error => {
         setMensagem('Código não existe')
+        setMensagemTipo('erro')
         console.log(error)
       })
     } else {
@@ -64,8 +67,10 @@ function EditarOrcamento() {
     try { 
       await axios.put(BASE, dadosEditar)
       setMensagem('Editado orcamento!')
+      setMensagemTipo('sucesso')
     } catch {
       setMensagem('Não foi possível editar:')
+      setMensagemTipo('erro')
     }
   }
 
@@ -147,7 +152,7 @@ function EditarOrcamento() {
 
         </div>
 
-        <ExibirMensagem mensagem={mensagem} />
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo} />
       </form>
 
       <Link to={`/orcamento/`} className="btnIcone">

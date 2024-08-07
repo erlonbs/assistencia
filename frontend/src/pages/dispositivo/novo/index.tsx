@@ -17,6 +17,7 @@ function NovoDispositivo() {
   const [descricao, setDescricao] = useState('')
   const [clienteId, setClienteId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
 
   const BASE = `${BASE_URL}/dispositivos`
 
@@ -32,14 +33,17 @@ function NovoDispositivo() {
       if (responseCliente) {
         await axios.post(BASE, dadosNovo)
         setMensagem('Novo dispositivo inserido!')
+        setMensagemTipo('sucesso')
         limpaCampos()
 
       } else {
         setMensagem(`Verifique os dados digitados e tente novamente!`)
+        setMensagemTipo('erro')
 
       }
     } catch (error) {
       setMensagem(`Não foi possível inserir ${dispositivoName} pois o cliente: ${clienteId} não existe!`)
+      setMensagemTipo('erro')
 
     }
   }
@@ -59,7 +63,7 @@ function NovoDispositivo() {
 
     <section className="containerDispositivo novoDispositivo ">
       <h1 className="titulo">Novo dispositivo</h1>
-      <ExibirMensagem mensagem={mensagem} />
+      <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
 
       <form className='containerForm' onSubmit={handleSubmit}>
         <label className="tituloEntrada" htmlFor="nome">Nome:</label>
@@ -125,7 +129,7 @@ function NovoDispositivo() {
           <button type="submit">Inserir</button>
         </div>
 
-        <ExibirMensagem mensagem={mensagem} />
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo} />
       </form>
 
       <div className='btnIcone'>

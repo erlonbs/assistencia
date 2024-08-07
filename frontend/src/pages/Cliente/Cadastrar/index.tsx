@@ -11,6 +11,7 @@ function Cadastrar() {
   const [telephone, setTelephone] = useState('')
   const [cpf, setCpf] = useState('')
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
 
 
   const BASE = `${BASE_URL}/clientes`
@@ -23,10 +24,12 @@ function Cadastrar() {
     try {
       const response = await axios.post(BASE, dadosCadastro)
       setMensagem('cadastro realizado com sucesso!')
+      setMensagemTipo('sucesso')
       // limpa dados após cadastrar
       limpaCampos();
     } catch (error) {
       setMensagem('Não foi possível realizar o cadastro:')
+      setMensagemTipo('erro')
     }
   }
 
@@ -96,7 +99,7 @@ function Cadastrar() {
             Cadastrar
           </button>
         </div>
-        <ExibirMensagem mensagem={mensagem}/>
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
       </form>
       <div className="btnIcone">
         <Link to="/Cliente/">

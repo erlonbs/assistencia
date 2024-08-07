@@ -20,6 +20,7 @@ function DetalharOrdemServico() {
   const [dispositivo, setDispositivo] = useState<Dispositivos>()
   const [dispositivoId, setDispositivoId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso'| 'erro'>('erro')
 
   useEffect(() => {
       if(id)
@@ -31,6 +32,7 @@ function DetalharOrdemServico() {
     }).catch(error =>{
       console.log(  'esta dando erro',error)
       setMensagem('Não foi possivel acessar')
+      setMensagemTipo('erro')
     })
   }, [id])
 
@@ -43,6 +45,7 @@ function DetalharOrdemServico() {
     }).catch(error=>{
 
       setMensagem('Não foi possível exibir!')
+      setMensagemTipo('erro')
     })
     }
   
@@ -55,6 +58,7 @@ function DetalharOrdemServico() {
     
     }).catch(error =>{
       setMensagem(`Não foi possivel acessar o dispoistivo ${error}`)
+      setMensagemTipo('erro')
     })
   }, [dispositivoId])
 
@@ -66,7 +70,7 @@ function DetalharOrdemServico() {
         <span className='numero-ordem'>OS: {servico?.servicoId}</span>
       </div>
       <h2 >Dados do cliente:</h2>
-        <ExibirMensagem mensagem = {mensagem}/>
+        <ExibirMensagem mensagem = {mensagem} mensagemType={mensagemTipo}/>
       <div className='detalhesCliente'>
 
         <div className='detalhesClientesItens'>

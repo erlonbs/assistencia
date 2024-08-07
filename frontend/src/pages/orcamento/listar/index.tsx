@@ -15,6 +15,7 @@ function ListarOrcamento() {
   const [orcamentos, setOrcamentos] = useState<Orcamentos[]>([])
   const [codigoOrcamento,setCodigoOrcamento] = useState(Number);
   const [mensagem, setMensagem]= useState('');
+  const [mensagemTipo, setMensagemTipo]= useState<'sucesso' | 'erro'>('erro')
 
   useEffect(() => {
    
@@ -28,6 +29,7 @@ function ListarOrcamento() {
 
     }).catch(error =>{
       setMensagem(`Não foi possível exibir!`)
+      setMensagemTipo('erro')
     })
   }, [])
 
@@ -79,7 +81,7 @@ function ListarOrcamento() {
           </table>
         </div >
       </form>
-      <ExibirMensagem mensagem={mensagem}/>
+      <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
       <div className="btnIcone">
         <Link to={`/orcamento`} >
           <button type="button" >Voltar</button>

@@ -9,6 +9,7 @@ import ExibirMensagem from 'components/Mensagem/mensagem';
 function ExcluirDispositivo() {
 const [id, setId] = useState('');
 const [mensagem, setMensagem] = useState('');
+const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
 const[dispositivo, setDispositivo] = useState('')
 
 
@@ -20,10 +21,12 @@ const[dispositivo, setDispositivo] = useState('')
       const response = await axios.delete(`${BASE}/${id}`);     
       setDispositivo(response.data)
       setMensagem(`Dispositivo com código: ${id}  foi excluído com sucesso!`)
+      setMensagemTipo('sucesso')
       setId('')
     } catch (error) {
     
       setMensagem(`Erro ao excluir o dispositivo ${id} verifique e tente novamente!`)
+      setMensagemTipo('erro')
       setId('')
     }
   }
@@ -41,7 +44,7 @@ const[dispositivo, setDispositivo] = useState('')
             <div className='btnIcone'>
             <button onClick={handleDelete}>Excluir id</button>
             </div>
-            <ExibirMensagem mensagem={mensagem}/>         
+            <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>         
       </div>
 
       <div className='btnIcone'>

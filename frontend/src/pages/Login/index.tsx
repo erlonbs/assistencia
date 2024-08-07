@@ -13,14 +13,18 @@ const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [mensagem, setMensagem] = useState('');
+    const [mensagemTipo, setMensagemTipo]= useState<'sucesso'| 'erro'>('erro')
 
     useEffect(() => {
         axios.get(`${BASE_URL}/users/2`)
             .then((response => {
                 setUser(response.data)
+                setMensagem('Dados obtidos com sucesso!')
+                setMensagemTipo('sucesso')
             
             })).catch(erro => {
                 setMensagem('Sem acesso a base de dados, contact o administrador do sistema');
+                setMensagemTipo('erro')
             });
     }, [])
 
@@ -34,6 +38,7 @@ const Login: React.FC = () => {
                 
                 if ((user?.email === email) && (user.password === password)) {
                     setMensagem('Logado com sucesso!') // Handle success
+                    setMensagemTipo('sucesso')
 
                     setTimeout(function () {                      //depois de logado vai para Menu em 2 segundos
                         window.location.href = 'Menu';
@@ -41,11 +46,13 @@ const Login: React.FC = () => {
 
                 } else {
                     setMensagem('Usuário ou senha inválidos!') // Handle success
+                    setMensagemTipo('erro')
 
                 }
         } catch {
 
             (setMensagem('não foi possivel acessar banco de dados. Tente novamente mais tarde!'))
+            setMensagemTipo('erro')
         }
     }
     return (
@@ -78,7 +85,7 @@ const Login: React.FC = () => {
                     <div className='containerMensagem'></div>
                   
                 </form>
-                <ExibirMensagem mensagem={mensagem}/>
+                <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
                 
             </section>
 

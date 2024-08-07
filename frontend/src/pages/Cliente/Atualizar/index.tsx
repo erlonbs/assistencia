@@ -14,6 +14,7 @@ function Atualizar() {
   const [clienteEndereco, setClienteEndereco] = useState<string>('')
   const [clienteCpf, setClienteCpf] = useState<string>('');
   const [mensagem,setMensagem] = useState<string>('')
+  const [mensagemTipo, setMensagemTipo] = useState<'sucesso' | 'erro'>('erro')
 
   useEffect(() => {
     if(clienteId && clienteId != null){ 
@@ -24,14 +25,17 @@ function Atualizar() {
       setClienteTelefone(response.data.telephone)
       setClienteCpf(response.data.cpf)
       setMensagem(`Dados do cliente: ${response.data.clienteName}`)
+      setMensagemTipo('sucesso')
      
     })
     .catch(error =>
       setMensagem(`Cliente não existe!`));
+      setMensagemTipo('erro')
      
    
 
-} else (setMensagem('Prencha o campo'));
+} else (setMensagem('Insira o código para editar'));
+        setMensagemTipo('erro')
        
     
   }, [clienteId])
@@ -48,11 +52,13 @@ function Atualizar() {
        
       })
       .then(response => {
-        setMensagem('Atualizado com sucesso!') // Handle success        
+        setMensagem('Atualizado com sucesso!') // Handle success     
+        setMensagemTipo('sucesso')   
         setTimeout(limpaCampos,7000)
       })
       .catch(error => {
-        setMensagem(`Não foi possível atualizar ${error}`) // Handle errors      
+        setMensagem(`Não foi possível atualizar ${error}`) // Handle errors 
+        setMensagemTipo('erro')     
         setTimeout(limpaCampos,7000)
       })
   }
@@ -132,7 +138,7 @@ function Atualizar() {
           </button>
        
         </div>
-        <ExibirMensagem mensagem={mensagem}/>
+        <ExibirMensagem mensagem={mensagem} mensagemType={mensagemTipo}/>
       </form>
 
       <Link className="btnIcone" to="/Cliente/">

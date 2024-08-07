@@ -10,6 +10,7 @@ import ExibirMensagem from 'components/Mensagem/mensagem';
 function ExcluirOrcamento() {
   const [id, setId] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [mensagemTipo, setMensagemTipo] =useState<'sucesso'| 'erro'>('erro')
   const [orcamento, setOrcamento] = useState('')
 
 
@@ -20,12 +21,15 @@ function ExcluirOrcamento() {
     try {
       const response = await axios.delete(`${BASE}/${id}`);
       console.log('Orçamento excluído com sucesso!', orcamento)
+      
       setOrcamento(response.data.name)
       setMensagem(`Orçamento com código:'  ${id} ${response.data}'  excluído com sucesso!`)
+      setMensagemTipo('sucesso')
       setId('')
     } catch (error) {
      
       setMensagem(`Erro ao excluir com o valor digitado ${id} verifique e tente novamente!`)
+      setMensagemTipo('erro')
       setId('')
     }
   }
@@ -42,7 +46,7 @@ function ExcluirOrcamento() {
           <button onClick={handleDelete}>Excluir id</button>
         </div>
 
-        <ExibirMensagem mensagem ={mensagem}/>
+        <ExibirMensagem mensagem ={mensagem} mensagemType={mensagemTipo}/>
       </div>
 
 

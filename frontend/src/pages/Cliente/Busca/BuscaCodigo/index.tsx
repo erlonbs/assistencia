@@ -14,18 +14,22 @@ function BuscaCodigo() {
   const [clienteId, setClienteId] = useState<string>('');
   const [cliente, setCliente] = useState<Clientes>();
   const [mensagem, setMensagem] = useState('');
+  const [ tipoMensagem, setTipoMensagem] = useState<'sucesso' | 'erro'>('erro');
 
   useEffect(() => {
     if (clienteId) {
       axios.get(`${BASE_URL}/clientes/${clienteId}`).then(response => {
         setCliente(response.data)
         setMensagem(`Dados do cliente: ${response.data.clienteName}`)
+        setTipoMensagem('sucesso');
       })
         .catch(error =>
-          setMensagem(`Cliente não existe!`));
+          setMensagem(`Cliente não existe!` ));
+          setTipoMensagem('erro');
           
 
     } else (setMensagem('Prencha o campo'))
+             setTipoMensagem('erro')
     
   }, [clienteId])
 
@@ -39,7 +43,7 @@ function BuscaCodigo() {
     <section className='containerCliente codigoCliente'>
       <form className="formulario" onSubmit={handleSubmit}>
         <h1 className='titulo tituloPersonalizado'>Entre com o código do cliente:</h1>
-        <ExibirMensagem mensagem={mensagem} />
+        <ExibirMensagem mensagem={mensagem} mensagemType={tipoMensagem} />
         <div className="entrada">
           <input
             type="text"
