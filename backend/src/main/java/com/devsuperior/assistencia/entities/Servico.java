@@ -25,7 +25,7 @@ public class Servico implements Serializable {
 	private Long servicoId;
 	private String descricao;
 	private double valor;
-	private String pagamento;
+	private Boolean pagamento;
 	private String clienteName;
 	private Long clienteId;
 	private String servicoRealizado;
@@ -40,7 +40,7 @@ public class Servico implements Serializable {
 		this.orcamento= new Orcamento();
 	}
 
-	public Servico(Long servicoId, Orcamento orcamento, String clienteName,Long clienteId, String descricao,String servicoRealizado, double valor, String pagamento, Long dispositivoId) {
+	public Servico(Long servicoId, Orcamento orcamento, String clienteName,Long clienteId, String descricao,String servicoRealizado, double valor, boolean pagamento, Long dispositivoId) {
 	
 		this.servicoId = servicoId;	
 		this.orcamento=orcamento;
@@ -78,11 +78,11 @@ public class Servico implements Serializable {
 		this.valor = valor;
 	}
 
-	public String getPagamento() {
+	public Boolean getPagamento() {
 		return pagamento;
 	}
 
-	public void setPagamento(String pagamento) {
+	public void setPagamento(Boolean pagamento) {
 		this.pagamento = pagamento;
 	}
 

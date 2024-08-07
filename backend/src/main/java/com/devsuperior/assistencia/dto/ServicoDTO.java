@@ -8,7 +8,7 @@ public class ServicoDTO {
 	private Long servicoId;
 	private String descricao;
 	private double valor;
-	private String pagamento;
+	private Boolean pagamento;
 	private String servicoRealizado;
 	private Orcamento orcamento;
 	private Long orcamentoId;
@@ -21,7 +21,7 @@ public class ServicoDTO {
 	}
 
 	public ServicoDTO(Long servicoId, Orcamento orcamento, String clienteName, String descricao,
-			String servicoRealizado, double valor, String pagamento, Long dispositivoId) {
+			String servicoRealizado, double valor, Boolean pagamento, Long dispositivoId) {
 
 		this.servicoId = servicoId;
 		this.descricao = descricao;
@@ -75,11 +75,11 @@ public class ServicoDTO {
 		this.valor = valor;
 	}
 
-	public String getPagamento() {
+	public Boolean getPagamento() {
 		return pagamento;
 	}
 
-	public void setPagamento(String pagamento) {
+	public void setPagamento(Boolean pagamento) {
 		this.pagamento = pagamento;
 	}
 

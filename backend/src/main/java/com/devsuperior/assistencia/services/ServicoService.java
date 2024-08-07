@@ -43,10 +43,10 @@ public class ServicoService {
 
 	@Transactional
 	public ServicoDTO insert(ServicoDTO dto) {
-
+	
 		Servico entity = new Servico();
 		
-		if(entity != null) {		
+		if(entity != null ) {		
 		
 		entity.setClienteName(dto.getClienteName());
 		entity.setClienteId(dto.getClienteId());
@@ -58,9 +58,10 @@ public class ServicoService {
 																//Verificar se orcamentoId é null
 		if( dto.getOrcamentoId() !=null) {
 			Orcamento orcamento = new Orcamento();
-			if(orcamento !=null) {
+			if(orcamento !=null ) {
 			orcamento.setOrcamentoId(dto.getOrcamentoId());
 			entity.setOrcamentoId(orcamento.getOrcamentoId());
+		
 			}
 		}
 		    
@@ -85,6 +86,15 @@ public class ServicoService {
 			entity.setValor(dto.getValor());
 			entity.setPagamento(dto.getPagamento());
 			entity.setDispositivoId(dto.getDispositivoId());
+			
+			if( dto.getOrcamentoId() !=null) {
+				Orcamento orcamento = new Orcamento();
+				if(orcamento !=null ) {
+				orcamento.setOrcamentoId(dto.getOrcamentoId());
+				entity.setOrcamentoId(orcamento.getOrcamentoId());
+			
+				}
+			}
 
 			entity = repository.save(entity);
 			return new ServicoDTO(entity);

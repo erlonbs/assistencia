@@ -62,7 +62,7 @@ function ListarOrdemServico() {
                   <td className='celula'>{servico.servicoRealizado}</td>
                   <td className='celula'>{servico.valor}</td>
                   <td className='celula'>{servico.pagamento ? 'Sim' : 'Não'}</td>
-                  <td className='celula'>{servico.pagamento ? 'aguardando' : 'finalizado'}</td>
+                  <td className='celula'>{servico.status ? 'aguardando' : 'finalizado'}</td>
                   <td className="celula">
 
                     {/* {passa o id para a outra página de detalhes da Ordem de Serviço e

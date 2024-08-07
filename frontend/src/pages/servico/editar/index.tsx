@@ -9,14 +9,15 @@ import ExibirMensagem from 'components/Mensagem/mensagem';
 function EditarOrdemServico() {
 
   const [servicoId, setServicoId] = useState('')
-  const [codigoOrcamento, setCodigoOrcamento] = useState('');
+  const [orcamentoId, setOrcamentoId] = useState('');
   const [clienteName, setClienteName] = useState('');
 
   const [valor, setValor] = useState('')
   const [descricao, setDescricao] = useState('')
   const [servicoRealizado, setServicoRealizado] = useState('')
   const [pagamento, setPagamento] = useState(Boolean)
-  const [clienteId, setClienteId] = useState('')
+  const [clienteId, setClienteId] = useState('');
+  const [dispositivoId, setDispositivoId] = useState('');
   const [mensagem, setMensagem] = useState('');
 
 
@@ -25,7 +26,8 @@ if(servicoId !==''){
     axios.get(`${BASE_URL}/servicos/${servicoId}`).then(response => {
       if(response){
 
-        setCodigoOrcamento(response.data.codigoOrcamento);
+        setOrcamentoId(response.data.orcamentoId);
+        setDispositivoId(response.data.dispositivoId)
         setClienteName(response.data.clienteName);
         setValor(response.data.valor);
         setDescricao(response.data.descricao);
@@ -48,7 +50,7 @@ if(servicoId !==''){
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const dadosEditar = { codigoOrcamento, clienteName, descricao, valor, servicoRealizado, pagamento, clienteId }
+    const dadosEditar = { orcamentoId, clienteName, descricao, valor, servicoRealizado, pagamento, clienteId, dispositivoId }
 
 
     try {
@@ -81,8 +83,15 @@ if(servicoId !==''){
         <label htmlFor="codigoDispositivo">Código do Orcamento:</label>
         <input className='inputForm'
           type="text"
-          value={codigoOrcamento}
-          onChange={e => setCodigoOrcamento(e.target.value)}
+          value={orcamentoId}
+          onChange={e => setOrcamentoId(e.target.value)}
+        />
+
+<label htmlFor="codigoDispositivo">Código do dispositivo:</label>
+        <input className='inputForm'
+          type="text"
+          value={dispositivoId}
+          onChange={e => setDispositivoId(e.target.value)}
         />
 
         <label htmlFor="clienteName">Nome do cliente:</label>

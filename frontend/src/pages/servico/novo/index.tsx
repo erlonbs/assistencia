@@ -59,8 +59,9 @@ function NovaOrdemServico() {
     const dadosNovo = { orcamentoId, clienteName, descricao, servicoRealizado, valor, pagamento, clienteId, dispositivoId }
 
     try {
+      if (orcamentoAutorizado) {
       const response = await axios.post(BASE, dadosNovo)
-      if (response && orcamentoAutorizado) {
+     
 
         setMensagem('Nova ordem de serviço criada com sucesso!')
         limpaCampos()

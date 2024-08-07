@@ -54,7 +54,7 @@ public class OrcamentoDTO {
 		defeito=entity.getDefeito();
 		descricao=entity.getDescricao();
 		valor=entity.getValor();
-		autorizado=entity.isAutorizado();
+		autorizado=entity.getAutorizado();
 		clienteId= entity.getDispositivo().getCliente().getClienteId();
 		dispositivoId=entity.getDispositivo().getDispositivoId();
 				

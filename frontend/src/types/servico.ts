@@ -5,6 +5,7 @@ export type Servicos = {
     marca: string;
     orcamentoId: number;
     pagamento: boolean;
+    status: false;
     valor: number;
     descricao: string;
     servicoRealizado: string;

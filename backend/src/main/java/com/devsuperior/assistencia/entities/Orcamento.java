@@ -114,11 +114,7 @@ public class Orcamento implements Serializable{
 		this.valor = valor;
 	}
 
-
-	public boolean isAutorizado() {
-		return autorizado;
-	}
-
+	
 
 	public void setAutorizado(Boolean autorizado) {
 		this.autorizado = autorizado;
